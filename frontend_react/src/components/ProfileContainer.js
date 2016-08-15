@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
+import HeaderContainer from './HeaderContainer'
+import BodyContainer from './BodyContainer'
 
 const ProfileContainer = class extends Component {
   constructor(props){
@@ -10,7 +11,14 @@ const ProfileContainer = class extends Component {
   }
 
   render(){
-    <div>Hello</div>
+    return(
+      <div>
+        <HeaderContainer state={this.state.edit}
+        store={console.log('headercontainer - add current user here')}
+        />
+        <BodyContainer />
+      </div>
+    )
   }
 }
 
