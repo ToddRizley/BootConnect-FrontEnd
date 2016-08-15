@@ -6,7 +6,6 @@ import  addUser  from '../actions/addUser'
 
 
 
-//
 
 class ContactForm extends Component {
 
@@ -25,7 +24,7 @@ class ContactForm extends Component {
         </div>
         <div>
           <label>Email</label>
-          <input type="email" placeholder="Email" {...email}/>
+          <input type="email" id="userEmail" placeholder="Email" {...email}/>
         </div>
         <input type="submit" value="Submit" />
       </form>
