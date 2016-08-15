@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ProfileContainer/>
+        <ProfileContainer store={this.props.store}/>
       </div>
     );
   }
