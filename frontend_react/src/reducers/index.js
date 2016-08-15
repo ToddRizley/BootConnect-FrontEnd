@@ -6,13 +6,22 @@ import myJobs from './myJobs'
 import myLocations from './myLocations'
 import myOrganizations from './myOrganizations'
 import myUsers from './myUsers'
+import {reducer as formReducer} from 'redux-form'
 
-export default combineReducers({
-  myAdmins,
+const reducers = { 
+	myAdmins,
   myArticles,
   myInterests,
   myJobs,
   myLocations,
   myOrganizations,
-  myUsers
-})
+  myUsers,
+  form: formReducer     // <---- Mounted at 'form'. See note below.
+}
+
+
+const rootReducer = combineReducers(reducers)
+
+export default rootReducer
+
+
