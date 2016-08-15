@@ -2,25 +2,25 @@ import React, { Component, PropTypes } from 'react'
 import {createStore, combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import { reduxForm } from 'redux-form'
-export const fields = [ 'firstName', 'lastName', 'email', 'sex', 'favoriteColor', 'employed', 'notes' ]
+import  addUser  from '../actions/addUser'
+
+
 
 
 class ContactForm extends Component {
 
-  handleFormSubmit(){
+  handleFormSubmit(props) {
+    debugger
+    this.props.addUser(props)
   }
 
   render() {
-    const {fields: {firstName, lastName, email}, handleSubmit} = this.props;
+    const {fields: {fullName, email}, handleSubmit} = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <div>
-          <label>First Name</label>
-          <input type="text" placeholder="First Name" {...firstName} />
-        </div>
-        <div>
-          <label>Last Name</label>
-          <input type="text" placeholder="Last Name" {...lastName} />
+          <label>Full Name</label>
+          <input type="text" placeholder="Full Name" {...fullName} />
         </div>
         <div>
           <label>Email</label>
@@ -34,5 +34,5 @@ class ContactForm extends Component {
 
 export default reduxForm({
   form: 'contact',
-  fields: ['firstName', 'lastName', 'email']
-}, null, {formReducer})(ContactForm);
+  fields: ['fullName', 'email']
+}, null, { addUser })(ContactForm);
