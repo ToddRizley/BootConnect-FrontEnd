@@ -1,14 +1,21 @@
-import axios from 'axios'
+import $ from 'jquery'
 
-function addUser(newUser){
+export default function addUser(props) {
 
-  const url = 'http://localhost:3000/api/v1/users'
-  const request = axios.post(url)
-  console.log('request', request)
+  const URL = 'http://localhost:3000/api/v1/users'
+  // const request = axios.post(url)
+  // console.log('request', request)
+
+  const request = $.ajax({
+    url:URL,
+    type:"POST",
+    data: JSON.stringify({user: props}),
+    contentType:"application/json; charset=utf-8",
+    dataType:"json"
+  })
 
   return {
     type: 'ADD_USER',
     payload: request
   }
 }
-export default addUsers
