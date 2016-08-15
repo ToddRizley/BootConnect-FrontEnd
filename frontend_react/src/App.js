@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LoginBox from './components/LoginBox';
 import ProfileContainer from './components/ProfileContainer';
 import setCurrentUser from './reducers/myCurrentUser.js'
-im
-import fetchUser from './reducers/myUser.js'
+import fetchUser from './reducers/myUsers.js'
+import LoginBox from './components/LoginBox'
 
 class App extends Component {
   handleOnLogin(event) {
@@ -27,6 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <ProfileContainer store={this.props.store}/>
+        <LoginBox />
       </div>
     );
   }
