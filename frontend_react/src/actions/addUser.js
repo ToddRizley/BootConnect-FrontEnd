@@ -1,10 +1,7 @@
 import $ from 'jquery'
 
 export default function addUser(props) {
-
   const URL = 'http://localhost:3000/api/v1/users'
-  // const request = axios.post(url)
-  // console.log('request', request)
 
   const request = $.ajax({
     url:URL,
@@ -17,5 +14,4 @@ export default function addUser(props) {
   return {
     type: 'ADD_USER',
     payload: request
-  }
-}
+  }}

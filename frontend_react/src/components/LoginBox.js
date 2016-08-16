@@ -10,7 +10,6 @@ import  addUser  from '../actions/addUser'
 class ContactForm extends Component {
 
   handleFormSubmit(props) {
-    debugger
     this.props.addUser(props)
   }
 

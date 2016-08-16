@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LoginBox from './components/LoginBox';
 import ProfileContainer from './components/ProfileContainer';
 import setCurrentUser from './reducers/myCurrentUser.js'
+import fetchUser from './reducers/myUsers.js'
+import LoginBox from './components/LoginBox'
 import fetchCurrentUser from './actions/fetchCurrentUser.js'
 import myGetCurrentUser from './reducers/myGetCurrentUser.js'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
 
 class App extends Component {
 
