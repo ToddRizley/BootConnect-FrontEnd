@@ -29,7 +29,6 @@ class App extends Component {
           <input id="userEmail" type="text" placeholder="email"/>
           <button type="submit">Click me</button>
         </form>
-
       <div>
         <WelcomePage />
       </div>
