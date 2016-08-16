@@ -11,16 +11,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 class App extends Component {
-
   handleOnLogin(event) {
     event.preventDefault()
     var userEmail = document.getElementById('userEmail').value
     userEmail = userEmail.replace('.', '&')
     this.props.fetchCurrentUser(userEmail)
-    debugger
+
     //var currentUser = this.props.store.dispatch(setCurrentUser(userObject))
   }
   render() {
+    debugger
     return (
       <div className="App">
         <form onSubmit={this.handleOnLogin.bind(this)}>
