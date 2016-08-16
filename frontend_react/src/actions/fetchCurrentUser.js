@@ -1,14 +1,15 @@
 import axios from 'axios'
-
+//verda@swaniawski.net
 function fetchCurrentUser(userEmail){
-  debugger
-  const url = `http://localhost:3000/api/v1/users/${userEmail}`
-  const request = axios.get(url)
-  console.log('request', request)
-
-  return {
+debugger
+  var url = `http://localhost:3000/api/v1/users/${userEmail}`
+   return axios.get(url).then( (response) => {
+     debugger
+     return {
     type: 'FETCH_CURRENT_USER',
-    payload: request
+    payload: response
   }
+})
 }
+
 export default fetchCurrentUser
