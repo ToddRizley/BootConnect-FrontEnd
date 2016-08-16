@@ -6,19 +6,19 @@ import setCurrentUser from './reducers/myCurrentUser.js'
 import fetchUser from './reducers/myUsers.js'
 import LoginBox from './components/LoginBox'
 import fetchCurrentUser from './actions/fetchCurrentUser.js'
-import getCurrentUser from './reducers/myGetCurrentUser.js'
+import myGetCurrentUser from './reducers/myGetCurrentUser.js'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 class App extends Component {
 
   handleOnLogin(event) {
     event.preventDefault()
-    debugger
     var userEmail = document.getElementById('userEmail').value
     userEmail = userEmail.replace('.', '&')
-    this.props.store.dispatch(fetchCurrentUser(userEmail))
+    this.props.fetchCurrentUser(userEmail)
+    debugger
     //var currentUser = this.props.store.dispatch(setCurrentUser(userObject))
-
   }
   render() {
     return (
@@ -34,13 +34,14 @@ class App extends Component {
   }
 }
 
+
 function mapStateToProps(state) {
   return {store: state}
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchCurrentUser}, dispatch)
+}
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({ fetchCurrentUser }, dispatch)
-// }
-
-export default connect(mapStateToProps)(App);
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App)
+export default AppContainer
