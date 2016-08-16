@@ -6,29 +6,41 @@ import ProfileContainer from './components/ProfileContainer';
 import setCurrentUser from './reducers/myCurrentUser.js'
 import fetchCurrentUser from './actions/fetchCurrentUser.js'
 import getCurrentUser from './reducers/myGetCurrentUser.js'
+import { connect } from 'react-redux'
+
 
 class App extends Component {
+
   handleOnLogin(event) {
+    event.preventDefault()
     debugger
     var userEmail = document.getElementById('userEmail').value
     userEmail = userEmail.replace('.', '&')
     this.props.store.dispatch(fetchCurrentUser(userEmail))
     //var currentUser = this.props.store.dispatch(setCurrentUser(userObject))
 
-
   }
-
   render() {
     return (
       <div className="App">
         <form onSubmit={this.handleOnLogin.bind(this)}>
-          <input id="userEmail"  type="text" placeholder="email"/>
+          <input id="userEmail" type="text" placeholder="email"/>
           <button type="submit">Click me</button>
         </form>
-        <ProfileContainer store={this.props.store}/>
+        <ProfileContainer />
+        <LoginBox />
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {store: state}
+}
+
+
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({ fetchCurrentUser }, dispatch)
+// }
+
+export default connect(mapStateToProps)(App);
