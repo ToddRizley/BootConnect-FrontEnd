@@ -11,3 +11,8 @@ Tues 4:20 notes:
 
 Dan & Todd
   -Build the welcome page
+  -Routes to login/signup
+
+
+  --fix store multiple current_users
+  
