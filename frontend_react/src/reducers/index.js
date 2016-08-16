@@ -7,15 +7,23 @@ import myLocations from './myLocations'
 import myOrganizations from './myOrganizations'
 import myUsers from './myUsers'
 import {reducer as formReducer} from 'redux-form'
+import myCurrentUser from './myCurrentUser'
+import myGetCurrentUser from './myGetCurrentUser'
 
-const reducers = { 
+const localReducers = {
+	myCurrentUser,
+	myGetCurrentUser,
 	myAdmins,
   myArticles,
   myInterests,
   myJobs,
   myLocations,
   myOrganizations,
-  myUsers,
+  myUsers
+}
+
+const reducers = {
+	localReducers,
   form: formReducer     // <---- Mounted at 'form'. See note below.
 }
 
@@ -23,5 +31,3 @@ const reducers = {
 const rootReducer = combineReducers(reducers)
 
 export default rootReducer
-
-
