@@ -9,7 +9,6 @@ export default function addUser(props) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   })
-
   return {
     type: 'ADD_USER',
     payload: response
