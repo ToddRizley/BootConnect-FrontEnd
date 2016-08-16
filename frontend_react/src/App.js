@@ -4,21 +4,16 @@ import './App.css';
 import LoginBox from './components/LoginBox';
 import ProfileContainer from './components/ProfileContainer';
 import setCurrentUser from './reducers/myCurrentUser.js'
-im
-import fetchUser from './reducers/myUser.js'
+import fetchCurrentUser from './actions/fetchCurrentUser.js'
+import getCurrentUser from './reducers/myGetCurrentUser.js'
 
 class App extends Component {
   handleOnLogin(event) {
-    event.preventDefault()
+    debugger
     var userEmail = document.getElementById('userEmail').value
-    // var userList = this.props.store.dispatch(fetchUser(users)
-    //2 ways we could do this
-    // 1.Post request to Rails, do a 'findByEmail' method-->
-    // -->send info to frontend
-      // -->frontend makes get request to get that user object
-    // 2. get all users from DB, sort in front end--> find user by email, then set current user
-    ///need a new fetchUser reducer that fetches INDIVIDUAL USER
-    var currentUser = this.props.store.dispatch(setCurrentUser(userObject))
+    userEmail = userEmail.replace('.', '&')
+    this.props.store.dispatch(fetchCurrentUser(userEmail))
+    //var currentUser = this.props.store.dispatch(setCurrentUser(userObject))
 
 
   }
@@ -26,6 +21,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <form onSubmit={this.handleOnLogin.bind(this)}>
+          <input id="userEmail"  type="text" placeholder="email"/>
+          <button type="submit">Click me</button>
+        </form>
         <ProfileContainer store={this.props.store}/>
       </div>
     );
