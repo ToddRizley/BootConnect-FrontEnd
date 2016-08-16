@@ -4,22 +4,22 @@ import './App.css';
 import ProfileContainer from './components/ProfileContainer';
 import setCurrentUser from './reducers/myCurrentUser.js'
 import fetchUser from './reducers/myUsers.js'
-import LoginBox from './components/LoginBox'
+import SignInBox from './components/SignInBox'
 import fetchCurrentUser from './actions/fetchCurrentUser.js'
 import myGetCurrentUser from './reducers/myGetCurrentUser.js'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-//verda@swaniawski.net
-class App extends Component {
+import WelcomePage from './components/WelcomePage'
 
+//verda@swaniawski.net
+
+class App extends Component {
   handleOnLogin(event) {
     event.preventDefault()
     var userEmail = document.getElementById('userEmail').value
     userEmail = userEmail.replace('.', '&')
     this.props.fetchCurrentUser(userEmail)
-    //var currentUser = this.props.store.dispatch(setCurrentUser(userObject))
   }
-
 
   render() {
     debugger
@@ -29,8 +29,9 @@ class App extends Component {
           <input id="userEmail" type="text" placeholder="email"/>
           <button type="submit">Click me</button>
         </form>
-        <ProfileContainer/>
-        <LoginBox/>
+
+      <div>
+        <WelcomePage />
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import {createStore, combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import { reduxForm } from 'redux-form'
 import  addUser  from '../actions/addUser'
@@ -7,7 +6,7 @@ import  addUser  from '../actions/addUser'
 
 
 
-class ContactForm extends Component {
+class SignUpBox extends Component {
 
   handleFormSubmit(props) {
     this.props.addUser(props)
@@ -34,4 +33,4 @@ class ContactForm extends Component {
 export default reduxForm({
   form: 'contact',
   fields: ['fullName', 'email']
-}, null, { addUser })(ContactForm);
+}, null, { addUser })(SignUpBox);
