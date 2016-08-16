@@ -23,7 +23,7 @@ const localReducers = {
 }
 
 const reducers = {
-	localReducers,
+  myGetCurrentUser: myGetCurrentUser,
   form: formReducer     // <---- Mounted at 'form'. See note below.
 }
 
