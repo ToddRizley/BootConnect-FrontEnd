@@ -7,14 +7,26 @@ import UserInfo from './UserInfo.js'
 const Header = class extends Component {
 
   render(){
+
     return(
       <div className="header-container">
-        HeaderContainer....
-        {this.props.store.current_user.attributes.name}
+      Header.
       </div>
     )
   }
 }
+
+/*
+
+attrs = this.props.currentUser.currentUser.attributes
+
+Object.keys(attrs).map(function(value, index) {
+console.log(Object.keys(attrs)[index])
+console.log( attrs[value])
+
+
+})
+*/
 const HeaderContainer = connect(mapStateToProps)(Header)
 
 function mapStateToProps(state) {

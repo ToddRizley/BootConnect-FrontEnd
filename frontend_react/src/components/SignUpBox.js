@@ -3,9 +3,6 @@ import {reducer as formReducer} from 'redux-form';
 import { reduxForm } from 'redux-form'
 import  addUser  from '../actions/addUser'
 
-
-
-
 class SignUpBox extends Component {
   handleFormSubmit(props) {
     event.preventDefault()

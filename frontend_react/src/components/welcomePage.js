@@ -3,8 +3,6 @@ import { Link } from 'react-router'
 import '../routes.js'
 
 const WelcomePage = class extends Component {
-
-
   render(){
     return(
       <div>
