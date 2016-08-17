@@ -9,11 +9,11 @@ import  addUser  from '../actions/addUser'
 class SignUpBox extends Component {
 
   handleFormSubmit(props) {
+
     this.props.addUser(props).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
     })
-    debugger
   }
 
   render() {
