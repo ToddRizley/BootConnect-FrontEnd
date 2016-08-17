@@ -1,36 +1,39 @@
 import React, { Component, PropTypes } from 'react'
 import {reducer as formReducer} from 'redux-form';
 import { reduxForm } from 'redux-form'
-import  addUser  from '../actions/addUser'
+import fetchCurrentUser from '../actions/fetchCurrentUser'
 
 
-
-
-class SignUpBox extends Component {
+class SignInBox extends Component {
 
   handleFormSubmit(props) {
-    this.props.addUser(props)
+    let userEmail = props.userEmail.replace('.', '&')
+    debugger
+    this.props.fetchCurrentUser(userEmail)
+
+
   }
 
   render() {
-    const {fields: {fullName, email}, handleSubmit} = this.props;
+    const {fields: {userEmail}, handleSubmit} = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <div>
-          <label>Full Name</label>
-          <input type="text" placeholder="Full Name" {...fullName} />
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" id="userEmail" placeholder="Email" {...email}/>
+          <label>Email pls</label>
+          <input type="text" placeholder="Enter your Email@!!" {...userEmail} />
         </div>
         <input type="submit" value="Submit" />
       </form>
     );
   }
+
 }
 
+function mapStateToProps(state) {
+  return {store: state.myAddUser.current_user.data}
+  }
+
 export default reduxForm({
-  form: 'contact',
-  fields: ['fullName', 'email']
-}, null, { addUser })(SignUpBox);
+  form: 'loginForm',
+  fields: ['userEmail']
+}, null, { fetchCurrentUser })(SignInBox);
