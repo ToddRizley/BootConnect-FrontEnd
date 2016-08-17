@@ -1,7 +1,9 @@
 import $ from 'jquery'
 
-export default function updateUser(props) {
-  const URL = `http://localhost:3000/api/v1/user/${props.id}`
+export default function updateUser(props, current_user) {
+  debugger
+  const URL = `http://localhost:3000/api/v1/user/${current_user.id}`
+  debugger
   return $.ajax({
     url:URL,
     type:"PATCH",
@@ -16,6 +18,7 @@ export default function updateUser(props) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
+    console.log(response)
     return {
       type: 'UPDATE_USER',
       payload: response
