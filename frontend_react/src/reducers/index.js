@@ -25,10 +25,10 @@ const localReducers = {
 }
 
 const reducers = {
-	myAddUser: myAddUser,
   myGetCurrentUser: myGetCurrentUser,
   myUpdateUser: myUpdateUser,
-  form: formReducer     // <---- Mounted at 'form'. See note below.
+  form: formReducer,
+  currentUser: myAddUser     // <---- Mounted at 'form'. See note below.
 }
 
 

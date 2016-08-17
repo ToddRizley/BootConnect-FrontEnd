@@ -9,9 +9,8 @@ import UserExperienceForm from './UserExperienceForm.js'
 //this.props.store.myGetCurrentUser.current_user
 
 const Profile = class extends Component {
-
-
   render(){
+    debugger
     console.log(this.props.store)
     return(
       <div>
@@ -26,7 +25,7 @@ const Profile = class extends Component {
 const ProfileContainer = connect(mapStateToProps)(Profile)
 
 function mapStateToProps(state) {
-  return {store: state.myGetCurrentUser.current_user.data}
+  return {store: state.currentUser}
 }
 
 export default ProfileContainer

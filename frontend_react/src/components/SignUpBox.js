@@ -7,9 +7,7 @@ import  addUser  from '../actions/addUser'
 
 
 class SignUpBox extends Component {
-
   handleFormSubmit(props) {
-
     this.props.addUser(props).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
@@ -36,7 +34,8 @@ class SignUpBox extends Component {
 }
 
 function mapStateToProps(state) {
-  return {store: state.myAddUser.current_user.data}
+  debugger
+  return {currentUser: state.currentUser}
   }
 
 export default reduxForm({

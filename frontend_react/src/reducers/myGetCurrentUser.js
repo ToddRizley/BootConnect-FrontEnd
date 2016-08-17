@@ -1,8 +1,8 @@
 
-export default function myGetCurrentUser(state = {current_user: ""}, action){
+export default function myGetCurrentUser(state = {currentUser: ""}, action){
   switch(action.type){
     case 'FETCH_CURRENT_USER':
-      return { current_user: action.payload.data };
+      return { currentUser: action.payload.data };
     default:
       return state
   }

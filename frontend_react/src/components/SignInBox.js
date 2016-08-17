@@ -5,13 +5,10 @@ import fetchCurrentUser from '../actions/fetchCurrentUser'
 
 
 class SignInBox extends Component {
-
+debugger
   handleFormSubmit(props) {
     let userEmail = props.userEmail.replace('.', '&')
-    debugger
     this.props.fetchCurrentUser(userEmail)
-
-
   }
 
   render() {

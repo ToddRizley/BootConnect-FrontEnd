@@ -1,8 +1,8 @@
 import $ from 'jquery'
 
-export default function updateUser(props, current_user) {
+export default function updateUser(props, currentUser) {
   debugger
-  const URL = `http://localhost:3000/api/v1/user/${current_user.id}`
+  const URL = `http://localhost:3000/api/v1/user/${currentUser.id}`
   debugger
   return $.ajax({
     url:URL,

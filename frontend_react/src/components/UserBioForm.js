@@ -18,7 +18,6 @@ class UserBioForm extends Component {
     this.setState({
       enabled: !this.state.enabled
     })
-    debugger
     this.props.updateUser(props, this.props.current_user).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
@@ -26,6 +25,7 @@ class UserBioForm extends Component {
   }
 
   render() {
+
     const {fields: {bio}, handleSubmit} = this.props;
     var bioInput = this.state.enabled ? <input type="textarea" placeholder="Well, when I was a girl/boy/larva" {...bio} /> : <input disabled="disabled" type="textarea" placeholder="Well, when I was a girl/boy/larva" {...bio} />
     var submitButton = this.state.enabled ? <input type="submit" value="Submit" /> : <div/>
@@ -50,6 +50,6 @@ function mapStateToProps(state) {
   }
 
 export default reduxForm({
-  form: 'userUser',
+  form: 'userBio',
   fields: ['bio']
 }, null, { updateUser })(UserBioForm);
