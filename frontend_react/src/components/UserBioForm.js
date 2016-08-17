@@ -1,12 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
-import addUser from '../actions/addUser'
-
-
-
+import updateUser from '../actions/updateUser.js'
 
 class UserBioForm extends Component {
-
   constructor(props) {
     super(props)
     this.state = {enabled: false}
@@ -22,11 +18,11 @@ class UserBioForm extends Component {
     this.setState({
       enabled: !this.state.enabled
     })
-    this.props.addUser(props).then( ()=>{
+    debugger
+    this.props.updateUser(props, this.props.current_user).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
     })
-    debugger
   }
 
   render() {
@@ -48,11 +44,12 @@ class UserBioForm extends Component {
 
 }
 
+
 function mapStateToProps(state) {
-  return {store: state.myAddUser.current_user.data}
+  return {current_user: state.myAddUser.current_user.data}
   }
 
 export default reduxForm({
-  form: 'userBio',
+  form: 'userUser',
   fields: ['bio']
-}, null, { addUser })(UserBioForm);
+}, null, { updateUser })(UserBioForm);

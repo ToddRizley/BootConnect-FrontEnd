@@ -10,6 +10,7 @@ import {reducer as formReducer} from 'redux-form'
 import myCurrentUser from './myCurrentUser'
 import myGetCurrentUser from './myGetCurrentUser'
 import myAddUser from './myAddUser'
+import myUpdateUser from './myUpdateUser'
 
 const localReducers = {
 	myCurrentUser,
@@ -26,6 +27,7 @@ const localReducers = {
 const reducers = {
 	myAddUser: myAddUser,
   myGetCurrentUser: myGetCurrentUser,
+  myUpdateUser: myUpdateUser,
   form: formReducer     // <---- Mounted at 'form'. See note below.
 }
 
