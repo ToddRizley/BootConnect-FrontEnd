@@ -5,6 +5,7 @@ import ProfileContainer from './components/ProfileContainer';
 import setCurrentUser from './reducers/myCurrentUser.js'
 import fetchUser from './reducers/myUsers.js'
 import SignInBox from './components/SignInBox'
+import SignUpBox from './components/SignUpBox'
 import fetchCurrentUser from './actions/fetchCurrentUser.js'
 import myGetCurrentUser from './reducers/myGetCurrentUser.js'
 import { connect } from 'react-redux'
@@ -23,7 +24,7 @@ class App extends Component {
     return (
       <div>
 
-        <WelcomePage />
+        <WelcomePage/>
 
       </div>
     );
