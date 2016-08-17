@@ -4,23 +4,22 @@ import { bindActionCreators } from 'redux'
 import UserImage from './UserImage.js'
 import UserInfo from './UserInfo.js'
 
-const HeaderContainer = class extends Component {
+const Header = class extends Component {
 
   render(){
+    debugger
     return(
       <div className="header-container">
         HeaderContainer....
-        <UserImage/>
-        <UserInfo/>
+        {this.props.store.current_user.attributes.name}
       </div>
     )
   }
 }
+const HeaderContainer = connect(mapStateToProps)(Header)
+
+function mapStateToProps(state) {
+  return {store: state.myAddUser}
+}
 
 export default HeaderContainer
-//Header Container
-///user's name
-///user's company
-///user's location
-///user's organization
-///user's image
