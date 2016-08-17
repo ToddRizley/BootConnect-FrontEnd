@@ -13,23 +13,16 @@ import { bindActionCreators } from 'redux'
 import WelcomePage from './components/welcomePage'
 
 //verda@swaniawski.net
-
 class App extends Component {
-
-
   render() {
     debugger
     return (
       <div className="App">
-
-
         <WelcomePage/>
-
       </div>
     );
   }
 }
-
 
 function mapStateToProps(state) {
   return {store: state}

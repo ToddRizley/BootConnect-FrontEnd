@@ -7,16 +7,14 @@ import BodyContainer from './BodyContainer'
 //this.props.store.myGetCurrentUser.current_user
 
 const Profile = class extends Component {
-  constructor(props){
-    super(props)
-    this.state = {edit: false}
-  }
+
 
   render(){
     debugger
+    console.log(this.props.store)
     return(
       <div>
-        <HeaderContainer current_user={this.store.attributes}/>
+        <HeaderContainer current_user={this.props.store}/>
         <BodyContainer />
       </div>
     )
