@@ -18,7 +18,7 @@ const Header = class extends Component {
 const HeaderContainer = connect(mapStateToProps)(Header)
 
 function mapStateToProps(state) {
-  return {store: state.myAddUser}
+  return {store: state.userReducer}
 }
 
 export default HeaderContainer

@@ -19,6 +19,7 @@ class UserExperienceForm extends Component {
   }
 
   handleFormSubmit(props) {
+    event.preventDefault()
     this.setState({enabled: false})
     this.props.addUser(props).then( ()=>{
       var router = require('react-router')
@@ -47,7 +48,7 @@ class UserExperienceForm extends Component {
 }
 
 function mapStateToProps(state) {
-  return {store: state.myAddUser.current_user.data}
+  return {currentUser: state.currentUser}
   }
 
 export default reduxForm({
