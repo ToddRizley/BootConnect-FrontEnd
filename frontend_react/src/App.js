@@ -15,7 +15,6 @@ import WelcomePage from './components/welcomePage'
 //verda@swaniawski.net
 class App extends Component {
   render() {
-    debugger
     return (
       <div className="App">
         <WelcomePage/>
