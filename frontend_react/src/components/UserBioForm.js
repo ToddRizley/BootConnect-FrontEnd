@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form'
 import updateUser from '../actions/updateUser.js'
 
 class UserBioForm extends Component {
+
   constructor(props) {
     super(props)
     this.state = {enabled: false}
@@ -15,10 +16,12 @@ class UserBioForm extends Component {
   }
 
   handleFormSubmit(props) {
+    event.preventDefault()
     this.setState({
       enabled: !this.state.enabled
     })
-    this.props.updateUser(props, this.props.current_user).then( ()=>{
+    debugger
+    this.props.updateUser(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
     })
@@ -46,7 +49,7 @@ class UserBioForm extends Component {
 
 
 function mapStateToProps(state) {
-  return {current_user: state.myAddUser.current_user.data}
+  return { currentUser: state.currentUser }
   }
 
 export default reduxForm({

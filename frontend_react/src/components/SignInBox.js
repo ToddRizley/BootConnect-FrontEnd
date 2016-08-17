@@ -5,8 +5,8 @@ import fetchCurrentUser from '../actions/fetchCurrentUser'
 
 
 class SignInBox extends Component {
-debugger
   handleFormSubmit(props) {
+    event.preventDefault()
     let userEmail = props.userEmail.replace('.', '&')
     this.props.fetchCurrentUser(userEmail)
   }
@@ -23,12 +23,8 @@ debugger
       </form>
     );
   }
-
 }
 
-function mapStateToProps(state) {
-  return {store: state.myAddUser.current_user.data}
-  }
 
 export default reduxForm({
   form: 'loginForm',
