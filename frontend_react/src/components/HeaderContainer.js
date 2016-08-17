@@ -9,8 +9,9 @@ const HeaderContainer = class extends Component {
   render(){
     return(
       <div className="header-container">
-      <UserImage />
-      <UserInfo />
+        HeaderContainer....
+        <UserImage/>
+        <UserInfo/>
       </div>
     )
   }

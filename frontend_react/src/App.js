@@ -12,6 +12,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import WelcomePage from './components/WelcomePage'
 
+//verda@swaniawski.net
 
 class App extends Component {
   handleOnLogin(event) {
@@ -20,9 +21,17 @@ class App extends Component {
     userEmail = userEmail.replace('.', '&')
     this.props.fetchCurrentUser(userEmail)
   }
+
   render() {
+    debugger
     return (
+      <div className="App">
+        <form onSubmit={this.handleOnLogin.bind(this)}>
+          <input id="userEmail" type="text" placeholder="email"/>
+          <button type="submit">Click me</button>
+        </form>
       <div>
+
 
         <WelcomePage/>
 

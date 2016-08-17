@@ -3,29 +3,31 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import HeaderContainer from './HeaderContainer'
 import BodyContainer from './BodyContainer'
+//verda@swaniawski.net
+//this.props.store.myGetCurrentUser.current_user
 
-const ProfileContainer = class extends Component {
+const Profile = class extends Component {
   constructor(props){
     super(props)
     this.state = {edit: false}
   }
 
   render(){
+    debugger
     return(
       <div>
-        <HeaderContainer state={this.state.edit}
-        store={console.log('headercontainer - add current user here')}
-        />
+        <HeaderContainer current_user={this.store.attributes}/>
         <BodyContainer />
       </div>
     )
   }
 }
 
+
+const ProfileContainer = connect(mapStateToProps)(Profile)
+
+function mapStateToProps(state) {
+  return {store: state.myGetCurrentUser.current_user.data}
+}
+
 export default ProfileContainer
-//Header Container
-///user's name
-///user's company
-///user's location
-///user's organization
-///user's image
