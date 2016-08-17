@@ -15,22 +15,12 @@ import WelcomePage from './components/WelcomePage'
 //verda@swaniawski.net
 
 class App extends Component {
-  handleOnLogin(event) {
-    event.preventDefault()
-    var userEmail = document.getElementById('userEmail').value
-    userEmail = userEmail.replace('.', '&')
-    this.props.fetchCurrentUser(userEmail)
-  }
+
 
   render() {
     debugger
     return (
       <div className="App">
-        <form onSubmit={this.handleOnLogin.bind(this)}>
-          <input id="userEmail" type="text" placeholder="email"/>
-          <button type="submit">Click me</button>
-        </form>
-      <div>
 
 
         <WelcomePage/>
