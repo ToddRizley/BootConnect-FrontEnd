@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import HeaderContainer from './HeaderContainer'
-import BodyContainer from './BodyContainer'
+import HeaderForm from './HeaderForm'
 import UserBioForm from './UserBioForm.js'
 import UserExperienceForm from './UserExperienceForm.js'
 //verda@swaniawski.net
@@ -10,11 +9,11 @@ import UserExperienceForm from './UserExperienceForm.js'
 
 const Profile = class extends Component {
   render(){
-    debugger
     return(
       <div>
-        <UserBioForm currentUser=  {this.props.currentUser} />
-        <UserExperienceForm currentUser=  {this.props.currentUser} />
+        <HeaderForm currentUser={this.props.currentUser} />
+        <UserBioForm currentUser={this.props.currentUser} />
+        <UserExperienceForm currentUser={this.props.currentUser} />
       </div>
     )
   }

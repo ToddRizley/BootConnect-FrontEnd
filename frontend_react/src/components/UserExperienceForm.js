@@ -1,9 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
-import addUser from '../actions/addUser'
-
-
-
+import updateUser from '../actions/updateUser.js'
 
 class UserExperienceForm extends Component {
 
@@ -20,38 +17,39 @@ class UserExperienceForm extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
-    this.setState({enabled: false})
-    this.props.addUser(props).then( ()=>{
+    this.setState({
+      enabled: !this.state.enabled
+    })
+    debugger
+    this.props.updateUser(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
     })
-    debugger
   }
 
   render() {
     const {fields: {experience}, handleSubmit} = this.props;
-    var expInput = this.state.enabled ? <input type="textarea" placeholder="First things first..." {...experience} /> : <input disabled="disabled" type="textarea" placeholder="First things first..." {...experience} />
+    var experienceInput = this.state.enabled ? <input type="textarea" placeholder="Well, when I was a girl/boy/larva" {...experience} /> : <input disabled="disabled" type="textarea" placeholder="Well, when I was a girl/boy/larva" {...experience} />
     var submitButton = this.state.enabled ? <input type="submit" value="Submit" /> : <div/>
 
     return (
-      <div className="bio">
+      <div className="experience">
       <button onClick={this.toggleState.bind(this)}> Edit </button>
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          <label> Share your experiences! </label>
-          { expInput }
+          <label>Tell us about your life! </label>
+          { experienceInput }
           { submitButton }
       </form>
       </div>
     );
   }
-
 }
 
 function mapStateToProps(state) {
-  return {currentUser: state.currentUser}
+  return { currentUser: state.currentUser }
   }
 
 export default reduxForm({
   form: 'userExperience',
   fields: ['experience']
-}, null, { addUser })(UserExperienceForm);
+}, null, { updateUser })(UserExperienceForm);
