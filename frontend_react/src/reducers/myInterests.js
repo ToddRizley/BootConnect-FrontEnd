@@ -1,7 +1,7 @@
-export default function myInterests(state = {interests: []}, action) {
+export default function myInterests(state = {interest: []}, action) {
   switch(action.type){
-    case 'FETCH_INTERESTS':
-      return {interests: action.payload.data}
+    case 'ADD_INTEREST':
+      return {interest: action.payload.data}
     default:
       return state
   }
