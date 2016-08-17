@@ -10,7 +10,7 @@ import fetchCurrentUser from './actions/fetchCurrentUser.js'
 import myGetCurrentUser from './reducers/myGetCurrentUser.js'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import WelcomePage from './components/WelcomePage'
+import WelcomePage from './components/welcomePage'
 
 //verda@swaniawski.net
 
