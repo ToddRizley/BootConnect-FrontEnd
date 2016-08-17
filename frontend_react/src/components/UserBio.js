@@ -6,8 +6,8 @@ const UserBio = class extends Component {
 
   render(){
     return(
-      <div>
-      Users awesome Bio
+      <div className="bio">
+
       </div>
     )
   }
