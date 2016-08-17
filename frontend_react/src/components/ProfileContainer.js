@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import HeaderContainer from './HeaderContainer'
 import BodyContainer from './BodyContainer'
 import UserBioForm from './UserBioForm.js'
+import UserExperienceForm from './UserExperienceForm.js'
 //verda@swaniawski.net
 //this.props.store.myGetCurrentUser.current_user
 
@@ -15,6 +16,7 @@ const Profile = class extends Component {
     return(
       <div>
         <UserBioForm />
+        <UserExperienceForm />
       </div>
     )
   }
