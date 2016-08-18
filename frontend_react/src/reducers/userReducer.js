@@ -6,6 +6,7 @@ export default function userReducer(state = {currentUser: ""}, action){
       return { currentUser: action.payload.data };
     case 'UPDATE_USER':
       return { currentUser: action.payload.data };
+    
     default:
       return state
   }
