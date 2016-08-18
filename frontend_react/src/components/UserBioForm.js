@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import updateUser from '../actions/updateUser.js'
+import fetchInterests from '../actions/fetchInterests.js'
 
 class UserBioForm extends Component {
 
@@ -20,6 +21,7 @@ class UserBioForm extends Component {
     this.setState({
       enabled: !this.state.enabled
     })
+
 
     this.props.updateUser(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
@@ -52,4 +54,4 @@ function mapStateToProps(state) {
 export default reduxForm({
   form: 'userBio',
   fields: ['bio']
-}, null, { updateUser })(UserBioForm);
+}, null, { updateUser, fetchInterests })(UserBioForm);
