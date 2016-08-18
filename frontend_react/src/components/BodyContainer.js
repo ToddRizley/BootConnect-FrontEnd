@@ -10,8 +10,7 @@ const BodyContainer = class extends Component {
   render(){
     return(
       <div className="body-container">
-      <UserBio />
-      <UserInterests />
+
       </div>
     )
   }

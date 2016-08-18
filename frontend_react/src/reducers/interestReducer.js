@@ -1,11 +1,13 @@
-export default function interestReducer(state = {interests: []}, action) {
+export default function interestReducer(state = {currentUser: []}, action) {
   switch(action.type){
-    case 'ADD_INTEREST':
-      return {interests: action.payload.data};
-    case 'FETCH_USER_INTERESTS':
-      return {interests: action.payload.data};
-    case 'REMOVE_INTEREST':
-      return {interests: action.payload.data}
+    // moved to userReducer to incorporate the return of a new currentUser when adding a new interest
+    
+    // case 'ADD_INTEREST':
+    //   return {currentUser: action.payload.data};
+    // case 'FETCH_USER_INTERESTS':
+    //   return {currentUser: action.payload.data};
+    // case 'REMOVE_INTEREST':
+    //   return {currentUser: action.payload.data}
     default:
       return state
   }
