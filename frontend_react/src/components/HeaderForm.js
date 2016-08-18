@@ -29,6 +29,11 @@ class HeaderForm extends Component {
   }
 
   render() {
+
+    var city = this.props.currentUser.currentUser.attributes.location.city
+    var state = this.props.currentUser.currentUser.attributes.location.state
+    var loc = `${city}, ${state}`
+
     const {fields: {name, position, company, organization, location}, handleSubmit} = this.props;
     var nameInput = this.state.enabled ? <input type="textarea" placeholder="Name" {...name} /> : <input disabled="disabled" type="textarea" placeholder="Name" {...name} />
     var locationInput = this.state.enabled ? <input type="textarea" placeholder="Location" {...location} /> : <input disabled="disabled" type="textarea" placeholder="Location" {...location} />
