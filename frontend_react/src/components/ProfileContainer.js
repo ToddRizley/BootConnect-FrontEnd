@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import HeaderForm from './HeaderForm'
-import UserBioForm from './UserBioForm.js'
-import UserExperienceForm from './UserExperienceForm.js'
-import InterestForm from './InterestForm.js'
-import InterestList from './InterestList.js'
-
+import UserBioForm from './UserBioForm'
+import UserExperienceForm from './UserExperienceForm'
+import InterestForm from './InterestForm'
+import InterestList from './InterestList'
+import JobForm from './jobForm'
 //verda@swaniawski.net
 //this.props.store.myGetCurrentUser.current_user
 
@@ -25,6 +25,7 @@ const Profile = class extends Component {
         <br/>
         <InterestForm currentUser={this.props.currentUser} />
         <br/><br/>
+        <JobForm currentUser={this.props.currentUser} />
       </div>
     )
   }
