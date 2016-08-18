@@ -35,7 +35,6 @@ class HeaderForm extends Component {
     var companyInput = this.state.enabled ? <input type="textarea" placeholder="Current Company" {...company} /> : <input disabled="disabled" type="textarea" placeholder="Current Company" {...company} />
     var positionInput = this.state.enabled ? <input type="textarea" placeholder="Current Position" {...position} /> : <input disabled="disabled" type="textarea" placeholder="Current Company" {...position} />
     var submitButton = this.state.enabled ? <input type="submit" value="Submit" /> : <div/>
-    debugger
     return (
       <div className="header">
         <button onClick={this.toggleState.bind(this)}> Edit </button>
