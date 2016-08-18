@@ -16,12 +16,13 @@ class InterestForm extends Component {
   }
 
   handleFormSubmit(props) {
-    debugger
+
     event.preventDefault()
-    this.setState({
-      enabled: !this.state.enabled
-    })
-    debugger
+    // keep enabled: true
+    // this.setState({
+    //   enabled: !this.state.enabled
+    // })
+
     this.props.addInterest(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
@@ -30,16 +31,15 @@ class InterestForm extends Component {
 
   render() {
     const {fields: {name, description}, handleSubmit} = this.props;
-    var nameInput = this.state.enabled ? <input type="textarea" placeholder="Add Interest" {...name} /> : <input disabled="disabled" type="textarea" placeholder="Add Interest" {...name} />
-    var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Add Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Add Description" {...description} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Submit" /> : <div/>
+    var interestInput = this.state.enabled ? <input type="textarea" placeholder="Add Interest" {...name} /> : <input disabled="disabled" type="textarea" placeholder="Add Interest" {...name} />
+    //var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Add Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Add Description" {...description} />
+    var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
 
     return (
       <div className="header">
-        <button onClick={this.toggleState.bind(this)}> Add </button>
+      {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Add</button>}
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {nameInput}
-          {descriptionInput}
+          {this.state.enabled ? interestInput : null}
           {submitButton}
         </form>
       </div>
@@ -53,5 +53,5 @@ function mapStateToProps(state) {
 
 export default reduxForm({
   form: 'interestForm',
-  fields: ['name', 'description']
+  fields: ['name']
 }, null, { addInterest })(InterestForm);

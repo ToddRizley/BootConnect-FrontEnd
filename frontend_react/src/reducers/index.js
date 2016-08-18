@@ -6,8 +6,6 @@ import locationReducer from './locationReducer'
 
 const reducers = {
   form: formReducer,
-  userInterests: interestReducer,
-  locations: locationReducer,
   currentUser: userReducer     // <---- Mounted at 'form'. See note below.
 }
 

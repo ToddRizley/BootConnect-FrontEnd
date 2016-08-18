@@ -34,12 +34,13 @@ class UserExperienceForm extends Component {
 
     return (
       <div className="experience">
-      <button onClick={this.toggleState.bind(this)}> Edit </button>
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          <label>Tell us about your life! </label>
-          { experienceInput }
-          { submitButton }
-      </form>
+        Exp
+        {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Edit</button>}
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <label>Tell us about your life! </label>
+            { experienceInput }
+            { this.state.enabled ? <input type="submit" value="Save" /> : null }
+        </form>
       </div>
     );
   }

@@ -32,16 +32,17 @@ class UserBioForm extends Component {
   render() {
     const {fields: {bio}, handleSubmit} = this.props;
     var bioInput = this.state.enabled ? <input type="textarea" placeholder="Well, when I was a girl/boy/larva" {...bio} /> : <input disabled="disabled" type="textarea" placeholder="Well, when I was a girl/boy/larva" {...bio} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Submit" /> : <div/>
+    var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
 
     return (
       <div className="bio">
-      <button onClick={this.toggleState.bind(this)}> Edit </button>
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          <label>Tell us about your life! </label>
-          { bioInput }
-          { submitButton }
-      </form>
+        Bio
+        {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Edit</button>}
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <label>Tell us about your life! </label>
+            { bioInput }
+            { this.state.enabled ? <input type="submit" value="Save" /> : null }
+        </form>
       </div>
     );
   }

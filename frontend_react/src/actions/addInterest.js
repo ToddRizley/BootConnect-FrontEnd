@@ -18,7 +18,7 @@ export default function addInterest(props, currentUser) {
     return {
       type: 'ADD_INTEREST',
       payload: response
+      //response is currentUser object with new interest
     }
   })
-
 }
