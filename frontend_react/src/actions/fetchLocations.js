@@ -7,7 +7,7 @@ function fetchLocations(){
   console.log('request', request)
 
   return {
-    type: 'FETCH_LOCATIONS',
+    type: 'FETCH_USER_LOCATION',
     payload: request
   }
 }
