@@ -52,7 +52,7 @@ class JobForm extends Component {
   }
 }
 
-function npmapStateToProps(state) {
+function mapStateToProps(state) {
   return { currentUser: state.currentUser }
   }
 
