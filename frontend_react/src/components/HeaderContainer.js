@@ -7,10 +7,11 @@ import UserInfo from './UserInfo.js'
 const Header = class extends Component {
 
   render(){
-
+    debugger
     return(
+
       <div className="header-container">
-      Header.
+
       </div>
     )
   }

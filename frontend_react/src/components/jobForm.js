@@ -57,6 +57,6 @@ function mapStateToProps(state) {
   }
 
 export default reduxForm({
-  form: 'jobForm',
+  form: 'JobForm',
   fields: ['title', 'description', 'url', 'location']
 }, null, { addJob })(JobForm);
