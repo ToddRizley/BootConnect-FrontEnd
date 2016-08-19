@@ -1,14 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import fetchInterests from '../actions/fetchInterests'
-//import updateUser from '../actions/updateUser.js'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-
-class InterestList extends Component {
+class Interest extends Component {
   render(){
-    debugger
     var interests = this.props.currentUser.currentUser.attributes.interests
-    //[Objectcreated_at: "2016-08-18T20:13:54.127Z"description: nullid: 54name: "soccer"updated_at: "2016-08-18T20:13:54.127Z"__proto__: Object]
-
     return(
       <div>
         Interest List..
@@ -21,6 +17,13 @@ class InterestList extends Component {
       </div>
     )
   }
+}
+
+
+const InterestList = connect(mapStateToProps)(Interest)
+
+function mapStateToProps(state) {
+  return {currentUser: state.currentUser}
 }
 
 export default InterestList

@@ -6,7 +6,10 @@ import UserBioForm from './UserBioForm'
 import UserExperienceForm from './UserExperienceForm'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
-import JobForm from './jobForm'
+import JobForm from './JobForm'
+import JobList from './JobList'
+import ArticleForm from './ArticleForm'
+import ArticleList from './ArticleList'
 //verda@swaniawski.net
 //this.props.store.myGetCurrentUser.current_user
 
@@ -26,6 +29,12 @@ const Profile = class extends Component {
         <InterestForm currentUser={this.props.currentUser} />
         <br/><br/>
         <JobForm currentUser={this.props.currentUser} />
+        <br/><br/>
+        <JobList currentUser={this.props.currentUser} />
+        <br/><br/>
+        <ArticleForm currentUser={this.props.currentUser} />
+        <br/><br/>
+        <ArticleList currentUser={this.props.currentUser} />
       </div>
     )
   }
