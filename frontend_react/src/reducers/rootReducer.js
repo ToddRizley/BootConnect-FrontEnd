@@ -6,7 +6,8 @@ import locationReducer from './locationReducer'
 
 const reducers = {
   form: formReducer,
-  currentUser: userReducer     // <---- Mounted at 'form'. See note below.
+  currentUser: userReducer,
+  locationInfo: locationReducer    // <---- Mounted at 'form'. See note below.
 }
 
 const rootReducer = combineReducers(reducers)
