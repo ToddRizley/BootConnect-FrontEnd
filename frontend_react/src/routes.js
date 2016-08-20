@@ -8,11 +8,14 @@ import ProfileContainer from './components/ProfileContainer'
 
 
 
+
 export default (
   <Route>
     <Route path="/" component={AppContainer} />
     <Route path="/signin" component={SignInBox} />
     <Route path="/signup" component={SignUpBox} />
     <Route path="/profile" component={ProfileContainer} />
+    {/* <Route path="/search_users" component={SearchUsers} />
+    <Route path="/search_jobs" component={SearchJobs} /> */}
   </Route>
   );

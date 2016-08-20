@@ -21,7 +21,7 @@ class JobForm extends Component {
     // this.setState({
     //   enabled: !this.state.enabled
     // })
-      debugger
+
     this.props.addJob(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')

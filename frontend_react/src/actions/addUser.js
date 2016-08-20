@@ -9,7 +9,6 @@ export default function addUser(props, location) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
-    debugger
     return {
       type: 'ADD_USER',
       payload: response
