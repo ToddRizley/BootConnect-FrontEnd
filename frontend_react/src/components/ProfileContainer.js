@@ -10,6 +10,7 @@ import JobForm from './JobForm'
 import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
+import SearchUsersContainer from './SearchUsers'
 //verda@swaniawski.net
 //this.props.store.myGetCurrentUser.current_user
 
@@ -35,6 +36,12 @@ const Profile = class extends Component {
         <ArticleForm currentUser={this.props.currentUser} />
         <br/><br/>
         <ArticleList currentUser={this.props.currentUser} />
+        <br>
+        </br>
+        <br>
+        </br>
+        <SearchUsersContainer users={this.props}/>
+
       </div>
     )
   }

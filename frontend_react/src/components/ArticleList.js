@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 class Article extends Component {
 
   render(){
-      debugger
+
     var articles = this.props.currentUser.currentUser.attributes.articles
     return(
       <div>

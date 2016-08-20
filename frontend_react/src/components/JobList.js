@@ -5,10 +5,7 @@ import { bindActionCreators } from 'redux'
 class Job extends Component {
 
   render(){
-        debugger
     var jobs = this.props.currentUser.currentUser.attributes.jobs
-
-
 
     return(
       <div>
