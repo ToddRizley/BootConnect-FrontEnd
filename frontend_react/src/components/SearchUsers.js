@@ -12,33 +12,15 @@ const SearchUsers = class extends Component {
 
 
   componentWillMount() {
-    console.log('working')
-    debugger
-    this.props.onLoad.fetchUsers().then( (response)=> {
-      debugger
-      this.setState({users: response})
-      console.log(this.state.users)
-      debugger
-      })
-    //get all cities
-    //get all users
-  }
-  debugger
-  // var usersListed = this.state.users.payload.data.map( (user)=> {
-  //     debugger
-  //         return(  <tr>
-  //             <td>{user.attributes.name}</td>
-  //             <td>{user.attributes.company}</td>
-  //             <td>{user.attributes.position}</td>
-  //             <td>{user.attributes.location.city}</td>
-  //             <td>{user.attributes["email-address"]}</td>
-  //           </tr>)
-  //         }
-  //         )
+    this.props.fetchUsers.fetchUsers()
+    }
+
+
 
 
   render(){
     debugger
+
 
 
     return(
@@ -52,12 +34,12 @@ const SearchUsers = class extends Component {
   <option>Houston</option>
   <option>Seattle</option>
   </select>
-  <select>
+  <select id="filterTable-Distance">
   <option>25 miles</option>
   <option>50 miles</option>
   <option>100 miles</option>
   </select>
-
+    <div>
       <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-City">
         <thead>
           <tr>
@@ -69,10 +51,22 @@ const SearchUsers = class extends Component {
           </tr>
         </thead>
         <tbody>
+          {this.props.userList.userList.map( (user)=> {
+                  return( <tr>
+                      <td>{user.attributes.name}</td>
+                      <td>{user.attributes.company}</td>
+                      <td>{user.attributes.position}</td>
+                      <td>{user.attributes.location.city}</td>
+                      <td>{user.attributes["email-address"]}</td>
+                    </tr>)
+                  }
+                  )}
 
-          </tbody>
-        </table>
-      </div>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
     )
   }
 }
@@ -85,7 +79,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { onLoad: bindActionCreators({fetchUsers}, dispatch) }
+  return { fetchUsers: bindActionCreators({fetchUsers}, dispatch) }
 }
 
 export default SearchUsersContainer
