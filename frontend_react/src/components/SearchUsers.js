@@ -4,10 +4,6 @@ import { bindActionCreators } from 'redux'
 import fetchUsers from '../actions/fetchUsers'
 
 const SearchUsers = class extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {users: []}
-}
 
 
 
@@ -30,9 +26,10 @@ const SearchUsers = class extends Component {
     </div>
 
   <select id="filterTable-City">
-  <option>NYC</option>
-  <option>Houston</option>
-  <option>Seattle</option>
+  {this.props.userList.userList.map( (user)=> {
+    return(<option>{user.attributes.location.city}</option>)
+    }
+  )}
   </select>
   <select id="filterTable-Distance">
   <option>25 miles</option>
