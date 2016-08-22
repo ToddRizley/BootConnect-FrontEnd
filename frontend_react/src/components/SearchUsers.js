@@ -10,7 +10,6 @@ const SearchUsers = class extends Component {
     this.state = {locations: [] }
   }
 
-
   componentWillMount() {
     this.props.fetchUsers.fetchUsers().then( (response)=> {
       var newState = response.payload.data.map( (user)=> { return user.attributes.location.city } )
@@ -18,11 +17,7 @@ const SearchUsers = class extends Component {
     })
     }
 
-
-
-
   render(){
-
     return(
       <div>
     <div data-role="header">
@@ -62,7 +57,6 @@ const SearchUsers = class extends Component {
                     </tr>)
                   }
                   )}
-
 
         </tbody>
       </table>
