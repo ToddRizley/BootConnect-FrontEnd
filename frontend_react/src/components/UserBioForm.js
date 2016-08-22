@@ -4,22 +4,21 @@ import updateUser from '../actions/updateUser.js'
 import fetchInterests from '../actions/fetchInterests.js'
 
 class UserBioForm extends Component {
-
   constructor(props) {
     super(props)
-    this.state = {enabled: false}
+    this.state = { disabled: true }
   }
 
   toggleState(){
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
   }
 
   handleFormSubmit(props) {
     event.preventDefault()
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
 
 
@@ -30,18 +29,24 @@ class UserBioForm extends Component {
   }
 
   render() {
-    const {fields: {bio}, handleSubmit} = this.props;
-    var bioInput = this.state.enabled ? <input type="textarea" placeholder="Well, when I was a girl/boy/larva" {...bio} /> : <input disabled="disabled" type="textarea" placeholder="Well, when I was a girl/boy/larva" {...bio} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
+    var disabled = this.state.disabled ? 'disabled' : ''
+    var hidden = this.state.disabled ? 'hidden' : ''
 
+    const {fields: {bio}, handleSubmit} = this.props;
     return (
-      <div className="bio">
+      <div className="user-bio-display">
         Bio
-        {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Edit</button>}
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-            <label>Tell us about your life! </label>
-            { bioInput }
-            { this.state.enabled ? <input type="submit" value="Save" /> : null }
+        
+          <input disabled={disabled}
+            type="textarea"
+            placeholder="Add Bio"
+            {...bio}
+          />
+
+          { this.state.disabled
+            ? <button onClick={this.toggleState.bind(this)}>Edit</button>
+            : <input type="submit" value="Save" />}
         </form>
       </div>
     );
@@ -55,4 +60,6 @@ function mapStateToProps(state) {
 export default reduxForm({
   form: 'userBio',
   fields: ['bio']
-}, null, { updateUser, fetchInterests })(UserBioForm);
+  },
+  null,
+  { updateUser, fetchInterests })(UserBioForm);

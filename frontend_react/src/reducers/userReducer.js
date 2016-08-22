@@ -1,4 +1,5 @@
 export default function userReducer(state = {currentUser: ""}, action){
+
   switch(action.type){
     case 'ADD_USER':
       return { currentUser: action.payload.data};

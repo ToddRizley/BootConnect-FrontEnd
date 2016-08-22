@@ -1,6 +1,7 @@
 import $ from 'jquery'
 
 export default function updateUser(props, currentUser) {
+
   var userId = currentUser.currentUser.id
   const URL = 'http://localhost:3000/api/v1/users/' + userId
   return $.ajax({

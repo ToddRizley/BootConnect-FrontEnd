@@ -3,16 +3,14 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 class Article extends Component {
-
   render(){
-
     var articles = this.props.currentUser.currentUser.attributes.articles
     return(
       <div>
         Article List...
         <ul>
           { articles.map( (article) => {
-            return <li> {article.title} {article.url}</li>
+            return <li>{article.title}</li>
           })}
         </ul>
       </div>

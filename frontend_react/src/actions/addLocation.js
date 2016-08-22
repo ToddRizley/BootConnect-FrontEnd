@@ -1,6 +1,7 @@
 import $ from 'jquery'
 
 export default function addLocation(props, currentUser) {
+
   const URL = 'http://localhost:3000/api/v1/locations'
   const USER_ID = currentUser.currentUser.id
   return $.ajax({

@@ -17,10 +17,6 @@ class JobForm extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
-    // keep enabled: true
-    // this.setState({
-    //   enabled: !this.state.enabled
-    // })
 
     this.props.addJob(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
@@ -57,6 +53,6 @@ function mapStateToProps(state) {
   }
 
 export default reduxForm({
-  form: 'jobForm',
+  form: 'JobForm',
   fields: ['title', 'description', 'url', 'location']
 }, null, { addJob })(JobForm);

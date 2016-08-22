@@ -1,25 +1,24 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
+import { Field } from 'redux-form'
 import updateUser from '../actions/updateUser.js'
 
 class HeaderForm extends Component {
-
   constructor(props) {
     super(props)
-    this.state = {enabled: false}
+    this.state = { disabled: true }
   }
 
   toggleState(){
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
   }
 
   handleFormSubmit(props) {
-    debugger
     event.preventDefault()
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
 
     this.props.updateUser(props, this.props.currentUser).then( ()=>{
@@ -29,26 +28,35 @@ class HeaderForm extends Component {
   }
 
   render() {
+    var disabled = this.state.disabled ? 'disabled' : ''
+    var hidden = this.state.disabled ? 'hidden' : ''
 
-    var city = this.props.currentUser.currentUser.attributes.location.city
-    var state = this.props.currentUser.currentUser.attributes.location.state
-    var loc = `${city}, ${state}`
-
-    const {fields: {name, position, company, organization, location}, handleSubmit} = this.props;
-    var nameInput = this.state.enabled ? <input type="textarea" placeholder="Name" {...name} /> : <input disabled="disabled" type="textarea" placeholder="Name" {...name} />
-    var locationInput = this.state.enabled ? <input type="textarea" placeholder="Location" {...location} /> : <input disabled="disabled" type="textarea" placeholder="Location" {...location} />
-    var companyInput = this.state.enabled ? <input type="textarea" placeholder="Current Company" {...company} /> : <input disabled="disabled" type="textarea" placeholder="Current Company" {...company} />
-    var positionInput = this.state.enabled ? <input type="textarea" placeholder="Current Position" {...position} /> : <input disabled="disabled" type="textarea" placeholder="Current Company" {...position} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Submit" /> : <div/>
+    const {fields: {name, location, position, company}, handleSubmit} = this.props;
     return (
-      <div className="header">
-        <button onClick={this.toggleState.bind(this)}> Edit </button>
+      <div className="header-form-display">
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {nameInput}
-          {locationInput}
-          {companyInput}
-          {positionInput}
-          {submitButton}
+
+          <input disabled={disabled}
+            type="textarea"
+            placeholder="Full Name"
+            {...name} />
+          <input disabled={disabled}
+            type="textarea"
+            placeholder="Location"
+            {...location} />
+          <input disabled={disabled}
+            type="textarea"
+            placeholder="Add Current Employer"
+            {...company} />
+          <input disabled={disabled}
+            type="textarea"
+            placeholder="Add Position"
+            {...position} />
+
+          { this.state.disabled
+            ? <button onClick={this.toggleState.bind(this)}>Edit</button>
+            : <input type="submit" value="Save" />
+          }
         </form>
       </div>
     );
@@ -61,5 +69,7 @@ function mapStateToProps(state) {
 
 export default reduxForm({
   form: 'userHeader',
-  fields: ['name', 'position', 'company', 'organization', 'location']
-}, null, { updateUser })(HeaderForm);
+  fields: ['name', 'location', 'position', 'company']
+},
+null,
+{ updateUser })(HeaderForm);

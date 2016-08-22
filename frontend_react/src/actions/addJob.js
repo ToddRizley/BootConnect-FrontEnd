@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 export default function addJob(props, currentUser) {
-  debugger
+  
   const URL = 'http://localhost:3000/api/v1/jobs'
   const USER_ID = currentUser.currentUser.id
   return $.ajax({
