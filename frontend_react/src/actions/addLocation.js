@@ -14,7 +14,6 @@ export default function addLocation(props, currentUser) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
-    debugger
     return {
       type: 'ADD_LOCATION',
       payload: response

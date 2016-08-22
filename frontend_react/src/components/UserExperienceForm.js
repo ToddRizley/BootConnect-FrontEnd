@@ -20,7 +20,7 @@ class UserExperienceForm extends Component {
     this.setState({
       disabled: !this.state.disabled
     })
-    debugger
+
     this.props.updateUser(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
