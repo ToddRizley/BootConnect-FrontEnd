@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 function fetchLatLong(city, state){
+  
   const API_KEY = "&key=AIzaSyByc29-KtwjrhnW6hwmyXeeWKyi2Asumyw"
   var city_info = city.split(" ").join("+")
   var state_info = state

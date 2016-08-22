@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 export default function addArticle(props, currentUser) {
-  debugger
+
   const URL = 'http://localhost:3000/api/v1/articles'
   const USER_ID = currentUser.currentUser.id
   return $.ajax({

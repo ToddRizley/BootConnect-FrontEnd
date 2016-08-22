@@ -3,30 +3,32 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import UserImage from './UserImage.js'
 import UserInfo from './UserInfo.js'
+import HeaderForm from './HeaderForm'
 
 const Header = class extends Component {
 
   render(){
+    var userCompany = this.props.currentUser.currentUser.attributes.company || ''
+    var userPosition = this.props.currentUser.currentUser.attributes.position || ''
+
+    var initialValues = {
+      initialValues: {
+        name: this.props.currentUser.currentUser.attributes.name,
+        company: userCompany,
+        position: userPosition
+      }
+    }
 
     return(
       <div className="header-container">
-      Header.
+        <HeaderForm currentUser={this.props.currentUser}
+          {...initialValues}
+        />
       </div>
     )
   }
 }
 
-/*
-
-attrs = this.props.currentUser.currentUser.attributes
-
-Object.keys(attrs).map(function(value, index) {
-console.log(Object.keys(attrs)[index])
-console.log( attrs[value])
-
-
-})
-*/
 const HeaderContainer = connect(mapStateToProps)(Header)
 
 function mapStateToProps(state) {

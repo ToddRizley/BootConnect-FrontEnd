@@ -32,7 +32,6 @@ class ArticleForm extends Component {
     const {fields: {title, url}, handleSubmit} = this.props;
     var titleInput = this.state.enabled ? <input type="textarea" placeholder="Add Title" {...title} /> : <input disabled="disabled" type="textarea" placeholder="Add Title" {...title} />
     var urlInput = this.state.enabled ? <input type="textarea" placeholder="Add Link" {...url} /> : <input disabled="disabled" type="textarea" placeholder="Add Link" {...url} />
-    //var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Add Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Add Description" {...description} />
     var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
 
     return (
@@ -53,6 +52,8 @@ function mapStateToProps(state) {
   }
 
 export default reduxForm({
-  form: 'articleForm',
-  fields: ['title', 'url']
-}, null, { addArticle })(ArticleForm);
+    form: 'articleForm',
+    fields: ['title', 'url']
+  },
+  null,
+  { addArticle })(ArticleForm);
