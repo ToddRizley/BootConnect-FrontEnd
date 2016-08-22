@@ -2,22 +2,26 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchUsers from '../actions/fetchUsers'
+import fetchFilteredUsers from '../actions/fetchFilteredUsers'
 
 const SearchUsers = class extends Component {
-
+  constructor(props){
+    super(props)
+    this.state = {locations: [] }
+  }
 
 
   componentWillMount() {
-    this.props.fetchUsers.fetchUsers()
+    this.props.fetchUsers.fetchUsers().then( (response)=> {
+      var newState = response.payload.data.map( (user)=> { return user.attributes.location.city } )
+      this.setState({locations: newState})
+    })
     }
 
 
 
 
   render(){
-    debugger
-
-
 
     return(
       <div>
@@ -25,11 +29,11 @@ const SearchUsers = class extends Component {
       <h1>Search Alumni</h1>
     </div>
 
-  <select id="filterTable-City">
-  {this.props.userList.userList.map( (user)=> {
-    return(<option>{user.attributes.location.city}</option>)
-    }
-  )}
+    <select id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
+      {this.state.locations.map( (location)=> {
+        return(<option>{location}</option>)
+        }
+      )}
   </select>
   <select id="filterTable-Distance">
   <option>25 miles</option>
@@ -72,11 +76,12 @@ const SearchUsers = class extends Component {
  const SearchUsersContainer = connect(mapStateToProps, mapDispatchToProps)(SearchUsers)
 
 function mapStateToProps(state) {
-  return {userLocations: state.userLocations, userList: state.userList}
+  return {userList: state.userList}
 }
 
 function mapDispatchToProps(dispatch) {
-  return { fetchUsers: bindActionCreators({fetchUsers}, dispatch) }
+  return { fetchUsers: bindActionCreators({fetchUsers}, dispatch),
+          fetchFilteredUsers: bindActionCreators({fetchFilteredUsers}, dispatch)}
 }
 
 export default SearchUsersContainer
