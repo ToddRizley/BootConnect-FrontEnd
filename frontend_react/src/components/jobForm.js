@@ -17,11 +17,7 @@ class JobForm extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
-    // keep enabled: true
-    // this.setState({
-    //   enabled: !this.state.enabled
-    // })
-      debugger
+
     this.props.addJob(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')

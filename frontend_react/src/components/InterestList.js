@@ -10,6 +10,7 @@ class Interest extends Component {
         Interest List..
         <ul>
         { interests.map( (interest) => {
+          let counter = 0
           return <li> {interest.name} </li>
           })
         }

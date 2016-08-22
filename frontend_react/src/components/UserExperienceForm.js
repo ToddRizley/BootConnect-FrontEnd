@@ -6,19 +6,19 @@ class UserExperienceForm extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {enabled: false}
+    this.state = {disabled: false}
   }
 
   toggleState(){
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
   }
 
   handleFormSubmit(props) {
     event.preventDefault()
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
     debugger
     this.props.updateUser(props, this.props.currentUser).then( ()=>{
@@ -28,18 +28,27 @@ class UserExperienceForm extends Component {
   }
 
   render() {
-    const {fields: {experience}, handleSubmit} = this.props;
-    var experienceInput = this.state.enabled ? <input type="textarea" placeholder="Well, when I was a girl/boy/larva" {...experience} /> : <input disabled="disabled" type="textarea" placeholder="Well, when I was a girl/boy/larva" {...experience} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Submit" /> : <div/>
+    var disabled = this.state.disabled ? 'disabled' : ''
+    var hidden = this.state.disabled ? 'hidden' : ''
 
+    const {fields: {experience}, handleSubmit} = this.props;
     return (
       <div className="experience">
-        Exp
-        {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Edit</button>}
+
+        Experience
+
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-            <label>Tell us about your life! </label>
-            { experienceInput }
-            { this.state.enabled ? <input type="submit" value="Save" /> : null }
+
+          <input disabled={disabled}
+            type="textarea"
+            placeholder="Add Experience"
+            {...experience}
+          />
+
+          { this.state.disabled
+            ? <button onClick={this.toggleState.bind(this)}> Edit </button>
+            : <input type="submit" value="Save" />
+          }
         </form>
       </div>
     );
