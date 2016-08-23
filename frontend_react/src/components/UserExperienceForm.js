@@ -6,7 +6,7 @@ class UserExperienceForm extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {disabled: false}
+    this.state = {disabled: true}
   }
 
   toggleState(){
