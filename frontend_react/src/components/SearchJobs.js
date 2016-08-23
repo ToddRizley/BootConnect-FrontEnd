@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchJobs from '../actions/fetchJobs'
 import fetchFilteredJobs from '../actions/fetchFilteredJobs'
-
+import $ from 'jquery'
 
 const SearchJobs = class extends Component {
   constructor(props){
@@ -13,11 +13,10 @@ const SearchJobs = class extends Component {
 
 
   componentWillMount() {
-    debugger
+
     this.props.fetchJobs.fetchJobs().then( (response)=> {
-      debugger
       var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
-      this.setState({locations: newState})
+      this.setState({locations: $.uniqueSort(newState)})
     })
     }
 
@@ -25,7 +24,7 @@ const SearchJobs = class extends Component {
 
 
   render(){
-    debugger
+
 
     return(
       <div>
