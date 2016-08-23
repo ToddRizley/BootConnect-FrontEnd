@@ -8,12 +8,16 @@ import HeaderForm from './HeaderForm'
 const Header = class extends Component {
 
   render(){
+    var userName = this.props.currentUser.currentUser.attributes.name
+    var userLocation = `${this.props.currentUser.currentUser.attributes.location.city}, ${this.props.currentUser.currentUser.attributes.location.state}`
     var userCompany = this.props.currentUser.currentUser.attributes.company || ''
     var userPosition = this.props.currentUser.currentUser.attributes.position || ''
+    //refactor using destructured object
 
     var initialValues = {
       initialValues: {
-        name: this.props.currentUser.currentUser.attributes.name,
+        name: userName,
+        location: userLocation,
         company: userCompany,
         position: userPosition
       }

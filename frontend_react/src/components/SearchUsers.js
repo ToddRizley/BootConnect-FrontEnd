@@ -3,27 +3,24 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchUsers from '../actions/fetchUsers'
 import fetchFilteredUsers from '../actions/fetchFilteredUsers'
+import $ from 'jquery'
 
 
 const SearchUsers = class extends Component {
   constructor(props){
     super(props)
-    this.state = {locations: [] }
+    this.state = {locations: []}
   }
-
 
   componentWillMount() {
     this.props.fetchUsers.fetchUsers().then( (response)=> {
       var newState = response.payload.data.map( (user)=> { return user.attributes.location.city } )
-      this.setState({locations: newState})
+      this.setState({locations: $.uniqueSort(newState)})
+      debugger
     })
     }
 
-
-
-
   render(){
-
     return(
       <div>
     <div data-role="header">
@@ -63,7 +60,6 @@ const SearchUsers = class extends Component {
                     </tr>)
                   }
                   )}
-
 
         </tbody>
       </table>
