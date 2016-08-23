@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import fetchUsers from '../actions/fetchUsers'
 import fetchFilteredUsers from '../actions/fetchFilteredUsers'
 
+
 const SearchUsers = class extends Component {
   constructor(props){
     super(props)
@@ -35,7 +36,7 @@ const SearchUsers = class extends Component {
         }
       )}
   </select>
-  <select id="filterTable-Distance">
+  <select id="filterTable-Distance" >
   <option>25 miles</option>
   <option>50 miles</option>
   <option>100 miles</option>
