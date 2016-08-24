@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -26,3 +25,87 @@
 /*input[type="text"]:disabled {
     background: #dddddd;
 }*/
+
+
+
+.splash {
+  text-align: center;
+  padding-top: 11em;;
+  width: 100%;
+  height:100vh;
+  margin: 0 auto;
+  background-color: #333;
+  background-image: url('http://www.mrwallpaper.com/wallpapers/Colliding-Planets-1600x900.jpg')
+}
+
+
+/*h1.logo {
+  font-family: "Euphemia UCAS";
+  font-size: 200px !important;
+  font-weight: normal;
+  color: #222222;
+}*/
+
+#splash-container {
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  height: 10em;
+  border-color: #fff
+}
+
+a.splash-link {
+  color: #D1D1D1;
+  padding-bottom: 0.2em;
+  font-size: 1em;
+}
+
+.splash-text {
+  color: #D1D1D1;
+  padding-bottom: 0.3em;
+  font-size: 3em;
+  letter-spacing: 1px;
+}
+
+.splash-left {
+  float: left;
+  width: 49%;
+  text-align: right;
+  padding-right: 0.1em;
+}
+
+.splash-right {
+  float: right;
+  width: 49%;
+  text-align: left;
+  padding-left: 0.1em;
+}
+
+.entry-container {
+      position:fixed;
+      padding:0;
+      margin:0 auto;
+      top:0;
+      left:0;
+
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+}
+
+.entry-input {
+  border: 0px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #eee;
+  font-size: 25px;
+  display: block;
+  margin : 0 auto;
+  position: fixed;
+  left: 0;
+  top: 15vw;
+  width: 100vw;
+  height: 10vw;
+}
