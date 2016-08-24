@@ -19,7 +19,7 @@ class SignUpBox extends Component {
 
   render() {
 
-    const {fields: {fullName, email, city, state}, handleSubmit} = this.props;
+    const {fields: {fullName, email, password, city, state}, handleSubmit} = this.props;
     return (
       <form className="entry-input" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <div>
@@ -29,6 +29,10 @@ class SignUpBox extends Component {
         <div>
           <label>Email</label>
           <input type="email" id="userEmail" placeholder="Email" {...email}/>
+        </div>
+        <div>
+          <label>Your Pword</label>
+          <input type="password" id="userPassword" placeholder="Enter your Password" {...password}/>
         </div>
         <div>
           <label>City</label>
@@ -50,5 +54,5 @@ class SignUpBox extends Component {
 
 export default reduxForm({
   form: 'signUpForm',
-  fields: ['fullName', 'email', 'city', 'state']
+  fields: ['fullName', 'email', 'password', 'city', 'state']
 }, null, { addUser, fetchLatLong })(SignUpBox);
