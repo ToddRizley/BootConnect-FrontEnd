@@ -11,6 +11,7 @@ import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
+import NavbarContainer from './NavbarContainer'
 import SearchJobsContainer from './SearchJobs'
 
 const Profile = class extends Component {
@@ -18,6 +19,7 @@ const Profile = class extends Component {
   render(){
     return(
       <div>
+        <NavbarContainer currentUser={this.props.currentUser} />
         <HeaderContainer currentUser={this.props.currentUser} />
         <br/><br/>
         <UserBioContainer currentUser={this.props.currentUser} />

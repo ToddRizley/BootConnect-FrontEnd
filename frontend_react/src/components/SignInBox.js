@@ -14,13 +14,15 @@ class SignInBox extends Component {
   render() {
     const {fields: {userEmail}, handleSubmit} = this.props;
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-        <div>
-          <label>Email pls</label>
-          <input type="text" placeholder="Enter your Email@!!" {...userEmail} />
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="entry-container">
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <input className="entry-input"
+                   type="text"
+                   placeholder="Email Address"
+                   {...userEmail} />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 }

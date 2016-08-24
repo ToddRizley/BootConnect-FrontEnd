@@ -21,7 +21,7 @@ class SignUpBox extends Component {
 
     const {fields: {fullName, email, city, state}, handleSubmit} = this.props;
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <form className="entry-input" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <div>
           <label>Full Name</label>
           <input type="text" placeholder="Full Name" {...fullName} />
