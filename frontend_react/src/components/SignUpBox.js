@@ -21,32 +21,49 @@ class SignUpBox extends Component {
 
     const {fields: {fullName, email, password, city, state}, handleSubmit} = this.props;
     return (
-      <form className="entry-input" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <div className="entry-container">
+      <form className="entry-input" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} onKeyUp={this.props.toggleCloseForm}>
         <div>
-          <label>Full Name</label>
-          <input type="text" placeholder="Full Name" {...fullName} />
+          <input className="entry-input-register"
+                 type="text"
+                 placeholder="Name"
+                 {...fullName} />
         </div>
         <div>
-          <label>Email</label>
-          <input type="email" id="userEmail" placeholder="Email" {...email}/>
+          <input className="entry-input-register"
+                 type="email"
+                 id="userEmail"
+                 placeholder="Email"
+                 {...email} />
         </div>
         <div>
-          <label>Your Pword</label>
-          <input type="password" id="userPassword" placeholder="Enter your Password" {...password}/>
+          <input className="entry-input-register"
+                 type="password"
+                 id="userPassword"
+                 placeholder="Password"
+                 {...password} />
         </div>
         <div>
-          <label>City</label>
-          <input type="city" id="userCity" placeholder="City" {...city}/>
-          <label>State</label>
-          <select {...state}>
+          <input className="entry-input-register"
+                 type="city"
+                 id="userCity"
+                 placeholder="City"
+                 {...city} />
+        </div>
+        <div >
+          <select className="entry-input-register"
+                  {...state} >
               {stateList.map( (state) => {
-               return (<option value={state}> {state} </option>)
-                })
+               return (
+                 <option value={state}> {state} </option>
+                )
+               })
               }
           </select>
         </div>
-        <input type="submit" value="Submit" />
+        <input hidden="hidden" type="submit" value="Submit" />
       </form>
+      </div>
     );
   }
 }

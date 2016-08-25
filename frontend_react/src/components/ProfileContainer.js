@@ -13,38 +13,48 @@ import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
 import NavbarContainer from './NavbarContainer'
 import SearchJobsContainer from './SearchJobs'
+import { Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 const Profile = class extends Component {
 
   render(){
     return(
-      <div>
-        <NavbarContainer currentUser={this.props.currentUser} />
-        <HeaderContainer currentUser={this.props.currentUser} />
-        <br/><br/>
-        <UserBioContainer currentUser={this.props.currentUser} />
-        <br/><br/>
-        <UserExperienceContainer currentUser={this.props.currentUser} />
-        <br/><br/>
-        <InterestList currentUser={this.props.currentUser}/>
-        <br/>
-        <InterestForm currentUser={this.props.currentUser} />
-        <br/><br/>
-        <JobForm currentUser={this.props.currentUser} />
-        <br/><br/>
-        <JobList currentUser={this.props.currentUser} />
-        <br/><br/>
-        <ArticleForm currentUser={this.props.currentUser} />
-        <br/><br/>
-        <ArticleList currentUser={this.props.currentUser} />
-        <br>
-        </br>
-        <br>
-        </br>
-        {/* <SearchUsersContainer users={this.props}/> */}
-        <SearchJobsContainer users={this.props}/>
+      <div className="profile-wrapper">
+        <Row>
+            <NavbarContainer currentUser={this.props.currentUser} />
+        </Row>
 
+        <Row>
+          <Col md={3} >
+            User Image
+          </Col>
+          <Col md={6} >
+            <HeaderContainer currentUser={this.props.currentUser} />
+          </Col>
+          <Col md={3} >
+            Organization
+          </Col>
+        </Row>
 
+        <Row>
+         <Col md={9} >
+          <UserBioContainer currentUser={this.props.currentUser} />
+          <UserExperienceContainer currentUser={this.props.currentUser} />
+         </Col>
+
+         <Col md={3}>
+          <InterestList currentUser={this.props.currentUser}/>
+          <InterestForm currentUser={this.props.currentUser} />
+         </Col>
+        </Row>
+
+        <Row>
+         <JobForm currentUser={this.props.currentUser} />
+         <JobList currentUser={this.props.currentUser} />
+         <ArticleForm currentUser={this.props.currentUser} />
+         <ArticleList currentUser={this.props.currentUser} />
+        </Row>
       </div>
     )
   }

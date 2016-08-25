@@ -20,9 +20,15 @@ const WelcomePage = class extends Component {
     this.setState({ register: true, login: false })
   }
 
+  toggleCloseForm(e){
+    if (e.keyCode === 27) {
+      this.setState({ register: false, login: false})
+    }
+  }
+
   render(){
     return(
-      <div className="splash">
+      <div className="splash" >
           <Row>
             <Col md={12} >
               <div id="splash-container">
@@ -30,17 +36,19 @@ const WelcomePage = class extends Component {
                 <div className="splash-left">
                   <Link className="splash-link"
                         to="#"
-                        onClick={this.toggleLogin.bind(this)}>
+                        onClick={this.toggleLogin.bind(this)}
+                        onKeyUp = {this.toggleCloseForm.bind(this)}>
                          Login </Link>
                 </div>
                 <div className="splash-right">
                   <Link className="splash-link"
                        to="#"
-                       onClick={this.toggleRegister.bind(this)}>
+                       onClick={this.toggleRegister.bind(this)}
+                       onKeyUp = {this.toggleCloseForm.bind(this)}>
                        Register</Link>
                   </div>
-                {this.state.register ? <div><SignUpBox /></div> : ''}
-                {this.state.login ? <div><SignInBox /></div> : ''}
+                {this.state.register ? <div><SignUpBox toggleCloseForm={this.toggleCloseForm.bind(this)} /></div> : ''}
+                {this.state.login ? <div><SignInBox toggleCloseForm={this.toggleCloseForm.bind(this)} /></div> : ''}
               </div>
             </Col>
           </Row>
