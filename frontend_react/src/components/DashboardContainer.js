@@ -23,7 +23,7 @@ import {Button} from 'react-bootstrap'
 const Dashboard = class extends Component {
   render(){
     return(
-      <div className="dashboard-wrapper">
+      <div className="profile-wrapper">
       <Row>
         <Col>
           <NavbarContainer currentUser={this.props.currentUser} />

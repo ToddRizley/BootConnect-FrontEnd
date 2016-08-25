@@ -16,7 +16,6 @@ const SearchUsers = class extends Component {
     this.props.fetchUsers.fetchUsers().then( (response)=> {
       var newState = response.payload.data.map( (user)=> { return user.attributes.location.city } )
       this.setState({locations: $.uniqueSort(newState)})
-
     })
     }
 
