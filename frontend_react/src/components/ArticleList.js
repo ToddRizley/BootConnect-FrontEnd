@@ -29,7 +29,7 @@ class Article extends Component {
           {this.props.articleList.articleList.map( (article)=> {
                   return( <tr>
                       <td>{article.attributes.title}</td>
-                      <td>{article.attributes.url}</td>
+                      <td><a href={"http://" + article.attributes.url} target="_blank">{article.attributes.url}</a></td>
                     </tr>)
                   }
                   )}

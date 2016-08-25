@@ -53,7 +53,7 @@ const SearchJobs = class extends Component {
                       <td>{job.attributes.title}</td>
                       <td>{job.attributes.company}</td>
                       <td>{job.attributes.location.city}</td>
-                      <td>{job.attributes.url}</td>
+                      <td><a href={"http://" + job.attributes.url} target="_blank">{job.attributes.url}</a></td>
                     </tr>)
                   }
                   )}
