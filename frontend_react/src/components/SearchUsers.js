@@ -30,17 +30,20 @@ const SearchUsers = class extends Component {
           return(<option>{location}</option>)
           }
         )}
+
         </select>
         <select id="filterTable-Distance" onChange={this.props.fetchUsersByDistance.fetchUsersByDistance.bind(this, this.props.currentUser.currentUser)} >
           <option>25 miles</option>
             <option>50 miles</option>
               <option>100 miles</option>
         </select>
+
         <ListGroup>
             {this.props.userList.userList.map( (user)=> {
+
               return (
                 <ListGroupItem href="#" header={user.attributes.name}>
-                  <strong>{user.attributes.company}</strong> - {user.attributes.position}
+                  <strong>{user.attributes.company}</strong> - {user.attributes.position} - {user.attributes.location.city}
                 </ListGroupItem>
               )}
             )}
