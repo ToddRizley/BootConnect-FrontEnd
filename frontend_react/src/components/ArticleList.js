@@ -19,6 +19,7 @@ class Article extends Component {
       <div>
         <ListGroup>
           {this.props.articleList.articleList.map( (article)=> {
+
             return(
               <ListGroupItem href="#" header={article.attributes.title}>
                 {article.attributes.url}
@@ -27,7 +28,8 @@ class Article extends Component {
           )}
         </ListGroup>
       </div>
-      )
+
+    )
   }
 }
 

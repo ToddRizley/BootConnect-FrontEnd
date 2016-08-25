@@ -14,7 +14,6 @@ export default function addArticle(props, currentUser) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
-    debugger
     return {
       type: 'ADD_ARTICLE',
       payload: response

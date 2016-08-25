@@ -16,6 +16,7 @@ export default function fetchFilteredUsers() {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
+
     return {
       type: 'FETCH_FILTERED_USERS',
       payload: response

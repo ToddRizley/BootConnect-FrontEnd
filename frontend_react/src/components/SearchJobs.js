@@ -32,31 +32,33 @@ const SearchJobs = class extends Component {
         return(<option>{location}</option>)
         }
       )}
-        </select>
-      <div>
-        <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-CityJobs">
-          <thead>
-            <tr>
-              <th data-priority="1">Position</th>
-              <th data-priority="2">Company</th>
-              <th data-priority="3">City</th>
-              <th data-priority="4">URL</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.jobList.jobList.map( (job)=> {
-                    return( <tr>
-                        <td>{job.attributes.title}</td>
-                        <td>{job.attributes.company}</td>
-                        <td>{job.attributes.location.city}</td>
-                        <td>{job.attributes.url}</td>
-                      </tr>)
-                    }
-                    )}
-          </tbody>
-        </table>
-      </div>
-      </div>
+
+  </select>
+    <div>
+      <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-CityJobs">
+        <thead>
+          <tr>
+            <th data-priority="1">Position</th>
+            <th data-priority="2">Company</th>
+            <th data-priority="3">City</th>
+            <th data-priority="4">URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.jobList.jobList.map( (job)=> {
+                  return( <tr>
+                      <td>{job.attributes.title}</td>
+                      <td>{job.attributes.company}</td>
+                      <td>{job.attributes.location.city}</td>
+                      <td><a href={"http://" + job.attributes.url} target="_blank">{job.attributes.url}</a></td>
+                    </tr>)
+                  }
+                  )}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
     )
   }
 }
