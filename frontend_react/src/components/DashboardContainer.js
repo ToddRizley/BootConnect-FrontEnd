@@ -20,6 +20,9 @@ import {Navbar} from 'react-bootstrap'
 import {NavItem} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 
+/* This container has a lot of responsibility -
+/  it is the primary container on the user's dashboard. */
+
 const Dashboard = class extends Component {
   render(){
     return(
