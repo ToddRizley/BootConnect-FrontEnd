@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchUsers from '../actions/fetchUsers'
 import fetchFilteredUsers from '../actions/fetchFilteredUsers'
+import fetchUsersByDistance from '../actions/fetchUsersByDistance'
 import $ from 'jquery'
 import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
@@ -45,6 +46,46 @@ const SearchUsers = class extends Component {
             )}
         </ListGroup>
     </div>
+
+
+    <select id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
+      {this.state.locations.map( (location)=> {
+        return(<option>{location}</option>)
+        }
+      )}
+  </select>
+  <select id="filterTable-Distance" onChange={this.props.fetchUsersByDistance.fetchUsersByDistance.bind(this, this.props.currentUser.currentUser)}>
+  <option>25 miles</option>
+  <option>50 miles</option>
+  <option>100 miles</option>
+  </select>
+    <div>
+      <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-City">
+        <thead>
+          <tr>
+            <th data-priority="1">Name</th>
+            <th data-priority="2">Company</th>
+            <th data-priority="3">Position</th>
+            <th data-priority="4">City</th>
+            <th data-priority="5">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.userList.userList.map( (user)=> {
+                  return( <tr>
+                      <td>{user.attributes.name}</td>
+                      <td>{user.attributes.company}</td>
+                      <td>{user.attributes.position}</td>
+                      <td>{user.attributes.location.city}</td>
+                      <td>{user.attributes["email-address"]}</td>
+                    </tr>)
+                  }
+                  )}
+
+        </tbody>
+      </table>
+    </div>
+
     )
   }
 }
@@ -57,6 +98,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return { fetchUsers: bindActionCreators({fetchUsers}, dispatch),
+          fetchUsersByDistance: bindActionCreators({fetchUsersByDistance}, dispatch),
           fetchFilteredUsers: bindActionCreators({fetchFilteredUsers}, dispatch)}
 }
 
