@@ -1,3 +1,4 @@
+/* Used for actions that concern the current user */
 export default function userReducer(state = {currentUser: ""}, action){
 
   switch(action.type){

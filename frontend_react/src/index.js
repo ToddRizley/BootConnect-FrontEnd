@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer'
 import {createStore, applyMiddleware} from 'redux';
