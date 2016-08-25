@@ -19,27 +19,49 @@ import {Nav} from 'react-bootstrap'
 import {Navbar} from 'react-bootstrap'
 import {NavItem} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
+import { Jumbotron } from 'react-bootstrap'
 
 const Dashboard = class extends Component {
+
   render(){
     return(
-      <div className="profile-wrapper">
-      <Row>
-        <Col>
-          <NavbarContainer currentUser={this.props.currentUser} />
+      <Row className="profile-wrapper">
+        <Col sm={2} md={2}>
         </Col>
-      </Row>
-       <Col md={4} >
-        <SearchJobsContainer currentUser={this.props.currentUser} />
-       </Col>
-       <Col md={4}>
-        <ArticleList currentUser={this.props.currentUser}/>
-       </Col>
-       <Col md={4}>
-        <SearchUsersContainer currentUser={this.props.currentUser}/>
+
+        <Col sm={8} md={8}>
+
+          <Row className="navbar-dash">
+            <Col sm={12} med={12}>
+              <NavbarContainer currentUser={this.props.currentUser} />
+            </Col>
+          </Row>
+
+          <Row className="navbar-dash">
+            <Col sm={12} med={12} className="dashboard-header-col">
+              <div className="dashboard-header">
+              <h2>Search for Alumni In Your Area</h2>
+              </div>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col sm= {7} md={7}>
+            </Col>
+
+            <Col sm= {3} md={3}>
+            <ArticleList currentUser={this.props.currentUser}/>
+            <SearchUsersContainer currentUser={this.props.currentUser}/>
+            <SearchJobsContainer currentUser={this.props.currentUser} />
+
+            </Col>
+          </Row>
        </Col>
 
-      </div>
+       <Col sm={2} md={2}>
+       </Col>
+    </Row>
+
     )
   }
 }
