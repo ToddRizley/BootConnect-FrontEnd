@@ -105,7 +105,7 @@ a.splash-link {
   margin : 0 auto;
   position: fixed;
   left: 0;
-  top: 15vw;
+  top: 5vw;
   width: 100vw;
   height: 10vw;
 }
@@ -120,12 +120,103 @@ a.splash-link {
   margin : 0 auto;
   position: relative;
   left: 0;
-  top: 1vw;
+  top: 200;
   width: 100vw;
   height: 7vw;
 }
 
 .entry-input-register:focus {
-    font-size: 25px;
-    color: #eee;
+  font-size: 25px;
+  color: #eee;
+}
+
+.header-container {
+  background-color: #fff;
+}
+
+.nav-bar-right {
+  float:right;
+}
+
+.user-profile-image {
+  width: 7em;
+  height: 7em;
+
+}
+
+.user-organization-image {
+  width: 10em;
+  height: 10em;
+}
+
+input.header-container {
+  border-width:0px;
+  border:none;
+  font-size: 1.2em;
+  height: 1.4em;
+  width: 100%;
+}
+
+textarea.bio {
+  width: 90%;
+  height: 200px;
+  background-color: #fff;
+  text-align: left;
+  padding: 10, 10, 10, 10;
+  border: 0px;
+  font-size: 1.1em;
+}
+
+textarea.exp {
+  width: 90%;
+  height: 200px;
+  background-color: #fff;
+  text-align: left;
+  padding: 10, 10, 10, 10;
+  border: 0px;
+  font-size: 1.1em;
+}
+
+.bio-save{
+  width: 100%;
+  height: 2em;
+  font-size: 1em;
+  color: #000;
+  background-color: #999;
+}
+
+.exp-save{
+  width: 100%;
+  height: 2em;
+  font-size: 1em;
+  color: #000;
+  background-color: #999;
+}
+
+h3.profile-header {
+  font-size: 1.8em;
+  padding-top: 0;
+}
+
+.user-profile-save {
+  border-width:0px;
+  border:none;
+  font-size: 1em;
+  background-color: #C0D9AF;
+  color: #fff;
+  width: 90%;
+  padding: 10px;
+}
+ul {
+  font-size: 1.2em;
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+li {
+  /*padding-left: 0px;*/
+}
+
+.interest-block {
+
 }

@@ -16,7 +16,6 @@ const DumbUserBioContainer = class extends Component {
 
     return(
       <div className="user-bio-container">
-        UserBioContainer
         <UserBioForm currentUser={this.props.currentUser}
           {...initialValues}
         />

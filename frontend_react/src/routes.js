@@ -4,18 +4,13 @@ import AppContainer from './App'
 import SignInBox from './components/SignInBox'
 import SignUpBox from './components/SignUpBox'
 import ProfileContainer from './components/ProfileContainer'
-
-
-
+import DashboardContainer from './components/DashboardContainer'
 
 
 export default (
   <Route>
     <Route path="/" component={AppContainer} />
-    <Route path="/signin" component={SignInBox} />
-    <Route path="/signup" component={SignUpBox} />
     <Route path="/profile" component={ProfileContainer} />
-    {/* <Route path="/search_users" component={SearchUsers} />
-    <Route path="/search_jobs" component={SearchJobs} /> */}
+    <Route path="/dashboard" component={DashboardContainer} />
   </Route>
   );

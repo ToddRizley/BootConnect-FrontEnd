@@ -18,7 +18,6 @@ class SignUpBox extends Component {
   }
 
   render() {
-
     const {fields: {fullName, email, password, city, state}, handleSubmit} = this.props;
     return (
       <div className="entry-container">

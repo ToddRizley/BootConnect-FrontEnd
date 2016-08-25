@@ -7,11 +7,11 @@ class Interest extends Component {
     var interests = this.props.currentUser.currentUser.attributes.interests
     return(
       <div>
-        Interest List..
+      <h3 className="profile-header">Interests</h3>
         <ul>
         { interests.map( (interest) => {
           let counter = 0
-          return <li> {interest.name} </li>
+          return <li> <div className="interest-block"> {interest.name} </div> </li>
           })
         }
         </ul>

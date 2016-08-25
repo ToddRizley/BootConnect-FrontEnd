@@ -1,7 +1,6 @@
 import $ from 'jquery'
 
 export default function fetchFilteredUsers() {
-  debugger
   if (document.getElementById("filterTable-City").value) {
     var city = document.getElementById("filterTable-City").value
   } else {

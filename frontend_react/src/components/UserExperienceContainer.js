@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -16,7 +17,6 @@ const UserExpCont = class extends Component {
 
     return(
       <div className="user-exp-container">
-        UserExperienceContainer
         <UserExperienceForm currentUser={this.props.currentUser}
           {...initialValues}
         />
