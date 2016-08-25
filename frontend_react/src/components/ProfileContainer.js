@@ -25,7 +25,8 @@ const Profile = class extends Component {
   render(){
     return(
       <Row className="profile-wrapper">
-        <Col sm={2} md={2}> </Col>
+        <Col sm={2} md={2}>
+        </Col>
 
         <Col sm={8} md={8}>
           <Row>

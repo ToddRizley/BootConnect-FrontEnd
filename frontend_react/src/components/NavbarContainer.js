@@ -11,7 +11,7 @@ import { Router, Route, Link } from 'react-router'
 
 const NavbarContainer = class extends Component {
   render(){
-    debugger
+
     return(
       <Navbar inverse>
         <Navbar.Header>
