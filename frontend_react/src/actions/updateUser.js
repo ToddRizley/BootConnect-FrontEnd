@@ -19,7 +19,6 @@ export default function updateUser(props, currentUser) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
-    debugger
     return {
       type: 'UPDATE_USER',
       payload: response

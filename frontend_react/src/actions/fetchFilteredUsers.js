@@ -7,7 +7,6 @@ export default function fetchFilteredUsers() {
     var city = ""
   }
   const URL = 'http://localhost:3000/api/v1/locations/' + city
-  debugger
   return $.ajax({
     url:URL,
     type:"GET",
@@ -17,7 +16,7 @@ export default function fetchFilteredUsers() {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
-    debugger
+
     return {
       type: 'FETCH_FILTERED_USERS',
       payload: response

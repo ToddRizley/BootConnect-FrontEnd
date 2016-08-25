@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchUsers from '../actions/fetchUsers'
 import fetchFilteredUsers from '../actions/fetchFilteredUsers'
+import fetchUsersByDistance from '../actions/fetchUsersByDistance'
 import $ from 'jquery'
 
 
@@ -33,7 +34,7 @@ const SearchUsers = class extends Component {
         }
       )}
   </select>
-  <select id="filterTable-Distance" >
+  <select id="filterTable-Distance" onChange={this.props.fetchUsersByDistance.fetchUsersByDistance.bind(this, this.props.currentUser.currentUser)}>
   <option>25 miles</option>
   <option>50 miles</option>
   <option>100 miles</option>
@@ -78,6 +79,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return { fetchUsers: bindActionCreators({fetchUsers}, dispatch),
+          fetchUsersByDistance: bindActionCreators({fetchUsersByDistance}, dispatch),
           fetchFilteredUsers: bindActionCreators({fetchFilteredUsers}, dispatch)}
 }
 

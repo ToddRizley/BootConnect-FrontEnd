@@ -6,8 +6,8 @@ export default function allUsersReducer(state = {userList: []}, action){
       return { userList: action.payload.data };
     case 'FETCH_FILTERED_USERS':
       return { userList: action.payload.data};
-    case 'FETCH_FILTERED_USER_LOCATIONS':
-      return {userList: action.payload.data};
+    case 'FETCH_USERS_BY_DISTANCE':
+      return { userList: action.payload.data};
     default:
       return state
   }
