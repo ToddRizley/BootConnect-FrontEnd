@@ -7,9 +7,9 @@ import UserExperienceForm from './UserExperienceForm'
 const UserExpCont = class extends Component {
 
   render(){
-    var userExperience = this.props.currentUser.currentUser.attributes.experience || ''
+    const userExperience = this.props.currentUser.currentUser.attributes.experience || ''
 
-    var initialValues = {
+    const initialValues = {
       initialValues: {
         experience: userExperience
       }

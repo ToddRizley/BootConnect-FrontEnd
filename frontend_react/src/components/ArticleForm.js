@@ -8,7 +8,7 @@ class ArticleForm extends Component {
     super(props)
     this.state = {enabled: false}
   }
-
+  /* Most article elements are displayed conditionally based on local state */
   toggleState(){
     this.setState({
       enabled: !this.state.enabled
@@ -30,10 +30,11 @@ class ArticleForm extends Component {
 
   render() {
     const {fields: {title, url}, handleSubmit} = this.props;
-    var titleInput = this.state.enabled ? <input type="textarea" placeholder="Add Title" {...title} /> : <input disabled="disabled" type="textarea" placeholder="Add Title" {...title} />
-    var urlInput = this.state.enabled ? <input type="textarea" placeholder="Add Link" {...url} /> : <input disabled="disabled" type="textarea" placeholder="Add Link" {...url} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
 
+    const titleInput = this.state.enabled ? <input type="textarea" placeholder="Add Title" {...title} /> : <input disabled="disabled" type="textarea" placeholder="Add Title" {...title} />
+    const urlInput = this.state.enabled ? <input type="textarea" placeholder="Add Link" {...url} /> : <input disabled="disabled" type="textarea" placeholder="Add Link" {...url} />
+    const submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
+    /* Once a user clicks the Article element, the optional elements are displayed*/
     return (
       <div className="header">
       {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Add Article</button>}

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import Interest from './Interest.js'
 import InterestForm from './InterestForm'
 
-//container for list of interests & form
+/* Is this a necessary component? */
 
 const UserInterests = class extends Component {
   //map through user interests and render each individual itnerest
