@@ -84,15 +84,14 @@ a.splash-link {
 }
 
 .entry-container {
-    position:fixed;
-    padding:0;
-    margin:0 auto;
-    top:0;
-    left:0;
-
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+  position:fixed;
+  padding:0;
+  margin:0 auto;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .entry-input {
@@ -198,6 +197,21 @@ h3.profile-header {
   padding-top: 0;
 }
 
+h3.dashboard-header {
+  text-align: center;
+  font-size: 2.0em;
+}
+
+
+
+h3.dashboard-block-header {
+  text-align: left;
+  font-size: 1.8em;
+  padding-left: 15px;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
 .user-profile-save {
   border-width:0px;
   border:none;
@@ -213,10 +227,59 @@ ul {
   padding-left: 0px;
 }
 
-li {
-  /*padding-left: 0px;*/
+.dashboard-left-feature {
+  background-color: #eee;
 }
 
-.interest-block {
+.dashboard-header {
+  width: 100%;
+  background-color: #eee;
+  margin: 0;
+  outline: 0;
+  border-radius: 25px;
+  padding: 20px;
+  text-align: center;
+}
 
+.dashboard-header-col {
+  padding-top: 0;
+  margin: 0;
+}
+
+.dash-head {
+  background-color: #eee;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.0em;
+  border-bottom-left-radius: 0.0em;
+}
+
+.dashboard-block {
+  background-color: #eee;
+  padding-top: 1em;
+  margin-top: 1em;
+}
+
+.search-user-table {
+  width: 100%;
+  border: 0px;
+}
+
+.small-user-profile-img {
+    width: 25px;
+    height: 25px;
+}
+
+#filterTable-Distance {
+  width: 100%;
+  font-size: 1em;
 }

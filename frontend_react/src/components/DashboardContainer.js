@@ -6,7 +6,7 @@ import UserBioContainer from './UserBioContainer'
 import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
-import JobForm from './JobForm'
+import JobForm from './jobForm'
 import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
@@ -19,27 +19,53 @@ import {Nav} from 'react-bootstrap'
 import {Navbar} from 'react-bootstrap'
 import {NavItem} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
+import { Well } from 'react-bootstrap'
+
+/* This container has a lot of responsibility -
+/  it is the primary container on the user's dashboard. */
 
 const Dashboard = class extends Component {
+
   render(){
     return(
-      <div className="dashboard-wrapper">
-      <Row>
-        <Col>
-          <NavbarContainer currentUser={this.props.currentUser} />
+      <Row className="profile-wrapper">
+        <Col sm={2} md={2}>
         </Col>
-      </Row>
-       <Col md={4} >
-        <SearchJobsContainer currentUser={this.props.currentUser} />
-       </Col>
-       <Col md={4}>
-        <ArticleList currentUser={this.props.currentUser}/>
-       </Col>
-       <Col md={4}>
-        <SearchUsersContainer currentUser={this.props.currentUser}/>
+
+        <Col sm={8} md={8}>
+
+          <Row>
+            <Col sm={12} med={12}>
+              <NavbarContainer currentUser={this.props.currentUser} />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col sm={12} med={12}>
+              <Well bsClass="dash-head"><h2>Connect To The Boot</h2></Well>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col sm= {9} md={9}>
+              <div className="dashboard-block">
+                <h3 className="dashboard-block-header"> Search Alumni By Location </h3>
+                <SearchUsersContainer currentUser={this.props.currentUser}/>
+              </div>
+            </Col>
+
+            <Col sm= {3} md={3}>
+            <ArticleList currentUser={this.props.currentUser}/>
+            <SearchJobsContainer currentUser={this.props.currentUser} />
+
+            </Col>
+          </Row>
        </Col>
 
-      </div>
+       <Col sm={2} md={2}>
+       </Col>
+    </Row>
+
     )
   }
 }

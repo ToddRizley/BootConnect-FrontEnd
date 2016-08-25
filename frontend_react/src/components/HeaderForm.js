@@ -14,13 +14,14 @@ class HeaderForm extends Component {
       disabled: !this.state.disabled
     })
   }
-
+  /* Toggles the edit/no-edit state for the header */
   handleFormSubmit(props) {
     event.preventDefault()
     this.setState({
       disabled: !this.state.disabled
     })
 
+    /* Pushing back to profile to enforce persistence */
     this.props.updateUser(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')

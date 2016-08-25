@@ -27,15 +27,12 @@ const SearchJobs = class extends Component {
 
     return(
       <div>
-    <div data-role="header">
-      <h1>Search Jobs</h1>
-    </div>
-
-    <select id="filterTable-CityJobs" onChange={this.props.fetchFilteredJobs.fetchFilteredJobs}>
+        <select id="filterTable-CityJobs" onChange={this.props.fetchFilteredJobs.fetchFilteredJobs}>
       {this.state.locations.map( (location)=> {
         return(<option>{location}</option>)
         }
       )}
+
   </select>
     <div>
       <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-CityJobs">
@@ -61,6 +58,7 @@ const SearchJobs = class extends Component {
       </table>
     </div>
   </div>
+
     )
   }
 }

@@ -5,6 +5,8 @@ import fetchUsers from '../actions/fetchUsers'
 import fetchFilteredUsers from '../actions/fetchFilteredUsers'
 import fetchUsersByDistance from '../actions/fetchUsersByDistance'
 import $ from 'jquery'
+import { ListGroup } from 'react-bootstrap'
+import { ListGroupItem } from 'react-bootstrap'
 
 
 const SearchUsers = class extends Component {
@@ -17,16 +19,34 @@ const SearchUsers = class extends Component {
     this.props.fetchUsers.fetchUsers().then( (response)=> {
       var newState = response.payload.data.map( (user)=> { return user.attributes.location.city } )
       this.setState({locations: $.uniqueSort(newState)})
-
     })
     }
 
   render(){
     return(
       <div>
-    <div data-role="header">
-      <h1>Search Alumni</h1>
+      <select id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
+        {this.state.locations.map( (location)=> {
+          return(<option>{location}</option>)
+          }
+        )}
+        </select>
+        <select id="filterTable-Distance" >
+          <option>25 miles</option>
+            <option>50 miles</option>
+              <option>100 miles</option>
+        </select>
+        <ListGroup>
+            {this.props.userList.userList.map( (user)=> {
+              return (
+                <ListGroupItem href="#" header={user.attributes.name}>
+                  <strong>{user.attributes.company}</strong> - {user.attributes.position}
+                </ListGroupItem>
+              )}
+            )}
+        </ListGroup>
     </div>
+
 
     <select id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
       {this.state.locations.map( (location)=> {
@@ -65,13 +85,12 @@ const SearchUsers = class extends Component {
         </tbody>
       </table>
     </div>
-  </div>
+
     )
   }
 }
 
-
- const SearchUsersContainer = connect(mapStateToProps, mapDispatchToProps)(SearchUsers)
+const SearchUsersContainer = connect(mapStateToProps, mapDispatchToProps)(SearchUsers)
 
 function mapStateToProps(state) {
   return {userList: state.userList}

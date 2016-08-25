@@ -6,7 +6,7 @@ import UserBioContainer from './UserBioContainer'
 import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
-import JobForm from './JobForm'
+import JobForm from './jobForm'
 import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
@@ -25,7 +25,8 @@ const Profile = class extends Component {
   render(){
     return(
       <Row className="profile-wrapper">
-        <Col sm={2} md={2}> </Col>
+        <Col sm={2} md={2}>
+        </Col>
 
         <Col sm={8} md={8}>
           <Row>
