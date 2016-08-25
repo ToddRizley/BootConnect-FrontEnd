@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchJobs from '../actions/fetchJobs'
@@ -13,7 +13,6 @@ const SearchJobs = class extends Component {
 
 
   componentWillMount() {
-
     this.props.fetchJobs.fetchJobs().then( (response)=> {
       var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
       this.setState({locations: $.uniqueSort(newState)})

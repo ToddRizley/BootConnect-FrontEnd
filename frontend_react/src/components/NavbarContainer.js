@@ -11,6 +11,7 @@ import { Router, Route, Link } from 'react-router'
 
 const NavbarContainer = class extends Component {
   render(){
+    debugger
     return(
       <Navbar inverse>
         <Navbar.Header>
@@ -21,9 +22,9 @@ const NavbarContainer = class extends Component {
         <Navbar.Collapse>
           <Nav>
             <NavItem eventKey={1} href="#"><Link to="/dashboard">Dashboard</Link></NavItem>
-            <NavItem eventKey={1} href="#"><Link to="/profile">My Profile</Link></NavItem>
-            <NavItem eventKey={2} href="#">About</NavItem>
-            <NavItem eventKey={3} href="#">Contact</NavItem>
+            <NavItem eventKey={2} href="#"><Link to="/profile">My Profile</Link></NavItem>
+            <NavItem eventKey={3} href="#">About</NavItem>
+            <NavItem eventKey={4} href="#">Contact</NavItem>
           </Nav>
           <Nav>
              { this.props.currentUser.currentUser.attributes.name
