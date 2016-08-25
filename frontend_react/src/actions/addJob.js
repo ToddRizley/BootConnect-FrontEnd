@@ -1,3 +1,4 @@
+/* what is this doing? */
 import $ from 'jquery'
 
 export default function addJob(props, currentUser) {

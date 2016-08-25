@@ -6,7 +6,7 @@ import UserBioContainer from './UserBioContainer'
 import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
-import JobForm from './JobForm'
+import JobForm from './jobForm'
 import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
@@ -19,6 +19,9 @@ import {Nav} from 'react-bootstrap'
 import {Navbar} from 'react-bootstrap'
 import {NavItem} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
+
+/* This container has a lot of responsibility -
+/  it is the primary container on the user's dashboard. */
 
 const Dashboard = class extends Component {
   render(){
