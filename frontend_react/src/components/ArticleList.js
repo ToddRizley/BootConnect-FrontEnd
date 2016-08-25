@@ -6,11 +6,12 @@ import fetchArticles from '../actions/fetchArticles'
 
 class Article extends Component {
 
-  // componentWillMount() {
-  //   this.props.fetchArticles.fetchArticles()
-  //
-  //   }
+  componentWillMount() {
+    this.props.fetchArticles.fetchArticles()
+
+    }
   render(){
+    debugger
     return(
   <div>
     <div data-role="header">
@@ -26,13 +27,13 @@ class Article extends Component {
           </tr>
         </thead>
         <tbody>
-          {/* {this.props.articleList.articleList.map( (article)=> {
+          {this.props.articleList.articleList.map( (article)=> {
                   return( <tr>
                       <td>{article.attributes.title}</td>
-                      <td>{articl.attributes.url}</td>
+                      <td>{article.attributes.url}</td>
                     </tr>)
                   }
-                  )} */}
+                  )}
 
         </tbody>
       </table>
@@ -45,7 +46,7 @@ class Article extends Component {
 const ArticleList = connect(mapStateToProps, mapDispatchToProps)(Article)
 
 function mapStateToProps(state) {
-  return {currentUser: state.currentUser, articleList: state.articleList}
+  return {articleList: state.articleList}
 }
 
 function mapDispatchToProps(dispatch) {
