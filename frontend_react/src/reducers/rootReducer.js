@@ -4,6 +4,7 @@ import userReducer from './userReducer'
 import interestReducer from './interestReducer'
 import locationReducer from './locationReducer'
 import allUsersReducer from './allUsersReducer'
+import articleReducer from './articleReducer'
 import jobReducer from './jobReducer'
 
 const reducers = {
@@ -11,7 +12,8 @@ const reducers = {
   currentUser: userReducer,
   locationInfo: locationReducer,
   jobList: jobReducer,
-  userList: allUsersReducer
+  userList: allUsersReducer,
+  articleList: articleReducer
       // <---- Mounted at 'form'. See note below.
 }
 

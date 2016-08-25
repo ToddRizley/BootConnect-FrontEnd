@@ -23,7 +23,23 @@ import {Button} from 'react-bootstrap'
 const Dashboard = class extends Component {
   render(){
     return(
-      <div/>
+      <div className="dashboard-wrapper">
+      <Row>
+        <Col>
+          <NavbarContainer currentUser={this.props.currentUser} />
+        </Col>
+      </Row>
+       <Col md={4} >
+        <SearchJobsContainer currentUser={this.props.currentUser} />
+       </Col>
+       <Col md={4}>
+        <ArticleList currentUser={this.props.currentUser}/>
+       </Col>
+       <Col md={4}>
+        <SearchUsersContainer currentUser={this.props.currentUser}/>
+       </Col>
+
+      </div>
     )
   }
 }
