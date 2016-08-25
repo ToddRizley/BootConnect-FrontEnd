@@ -11,7 +11,6 @@ class Article extends Component {
 
     }
   render(){
-    debugger
     return(
   <div>
     <div data-role="header">
