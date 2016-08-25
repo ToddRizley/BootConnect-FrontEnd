@@ -29,7 +29,6 @@ const Dashboard = class extends Component {
           <NavbarContainer currentUser={this.props.currentUser} />
         </Col>
       </Row>
-      <Row>
        <Col md={4} >
         <SearchJobsContainer currentUser={this.props.currentUser} />
        </Col>
@@ -37,9 +36,8 @@ const Dashboard = class extends Component {
         <ArticleList currentUser={this.props.currentUser}/>
        </Col>
        <Col md={4}>
-        <JobList currentUser={this.props.currentUser}/>
+        <SearchUsersContainer currentUser={this.props.currentUser}/>
        </Col>
-      </Row>
 
       </div>
     )
