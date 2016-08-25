@@ -18,8 +18,6 @@ export default function userReducer(state = {currentUser: ""}, action){
       return {currentUser: action.payload.data}
     case 'FETCH_USER_JOBS':
       return {currentUser: action.payload.data};
-    case 'FETCH_ARTICLES':
-      return {currentUser: action.payload.data};
     case 'REMOVE_ARTICLE':
       return {currentUser: action.payload.data};
     case 'REMOVE_JOB':
