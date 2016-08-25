@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import removeArticle from '../actions/removeArticle.js'
 import fetchArticles from '../actions/fetchArticles'
+import { ListGroup } from 'react-bootstrap'
+import { ListGroupItem } from 'react-bootstrap'
+
 
 class Article extends Component {
   /* Updates store.articlesList with all articles currently in database.
@@ -12,34 +15,19 @@ class Article extends Component {
     }
 
   render(){
-    return(
-  <div>
-    <div data-role="header">
-      <h1>Articles...</h1>
-    </div>
-
-    <div>
-      <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" >
-        <thead>
-          <tr>
-            <th data-priority="1">Title</th>
-            <th data-priority="2">URL</th>
-          </tr>
-        </thead>
-        <tbody>
+      return(
+      <div>
+        <ListGroup>
           {this.props.articleList.articleList.map( (article)=> {
-                  return( <tr>
-                      <td>{article.attributes.title}</td>
-                      <td>{article.attributes.url}</td>
-                    </tr>)
-                  }
-                  )}
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-    )
+            return(
+              <ListGroupItem href="#" header={article.attributes.title}>
+                {article.attributes.url}
+              </ListGroupItem>
+            )}
+          )}
+        </ListGroup>
+      </div>
+      )
   }
 }
 

@@ -6,7 +6,7 @@ import UserBioContainer from './UserBioContainer'
 import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
-import JobForm from './jobForm'
+import JobForm from './JobForm'
 import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
@@ -20,9 +20,6 @@ import {Navbar} from 'react-bootstrap'
 import {NavItem} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 import { Well } from 'react-bootstrap'
-
-/* This container has a lot of responsibility -
-/  it is the primary container on the user's dashboard. */
 
 const Dashboard = class extends Component {
 
@@ -49,15 +46,20 @@ const Dashboard = class extends Component {
           <Row>
             <Col sm= {9} md={9}>
               <div className="dashboard-block">
-                <h3 className="dashboard-block-header"> Search Alumni By Location </h3>
+                <h3 className="dashboard-block-head"> Alumni By City</h3>
                 <SearchUsersContainer currentUser={this.props.currentUser}/>
+                <SearchJobsContainer currentUser={this.props.currentUser} />
+
               </div>
             </Col>
 
             <Col sm= {3} md={3}>
-            <ArticleList currentUser={this.props.currentUser}/>
-            <SearchJobsContainer currentUser={this.props.currentUser} />
-
+              <div className="dashboard-block">
+                <h3 className="dashboard-block-head"> Articles </h3>
+                  <ArticleForm currentUser={this.props.currentUser}/>
+                  <ArticleList currentUser={this.props.currentUser}/>
+                  <JobList currentUser={this.props.currentUser} />
+              </div>
             </Col>
           </Row>
        </Col>

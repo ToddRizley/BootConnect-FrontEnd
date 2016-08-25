@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import removeJob from '../actions/removeJob'
+import { ListGroup } from 'react-bootstrap'
+import { ListGroupItem } from 'react-bootstrap'
 
 class Job extends Component {
 
@@ -12,20 +14,18 @@ class Job extends Component {
 
 
     const jobsList = jobs.map( (job) => {
-      return(<li>{job.title}></li>)
+      return(<ListGroupItem href="#" header={job.title}>{job.company}></ListGroupItem>)
     })
 
     return(
         <div>
-          Job List...
-          <ul>
+          <ListGroup>
             {jobsList}
-          </ul>
+          </ListGroup>
         </div>
       )
   }
 }
-
 
 const JobList = connect(mapStateToProps, mapDispatchToProps)(Job)
 

@@ -24,17 +24,20 @@ const SearchUsers = class extends Component {
   render(){
     return(
       <div>
-      <select id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
-        {this.state.locations.map( (location)=> {
-          return(<option>{location}</option>)
-          }
-        )}
-        </select>
-        <select id="filterTable-Distance" >
-          <option>25 miles</option>
-            <option>50 miles</option>
-              <option>100 miles</option>
-        </select>
+        <div className="filter-select-container">
+        <select className="filter-selected" id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
+          {this.state.locations.map( (location)=> {
+            return(<option>{location}</option>)
+            }
+          )}
+          </select>
+          <select className="filter-selected" id="filterTable-Distance" >
+            <option>25 miles</option>
+              <option>50 miles</option>
+                <option>100 miles</option>
+          </select>
+          </div>
+
         <ListGroup>
             {this.props.userList.userList.map( (user)=> {
               return (
