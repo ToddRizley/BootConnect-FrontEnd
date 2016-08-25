@@ -34,29 +34,31 @@ class HeaderForm extends Component {
     const {fields: {name, location, position, company}, handleSubmit} = this.props;
     return (
       <div className="header-form-display">
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+        <form onDoubleClick={this.toggleState.bind(this)}
+              onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 
-          <input disabled={disabled}
+          <input className="header-container"
+            disabled={disabled}
             type="textarea"
             placeholder="Full Name"
-            {...name} />
-          <input disabled={disabled}
+            {...name} /><br/>
+          <input className="header-container"
+            disabled={disabled}
             type="textarea"
             placeholder="Location"
-            {...location} />
-          <input disabled={disabled}
+            {...location} /><br/>
+          <input className="header-container"
+            disabled={disabled}
             type="textarea"
             placeholder="Add Current Employer"
-            {...company} />
-          <input disabled={disabled}
+            {...company} /><br/>
+          <input className="header-container"
+            disabled={disabled}
             type="textarea"
             placeholder="Add Position"
             {...position} />
-
-          { this.state.disabled
-            ? <button onClick={this.toggleState.bind(this)}>Edit</button>
-            : <input type="submit" value="Save" />
-          }
+          <br/>
+          { this.state.disabled ? '' : <input className="user-profile-save " type="submit" value="Save" /> }
         </form>
       </div>
     );

@@ -13,39 +13,56 @@ import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
 import NavbarContainer from './NavbarContainer'
 import SearchJobsContainer from './SearchJobs'
+import { Row } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
+import {Nav} from 'react-bootstrap'
+import {Navbar} from 'react-bootstrap'
+import {NavItem} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 
 const Profile = class extends Component {
 
   render(){
     return(
-      <div>
-        <NavbarContainer currentUser={this.props.currentUser} />
-        <HeaderContainer currentUser={this.props.currentUser} />
-        <br/><br/>
-        <UserBioContainer currentUser={this.props.currentUser} />
-        <br/><br/>
-        <UserExperienceContainer currentUser={this.props.currentUser} />
-        <br/><br/>
-        <InterestList currentUser={this.props.currentUser}/>
-        <br/>
-        <InterestForm currentUser={this.props.currentUser} />
-        <br/><br/>
-        <JobForm currentUser={this.props.currentUser} />
-        <br/><br/>
-        <JobList currentUser={this.props.currentUser} />
-        <br/><br/>
-        <ArticleForm currentUser={this.props.currentUser} />
-        <br/><br/>
-        <ArticleList currentUser={this.props.currentUser} />
-        <br>
-        </br>
-        <br>
-        </br>
-        {/* <SearchUsersContainer users={this.props}/> */}
-        <SearchJobsContainer users={this.props}/>
+      <Row className="profile-wrapper">
+        <Col sm={2} md={2}> </Col>
 
+        <Col sm={8} md={8}>
+          <Row>
+            <Col>
+              <NavbarContainer currentUser={this.props.currentUser} />
+            </Col>
+          </Row>
 
-      </div>
+          <Row>
+            <Col sm={2} md={2} className="header-container" >
+              <img className="user-profile-image"
+                   src={"http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg"} />
+            </Col>
+            <Col sm={7} md={7} >
+              <HeaderContainer currentUser={this.props.currentUser} />
+            </Col>
+            <Col sm={3} md={3} >
+              <img className="user-organization-image"
+                   src={"https://avatars0.githubusercontent.com/u/2180076?v=3&s=200"} />
+            </Col>
+          </Row>
+
+          <Row>
+           <Col className="header-container" md={9} >
+            <UserBioContainer currentUser={this.props.currentUser} />
+            <UserExperienceContainer currentUser={this.props.currentUser} />
+           </Col>
+
+           <Col md={3}>
+            <InterestList currentUser={this.props.currentUser}/>
+            <InterestForm currentUser={this.props.currentUser} />
+           </Col>
+          </Row>
+        </Col>
+
+        <Col sm={2} md={2}> </Col>
+      </Row>
     )
   }
 }

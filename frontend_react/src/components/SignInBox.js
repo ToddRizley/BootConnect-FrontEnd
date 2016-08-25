@@ -12,10 +12,11 @@ class SignInBox extends Component {
   }
 
   render() {
+
     const {fields: {userEmail}, handleSubmit} = this.props;
     return (
       <div className="entry-container">
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} onKeyUp={this.props.toggleCloseForm}>
             <input className="entry-input"
                    type="text"
                    placeholder="Email Address"

@@ -23,12 +23,13 @@ const NavbarContainer = class extends Component {
             <NavItem eventKey={2} href="#">About</NavItem>
             <NavItem eventKey={3} href="#">Contact</NavItem>
           </Nav>
+          <Nav>
+             { this.props.currentUser.currentUser.attributes.name
+               ? <Navbar.Text> Sign Out | Welcome   </Navbar.Text>
+               : ''
+             }
 
-          <Navbar.Text pullRight> Sign Out </Navbar.Text>
-          <Navbar.Text pullRight> | </Navbar.Text>
-          <Navbar.Text pullRight> Welcome {this.props.currentUser.currentUser.attributes.name} </Navbar.Text>
-
-
+          </Nav>
         </Navbar.Collapse>
     </Navbar>
     )

@@ -1,5 +1,5 @@
 const stateList = [
-" ",
+"State",
 "AL",
 "AK",
 "AZ",
@@ -8,6 +8,7 @@ const stateList = [
 "CO",
 "CT",
 "DE",
+"DC",
 "FL",
 "GA",
 "HI",
