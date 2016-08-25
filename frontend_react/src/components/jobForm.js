@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import addJob from '../actions/addJob.js'
+import fetchCurrentUser from '../actions/fetchCurrentUser'
 
 class JobForm extends Component {
 
@@ -19,8 +20,8 @@ class JobForm extends Component {
     event.preventDefault()
 
     this.props.addJob(props, this.props.currentUser).then( ()=>{
-      var router = require('react-router')
-      router.browserHistory.push('/profile')
+      debugger
+      this.props.fetchCurrentUser(this.props.currentUser)
     })
   }
 
@@ -55,4 +56,4 @@ function mapStateToProps(state) {
 export default reduxForm({
   form: 'JobForm',
   fields: ['title', 'description', 'url', 'location']
-}, null, { addJob })(JobForm);
+}, null, { addJob, fetchCurrentUser })(JobForm);
