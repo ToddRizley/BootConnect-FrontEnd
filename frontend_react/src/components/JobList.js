@@ -5,21 +5,24 @@ import removeJob from '../actions/removeJob'
 
 class Job extends Component {
 
+
   render(){
     let jobs = this.props.currentUser.currentUser.attributes.jobs
     debugger
 
+
+    const jobsList = jobs.map( (job) => {
+      return(<li>{job.title}></li>)
+    })
+
     return(
-      <div>
-        Job List
-        <ul>
-          { jobs.map( (job) => {
-            return
-            <li>{job.title} {job.description} {job.url} {job.location.city}<button onClick={this.props.removeJob.removeJob.bind(this)} className="delete">X</button> </li>
-          })}
-        </ul>
-      </div>
-    )
+        <div>
+          Job List...
+          <ul>
+            {jobsList}
+          </ul>
+        </div>
+      )
   }
 }
 
@@ -35,3 +38,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default JobList
+
+
+
+// {job.title} {job.description} {job.url} {job.location.city}<button>X</button>
