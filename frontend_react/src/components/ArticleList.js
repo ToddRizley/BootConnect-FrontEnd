@@ -5,11 +5,12 @@ import removeArticle from '../actions/removeArticle.js'
 import fetchArticles from '../actions/fetchArticles'
 
 class Article extends Component {
-
+  /* Updates store.articlesList with all articles currently in database.
+  / Store.articlesList is is then mapped to props */
   componentWillMount() {
     this.props.fetchArticles.fetchArticles()
-
     }
+
   render(){
     debugger
     return(
