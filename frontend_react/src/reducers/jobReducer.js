@@ -3,7 +3,9 @@ export default function jobReducer(state = {jobList: []}, action){
     case 'FETCH_JOBS':
       return { jobList: action.payload.data };
     case 'FETCH_FILTERED_JOBS':
-      return { jobList: action.payload.data};
+      return { jobList: action.payload.data };
+    case 'FETCH_JOBS_BY_DISTANCE':
+      return { jobList: action.payload.data };
     default:
         return state
     }

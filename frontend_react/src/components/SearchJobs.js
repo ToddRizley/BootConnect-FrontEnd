@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchJobs from '../actions/fetchJobs'
 import fetchFilteredJobs from '../actions/fetchFilteredJobs'
+import fetchJobsByDistance from '../actions/fetchJobsByDistance'
 import $ from 'jquery'
+import { ListGroup } from 'react-bootstrap'
+import { ListGroupItem } from 'react-bootstrap'
 
 const SearchJobs = class extends Component {
   constructor(props){
@@ -27,40 +30,29 @@ const SearchJobs = class extends Component {
         return(<option>{location}</option>)
         }
       )}
-
-  </select>
-    <div>
-      Job List...
-      <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-CityJobs">
-        <thead>
-          <tr>
-            <th data-priority="1">Position</th>
-            <th data-priority="2">Company</th>
-            <th data-priority="3">City</th>
-            <th data-priority="4">URL</th>
-          </tr>
-        </thead>
-        <tbody>
+      </select>
+      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.fetchJobsByDistance.bind(this, this.props.currentUser.currentUser)} >
+        <option>25 miles</option>
+        <option>50 miles</option>
+        <option>100 miles</option>
+      </select>
+      <ListGroup>
           {this.props.jobList.jobList.map( (job)=> {
-                  return( <tr>
-                      <td>{job.attributes.title}</td>
-                      <td>{job.attributes.company}</td>
-                      <td>{job.attributes.location.city}</td>
-                      <td><a href={"http://" + job.attributes.url} target="_blank">{job.attributes.url}</a></td>
-                    </tr>)
-                  }
+                  return(
+                    <ListGroupItem href="#" header={job.attributes.title}>
+                      <strong>{job.attributes.company}</strong> - {job.attributes.location.city} <a href={"http://" + job.attributes.url} target="_blank">{job.attributes.url}</a>
+                    </ListGroupItem>
+                    )}
                   )}
-        </tbody>
-      </table>
+      </ListGroup>
     </div>
-  </div>
 
     )
   }
 }
 
 
- const SearchJobsContainer = connect(mapStateToProps, mapDispatchToProps)(SearchJobs)
+const SearchJobsContainer = connect(mapStateToProps, mapDispatchToProps)(SearchJobs)
 
 function mapStateToProps(state) {
   return {jobList: state.jobList}
@@ -68,6 +60,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return { fetchJobs: bindActionCreators({fetchJobs}, dispatch),
+          fetchJobsByDistance: bindActionCreators({fetchJobsByDistance}, dispatch),
           fetchFilteredJobs: bindActionCreators({fetchFilteredJobs}, dispatch)}
 }
 
