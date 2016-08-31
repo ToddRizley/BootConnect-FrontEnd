@@ -16,15 +16,10 @@ const SearchJobs = class extends Component {
     this.props.fetchJobs.fetchJobs().then( (response)=> {
       var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
       this.setState({locations: $.uniqueSort(newState)})
-    })
+      })
     }
 
-
-
-
   render(){
-
-
     return(
       <div>
         <select id="filterTable-CityJobs" onChange={this.props.fetchFilteredJobs.fetchFilteredJobs}>
@@ -35,6 +30,7 @@ const SearchJobs = class extends Component {
 
   </select>
     <div>
+      Job List...
       <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-CityJobs">
         <thead>
           <tr>

@@ -34,8 +34,8 @@ const SearchUsers = class extends Component {
         </select>
         <select id="filterTable-Distance" onChange={this.props.fetchUsersByDistance.fetchUsersByDistance.bind(this, this.props.currentUser.currentUser)} >
           <option>25 miles</option>
-            <option>50 miles</option>
-              <option>100 miles</option>
+          <option>50 miles</option>
+          <option>100 miles</option>
         </select>
 
         <ListGroup>

@@ -10,7 +10,6 @@ class Job extends Component {
 
   render(){
     let jobs = this.props.currentUser.currentUser.attributes.jobs
-    debugger
 
 
     const jobsList = jobs.map( (job) => {
