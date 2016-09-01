@@ -13,7 +13,6 @@ class Article extends Component {
   }
 
   render(){
-    debugger
       return(
       <div>
         <ListGroup>
