@@ -34,9 +34,7 @@ class Article extends Component {
 const ArticleList = connect(mapStateToProps, mapDispatchToProps)(Article)
 
 function mapStateToProps(state) {
-  debugger
   return {articleList: state.articleList}
-  debugger
 }
 
 function mapDispatchToProps(dispatch) {
