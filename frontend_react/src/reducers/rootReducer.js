@@ -13,7 +13,6 @@ const reducers = {
   jobList: jobReducer,
   userList: allUsersReducer,
   articleList: articleReducer
-      // <---- Mounted at 'form'. See note below.
 }
 
 const rootReducer = combineReducers(reducers)

@@ -6,19 +6,18 @@ import fetchArticles from '../actions/fetchArticles'
 import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
 
-
 class Article extends Component {
-  /* Updates store.articlesList with all articles currently in database.
-  / Store.articlesList is is then mapped to props */
+
   componentWillMount() {
     this.props.fetchArticles.fetchArticles()
-    }
+  }
 
   render(){
+    debugger
       return(
       <div>
         <ListGroup>
-          {this.props.articleList.articleList.map( (article)=> {
+          {this.props.articleList.articleList.map( (article) => {
 
             return(
               <ListGroupItem href="#" header={article.attributes.title}>
@@ -36,7 +35,9 @@ class Article extends Component {
 const ArticleList = connect(mapStateToProps, mapDispatchToProps)(Article)
 
 function mapStateToProps(state) {
+  debugger
   return {articleList: state.articleList}
+  debugger
 }
 
 function mapDispatchToProps(dispatch) {

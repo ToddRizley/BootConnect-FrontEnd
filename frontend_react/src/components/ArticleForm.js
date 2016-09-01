@@ -6,42 +6,65 @@ class ArticleForm extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {enabled: false}
+    this.state = {disabled: true}
   }
+
   /* Most article elements are displayed conditionally based on local state */
   toggleState(){
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
   }
 
   handleFormSubmit(props) {
     event.preventDefault()
-
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
 
     this.props.addArticle(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
-      router.browserHistory.push('/profile')
+      router.browserHistory.push('/dashboard')
     })
   }
 
   render() {
+    const disabled = this.state.disabled ? 'disabled' : ''
+    const hidden = this.state.disabled ? 'hidden' : ''
+
     const {fields: {title, url}, handleSubmit} = this.props;
 
-    const titleInput = this.state.enabled ? <input type="textarea" placeholder="Add Title" {...title} /> : <input disabled="disabled" type="textarea" placeholder="Add Title" {...title} />
-    const urlInput = this.state.enabled ? <input type="textarea" placeholder="Add Link" {...url} /> : <input disabled="disabled" type="textarea" placeholder="Add Link" {...url} />
-    const submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
-    /* Once a user clicks the Article element, the optional elements are displayed*/
     return (
-      <div className="header">
-      {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Add Article</button>}
+      <div className="article-form">
+
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {titleInput}
-          {urlInput}
-          {submitButton}
+              <button className="article-form-btn"
+                      hidden={!hidden}
+                      onDoubleClick={this.toggleState.bind(this)}
+                      >
+                      + Add
+              </ button>
+              <input className="article-form-input"
+                     hidden={hidden}
+                     type="textarea"
+                     placeholder="Title"
+                     {...title}
+                     />
+
+              <input className="article-form-input"
+                     hidden={hidden}
+                     type="textarea"
+                     placeholder="Paste Link"
+                     {...url}
+                     />
+
+              { this.state.disabled
+                ? ''
+                : <input className="article-form-input"
+                         type="submit"
+                         value="Save"
+                        />
+              }
         </form>
       </div>
     );

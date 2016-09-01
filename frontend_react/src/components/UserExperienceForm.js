@@ -34,8 +34,7 @@ class UserExperienceForm extends Component {
     const {fields: {experience}, handleSubmit} = this.props;
     return (
       <div className="experience">
-
-      <h3 className="profile-header">Experience</h3>
+        <h3 className="profile-header">Experience</h3>
 
         <form onDoubleClick={this.toggleState.bind(this)}
               onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -49,7 +48,10 @@ class UserExperienceForm extends Component {
 
           { this.state.disabled
             ? ''
-            : <input className="user-profile-save"  type="submit" value="Save" />
+            : <input className="user-profile-save"
+                     type="submit"
+                     value="Save"
+                    />
           }
         </form>
       </div>
@@ -64,4 +66,6 @@ function mapStateToProps(state) {
 export default reduxForm({
   form: 'userExperience',
   fields: ['experience']
-}, null, { updateUser })(UserExperienceForm);
+},
+null,
+{ updateUser })(UserExperienceForm);

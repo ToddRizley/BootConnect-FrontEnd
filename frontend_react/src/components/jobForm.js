@@ -20,13 +20,13 @@ class JobForm extends Component {
     event.preventDefault()
 
     this.props.addJob(props, this.props.currentUser).then( ()=>{
-      debugger
       this.props.fetchCurrentUser(this.props.currentUser)
     })
   }
 
   render() {
     const {fields: {title, description, url, location}, handleSubmit} = this.props;
+
     var titleInput = this.state.enabled ? <input type="textarea" placeholder="Job Title" {...title} /> : <input disabled="disabled" type="textarea" placeholder="Job Title" {...title} />
     var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Description" {...description} />
     var urlInput = this.state.enabled ? <input type="textarea" placeholder="Link to Posting" {...url} /> : <input disabled="disabled" type="textarea" placeholder="Link to Posting" {...url} />

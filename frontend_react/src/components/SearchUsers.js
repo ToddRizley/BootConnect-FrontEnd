@@ -22,7 +22,8 @@ const SearchUsers = class extends Component {
     })
     }
 
-  render(){
+
+  render() {
     return(
       <div>
       <select id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
