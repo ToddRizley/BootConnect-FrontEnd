@@ -7,12 +7,12 @@ class JobForm extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {enabled: false}
+    this.state = {disabled: true}
   }
 
   toggleState(){
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
   }
 
@@ -25,24 +25,39 @@ class JobForm extends Component {
   }
 
   render() {
+    const disabled = this.state.disabled ? 'disabled' : ''
+    const hidden = this.state.disabled ? 'hidden' : ''
+
     const {fields: {title, description, url, location}, handleSubmit} = this.props;
 
-    var titleInput = this.state.enabled ? <input type="textarea" placeholder="Job Title" {...title} /> : <input disabled="disabled" type="textarea" placeholder="Job Title" {...title} />
-    var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Description" {...description} />
-    var urlInput = this.state.enabled ? <input type="textarea" placeholder="Link to Posting" {...url} /> : <input disabled="disabled" type="textarea" placeholder="Link to Posting" {...url} />
-    var locationInput = this.state.enabled ? <input type="textarea" placeholder="Location" {...location} /> : <input disabled="disabled" type="textarea" placeholder="Location" {...location} />
-    //var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Add Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Add Description" {...description} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
-
     return (
-      <div className="header">
-      {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Add</button>}
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {titleInput}
-          {descriptionInput}
-          {urlInput}
-          {locationInput}
-          {submitButton}
+      <div className="job-form">
+
+      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <input className="job-form-input"
+                   type="textarea"
+                   placeholder="Title"
+                   {...title}
+                   />
+             <input className="job-form-input"
+                    type="textarea"
+                    placeholder="Desription"
+                    {...description}
+                    />
+            <input className="job-form-input"
+                   type="textarea"
+                   placeholder="location"
+                   {...location}
+                   />
+            <input className="job-form-input"
+                   type="textarea"
+                   placeholder="Paste Link"
+                   {...url}
+                   />
+            <input className="job-form-input"
+                   type="submit"
+                   value="Save"
+                   />
         </form>
       </div>
     );
@@ -56,4 +71,6 @@ function mapStateToProps(state) {
 export default reduxForm({
   form: 'JobForm',
   fields: ['title', 'description', 'url', 'location']
-}, null, { addJob, fetchCurrentUser })(JobForm);
+},
+null,
+{ addJob, fetchCurrentUser })(JobForm);
