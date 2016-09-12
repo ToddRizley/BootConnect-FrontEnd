@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import UserBioForm from './UserBioForm'
 
 const DumbUserBioContainer = class extends Component {
-
   render(){
     var userBio = this.props.currentUserBio|| ''
 

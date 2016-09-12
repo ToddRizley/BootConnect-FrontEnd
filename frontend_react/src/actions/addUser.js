@@ -9,6 +9,7 @@ export default function addUser(props, location) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
+    sessionStorage.setItem("jwtToken", response.data.attributes.token)
     return {
       type: 'ADD_USER',
       payload: response

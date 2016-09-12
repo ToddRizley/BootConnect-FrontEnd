@@ -18,7 +18,6 @@ import {NavItem} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 
 const Profile = class extends Component {
-
   render(){
     return(
       <Row className="profile-wrapper">
