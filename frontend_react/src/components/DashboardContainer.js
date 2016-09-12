@@ -55,7 +55,7 @@ const Dashboard = class extends Component {
             <Col sm= {3} md={3}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Articles </h3>
-                  <ArticleForm currentUser={this.props.currentUser}/>
+                  <ArticleForm />
                   <ArticleList />
               </div>
             </Col>
