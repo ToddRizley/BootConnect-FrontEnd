@@ -7,7 +7,6 @@ import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
 import JobForm from './JobForm'
-import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
@@ -56,8 +55,8 @@ const Profile = class extends Component {
            </Col>
 
            <Col md={3}>
-            <InterestList currentUser={this.props.currentUser}/>
-            <InterestForm currentUser={this.props.currentUser} />
+            <InterestList currentUserInterests={this.props.currentUser.currentUser.attributes.interests}/>
+            <InterestForm currentUserId={this.props.currentUser.currentUser.attributes.id} />
            </Col>
           </Row>
         </Col>

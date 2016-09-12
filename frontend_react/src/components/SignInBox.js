@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react'
-import {reducer as formReducer} from 'redux-form';
+import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
 import fetchCurrentUser from '../actions/fetchCurrentUser'
 

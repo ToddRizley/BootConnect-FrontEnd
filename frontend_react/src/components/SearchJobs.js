@@ -31,10 +31,10 @@ const SearchJobs = class extends Component {
         }
       )}
       </select>
-      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.fetchJobsByDistance.bind(this, this.props.currentUser.currentUser)} >
-        <option>25 miles</option>
-        <option>50 miles</option>
-        <option>100 miles</option>
+      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.fetchJobsByDistance.bind(this, this.props.currentUserCity)} >
+        <option value="25">25 miles</option>
+        <option value="50">50 miles</option>
+        <option value="100">100 miles</option>
       </select>
       <ListGroup>
           {this.props.jobList.jobList.map( (job)=> {
