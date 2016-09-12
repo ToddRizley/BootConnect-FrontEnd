@@ -17,7 +17,7 @@ class InterestForm extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
-    this.props.addInterest(props, this.props.currentUser).then( ()=>{
+    this.props.addInterest(props, this.props.currentUserId).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
     })

@@ -56,7 +56,7 @@ const Profile = class extends Component {
 
            <Col md={3}>
             <InterestList currentUserInterests={this.props.currentUser.currentUser.attributes.interests}/>
-            <InterestForm currentUserId={this.props.currentUser.currentUser.attributes.id} />
+            <InterestForm currentUserId={this.props.currentUser.currentUser.id} />
            </Col>
           </Row>
         </Col>

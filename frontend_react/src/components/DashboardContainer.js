@@ -64,7 +64,6 @@ const Dashboard = class extends Component {
                 <h3 className="dashboard-block-head"> Articles </h3>
                   <ArticleForm currentUser={this.props.currentUser}/>
                   <ArticleList />
-                  {/* <JobList currentUser={this.props.currentUser} /> don't need!  */}
               </div>
             </Col>
           </Row>
