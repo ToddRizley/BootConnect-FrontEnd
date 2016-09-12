@@ -22,7 +22,7 @@ class ArticleForm extends Component {
       disabled: !this.state.disabled
     })
 
-    this.props.addArticle(props, this.props.currentUser).then( ()=>{
+    this.props.addArticle(props, this.props.currentUserId).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/dashboard')
     })

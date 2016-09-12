@@ -22,12 +22,6 @@ import { Well } from 'react-bootstrap'
 
 const Dashboard = class extends Component {
 
-  // componentWillReceiveProps() {
-  //   this.setState({
-  //     articleList: this.props.fetchArticles.fetchArticles()
-  //   })
-  // }
-
   render(){
     debugger;
     return(
@@ -53,9 +47,9 @@ const Dashboard = class extends Component {
             <Col sm= {9} md={9}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Alumni By City</h3>
-                <SearchUsersContainer currentUser={this.props.currentUser}/>
+                <SearchUsersContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city}/>
                 <JobForm currentUser={this.props.currentUser} />
-                <SearchJobsContainer currentUser={this.props.currentUser} />
+                <SearchJobsContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city} />
               </div>
             </Col>
 

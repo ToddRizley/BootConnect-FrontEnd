@@ -1,15 +1,14 @@
 import $ from 'jquery'
 
-export default function addArticle(props, currentUser) {
+export default function addArticle(props, currentUserId) {
 
   const URL = 'http://localhost:3000/api/v1/articles'
-  const USER_ID = currentUser.currentUser.id
   return $.ajax({
     url:URL,
     type:"POST",
     data: JSON.stringify({
       article: props,
-      user_id: USER_ID
+      user_id: currentUserId
     }),
     contentType:"application/json; charset=utf-8",
     dataType:"json"
@@ -17,7 +16,6 @@ export default function addArticle(props, currentUser) {
     return {
       type: 'ADD_ARTICLE',
       payload: response
-      //response is currentUser object with new article
     }
   })
 }
