@@ -13,18 +13,23 @@ class Article extends Component {
   }
 
   render(){
-      return(
+    var articleList = this.props.articleList.articleList
+
+    return(
       <div>
         <ListGroup>
-          {this.props.articleList.articleList.map( (article) => {
 
-            return(
-              <ListGroupItem href="#" header={article.attributes.title}>
-                {article.attributes.url}
-              </ListGroupItem>
-            )}
+          { articleList.slice(articleList.length - 10, articleList.length)
+            .map( (article) => {
+              return(
+                <ListGroupItem href="#" header={article.attributes.title}>
+                  {article.attributes.url}
+                </ListGroupItem>
+              )}
           )}
+
         </ListGroup>
+        <div> View All Articles </div>
       </div>
 
     )

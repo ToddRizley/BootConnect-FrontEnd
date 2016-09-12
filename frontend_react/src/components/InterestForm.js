@@ -6,12 +6,15 @@ class InterestForm extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {enabled: false}
+    this.state = {
+      disabled: false,
+      value: ''
+    }
   }
 
   toggleState(){
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
   }
 
@@ -24,17 +27,32 @@ class InterestForm extends Component {
   }
 
   render() {
+    const disabled = this.state.disabled ? 'disabled' : ''
+    const hidden = this.state.disabled ? 'hidden' : ''
+    const value = this.state.value
+
     const {fields: {name, description}, handleSubmit} = this.props;
-    var interestInput = this.state.enabled ? <input type="textarea" placeholder="Add Interest" {...name} /> : <input disabled="disabled" type="textarea" placeholder="Add Interest" {...name} />
-    //var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Add Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Add Description" {...description} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
 
     return (
       <div className="header">
-      {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Add</button>}
+
+      {
+        this.state.disabled
+        ?  <button onClick={this.toggleState.bind(this)}>Add </button>
+        : null
+      }
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {this.state.enabled ? interestInput : null}
-          {submitButton}
+          <input type="textarea"
+                 hidden={hidden}
+                 value={value}
+                 placeholder="Add Interest"
+                 {...name}
+                 />
+         <input className="interest-form-input"
+                hidden={hidden}
+                type="submit"
+                value="Save"
+                />
         </form>
       </div>
     );

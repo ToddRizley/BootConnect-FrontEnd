@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
 require("react-bootstrap/lib/NavbarHeader")
 //line 4 was supposed to replace 6-9 but its not working
 import {Nav} from 'react-bootstrap'
