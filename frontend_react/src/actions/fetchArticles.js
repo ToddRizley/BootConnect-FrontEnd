@@ -8,6 +8,6 @@ function fetchArticles(){
       type: 'FETCH_ARTICLES',
       payload: response.data
     }
-    })
-    }
+  })
+}
 export default fetchArticles
