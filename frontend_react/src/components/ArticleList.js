@@ -12,10 +12,6 @@ class Article extends Component {
     this.props.fetchArticles.fetchArticles()
   }
 
-  shouldComponentUpdate(newProps, newState){
-    debugger
-    return newProps.articleList.length !== this.props.articleList.length
-  }
 
   componentWillUpdate(newProps){
     this.props.fetchArticles.fetchArticles()

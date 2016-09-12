@@ -7,8 +7,7 @@ import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
 import JobForm from './JobForm'
-import ArticleForm from './ArticleForm'
-import ArticleList from './ArticleList'
+import ArticleContainer from './ArticleContainer'
 import SearchUsersContainer from './SearchUsers'
 import NavbarContainer from './NavbarContainer'
 import SearchJobsContainer from './SearchJobs'
@@ -55,8 +54,7 @@ const Dashboard = class extends Component {
             <Col sm= {3} md={3}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Articles </h3>
-                  <ArticleForm />
-                  <ArticleList />
+                <ArticleContainer articleList={this.props.articleList}/>
               </div>
             </Col>
           </Row>
@@ -73,7 +71,7 @@ const Dashboard = class extends Component {
 const DashboardContainer = connect(mapStateToProps)(Dashboard)
 
 function mapStateToProps(state) {
-  return {currentUser: state.currentUser}
+  return {currentUser: state.currentUser, articleList: state.articleList}
 }
 
 export default DashboardContainer
