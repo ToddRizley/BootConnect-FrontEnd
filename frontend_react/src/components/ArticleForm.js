@@ -22,7 +22,7 @@ class ArticleForm extends Component {
       disabled: !this.state.disabled
     })
 
-    this.props.addArticle(props, this.props.currentUserId).then( ()=>{
+    this.props.addArticle(props).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/dashboard')
     })
@@ -70,10 +70,6 @@ class ArticleForm extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
-  }
 
 export default reduxForm({
     form: 'articleForm',
