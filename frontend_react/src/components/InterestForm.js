@@ -25,7 +25,7 @@ class InterestForm extends Component {
     this.props.addInterest(props, this.props.currentUserId).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
-      resetForm();
+      resetForm()
     })
   }
 

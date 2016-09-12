@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
 require("react-bootstrap/lib/NavbarHeader")
 //line 4 was supposed to replace 6-9 but its not working
 import {Nav} from 'react-bootstrap'
@@ -28,8 +27,8 @@ const NavbarContainer = class extends Component {
             <NavItem eventKey={4} href="#">Contact</NavItem>
           </Nav>
           <Nav>
-             { this.props.currentUserName
-               ? <Navbar.Text><Link to="/">Sign Out | Welcome</Link></Navbar.Text>
+             { this.props.currentUser.currentUser.attributes.name
+               ? <Navbar.Text> Sign Out | Welcome   </Navbar.Text>
                : ''
              }
 

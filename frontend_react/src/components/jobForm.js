@@ -22,7 +22,7 @@ class JobForm extends Component {
 
     this.props.addJob(props, this.props.currentUserId).then( ()=>{
       this.props.fetchCurrentUser(this.props.currentUser)
-      resetForm();
+      resetForm()
     })
   }
 
