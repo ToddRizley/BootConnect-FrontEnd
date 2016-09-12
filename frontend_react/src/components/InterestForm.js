@@ -2,39 +2,59 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import addInterest from '../actions/addInterest.js'
 
+
 class InterestForm extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {enabled: false}
+    this.state = {
+      disabled: false
+    }
   }
 
   toggleState(){
     this.setState({
-      enabled: !this.state.enabled
+      disabled: !this.state.disabled
     })
   }
 
   handleFormSubmit(props) {
     event.preventDefault()
+    const {resetForm} = this.props
+
     this.props.addInterest(props, this.props.currentUserId).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
+      resetForm();
     })
   }
 
   render() {
+    const disabled = this.state.disabled ? 'disabled' : ''
+    const hidden = this.state.disabled ? 'hidden' : ''
+    const value = this.state.value
+
     const {fields: {name, description}, handleSubmit} = this.props;
-    var interestInput = this.state.enabled ? <input type="textarea" placeholder="Add Interest" {...name} /> : <input disabled="disabled" type="textarea" placeholder="Add Interest" {...name} />
-    //var descriptionInput = this.state.enabled ? <input type="textarea" placeholder="Add Description" {...description} /> : <input disabled="disabled" type="textarea" placeholder="Add Description" {...description} />
-    var submitButton = this.state.enabled ? <input type="submit" value="Save" /> : <div/>
 
     return (
       <div className="header">
-      {this.state.enabled ? null : <button onClick={this.toggleState.bind(this)}>Add</button>}
+
+      {
+        this.state.disabled
+        ?  <button onClick={this.toggleState.bind(this)}>Add </button>
+        : null
+      }
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          {this.state.enabled ? interestInput : null}
-          {submitButton}
+          <input type="textarea"
+                 hidden={hidden}
+                 placeholder="Add Interest"
+                 {...name}
+                 />
+         <input className="interest-form-input"
+                hidden={hidden}
+                type="submit"
+                value="Save"
+                />
         </form>
       </div>
     );
@@ -44,6 +64,7 @@ class InterestForm extends Component {
 function mapStateToProps(state) {
   return { currentUser: state.currentUser }
   }
+
 
 export default reduxForm({
   form: 'interestForm',
