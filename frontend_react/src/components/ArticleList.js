@@ -8,14 +8,6 @@ import { ListGroupItem } from 'react-bootstrap'
 
 class Article extends Component {
 
-  componentWillMount() {
-    this.props.fetchArticles.fetchArticles()
-  }
-
-
-  componentWillUpdate(newProps){
-    this.props.fetchArticles.fetchArticles()
-  }
 
   render(){
     var articleList = this.props.articleList.articleList
