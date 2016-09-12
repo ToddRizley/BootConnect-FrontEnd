@@ -28,8 +28,8 @@ const NavbarContainer = class extends Component {
             <NavItem eventKey={4} href="#">Contact</NavItem>
           </Nav>
           <Nav>
-             { this.props.currentUser.currentUser.attributes.name
-               ? <Navbar.Text> Sign Out | Welcome   </Navbar.Text>
+             { this.props.currentUserName
+               ? <Navbar.Text><Link to="/">Sign Out | Welcome</Link></Navbar.Text>
                : ''
              }
 

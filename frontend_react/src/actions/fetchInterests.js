@@ -1,6 +1,6 @@
 import axios from 'axios'
-function fetchInterests(currentUser){
-  const USER_ID = currentUser.currentUser.id
+function fetchInterests(currentUserId){
+  const USER_ID = currentUserId
   const url = 'http://localhost:3000/api/v1/interests/' + USER_ID
   const request = axios.get(url)
   console.log('request', request)

@@ -6,7 +6,7 @@ import UserBioForm from './UserBioForm'
 const DumbUserBioContainer = class extends Component {
 
   render(){
-    var userBio = this.props.currentUser.currentUser.attributes.bio || ''
+    var userBio = this.props.currentUserBio|| ''
 
     var initialValues = {
       initialValues: {
@@ -16,7 +16,7 @@ const DumbUserBioContainer = class extends Component {
 
     return(
       <div className="user-bio-container">
-        <UserBioForm currentUser={this.props.currentUser}
+        <UserBioForm currentUserId={this.props.currentUserId}
           {...initialValues}
         />
       </div>

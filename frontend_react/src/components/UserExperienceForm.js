@@ -21,7 +21,7 @@ class UserExperienceForm extends Component {
       disabled: !this.state.disabled
     })
 
-    this.props.updateUser(props, this.props.currentUser).then( ()=>{
+    this.props.updateUser(props, this.props.currentUserId).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
     })
@@ -58,10 +58,6 @@ class UserExperienceForm extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
-  }
 
 export default reduxForm({
   form: 'userExperience',

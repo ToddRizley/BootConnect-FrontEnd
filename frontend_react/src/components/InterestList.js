@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 
 class Interest extends Component {
   render(){
-    const interests = this.props.currentUser.currentUser.attributes.interests
+    var interests = this.props.currentUserInterests
 
     return(
       <div>

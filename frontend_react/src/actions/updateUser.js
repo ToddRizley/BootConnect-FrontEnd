@@ -1,8 +1,7 @@
 import $ from 'jquery'
 
-export default function updateUser(props, currentUser) {
-  var userId = currentUser.currentUser.id
-  const URL = 'http://localhost:3000/api/v1/users/' + userId
+export default function updateUser(props, currentUserId) {
+  const URL = 'http://localhost:3000/api/v1/users/' + currentUserId
   return $.ajax({
     url:URL,
     type:"PATCH",

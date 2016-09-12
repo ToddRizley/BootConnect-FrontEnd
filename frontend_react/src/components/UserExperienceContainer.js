@@ -7,7 +7,7 @@ import UserExperienceForm from './UserExperienceForm'
 const UserExpCont = class extends Component {
 
   render(){
-    const userExperience = this.props.currentUser.currentUser.attributes.experience || ''
+    const userExperience = this.props.currentUserExperience || ''
 
     const initialValues = {
       initialValues: {
@@ -17,7 +17,7 @@ const UserExpCont = class extends Component {
 
     return(
       <div className="user-exp-container">
-        <UserExperienceForm currentUser={this.props.currentUser}
+        <UserExperienceForm currentUserId={this.props.currentUserId}
           {...initialValues}
         />
       </div>

@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import HeaderContainer from './HeaderContainer'
 import UserBioContainer from './UserBioContainer'
 import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
-import JobForm from './JobForm'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
@@ -30,7 +28,7 @@ const Profile = class extends Component {
         <Col sm={8} md={8}>
           <Row>
             <Col>
-              <NavbarContainer currentUser={this.props.currentUser} />
+              <NavbarContainer currentUserName={this.props.currentUser.currentUser.attributes.name} />
             </Col>
           </Row>
 
@@ -50,13 +48,13 @@ const Profile = class extends Component {
 
           <Row>
            <Col className="header-container" md={9} >
-            <UserBioContainer currentUser={this.props.currentUser} />
-            <UserExperienceContainer currentUser={this.props.currentUser} />
+            <UserBioContainer currentUserBio={this.props.currentUser.currentUser.attributes.bio} currentUserId={this.props.currentUser.currentUser.id} />
+            <UserExperienceContainer currentUserExperience={this.props.currentUser.currentUser.attributes.experience} currentUserId={this.props.currentUser.currentUser.id} />
            </Col>
 
            <Col md={3}>
             <InterestList currentUserInterests={this.props.currentUser.currentUser.attributes.interests}/>
-            <InterestForm currentUserId={this.props.currentUser.currentUser.attributes.id} />
+            <InterestForm currentUserId={this.props.currentUser.currentUser.id} />
            </Col>
           </Row>
         </Col>

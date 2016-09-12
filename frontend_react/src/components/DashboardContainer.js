@@ -22,14 +22,7 @@ import { Well } from 'react-bootstrap'
 
 const Dashboard = class extends Component {
 
-  // componentWillReceiveProps() {
-  //   this.setState({
-  //     articleList: this.props.fetchArticles.fetchArticles()
-  //   })
-  // }
-
   render(){
-    debugger;
     return(
       <Row className="profile-wrapper">
         <Col sm={2} md={2}>
@@ -39,7 +32,7 @@ const Dashboard = class extends Component {
 
           <Row>
             <Col sm={12} med={12}>
-              <NavbarContainer currentUser={this.props.currentUser} />
+              <NavbarContainer currentUserName={this.props.currentUser.currentUser.attributes.name} />
             </Col>
           </Row>
 
@@ -53,9 +46,9 @@ const Dashboard = class extends Component {
             <Col sm= {9} md={9}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Alumni By City</h3>
-                <SearchUsersContainer currentUser={this.props.currentUser}/>
+                <SearchUsersContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city}/>
                 <JobForm currentUser={this.props.currentUser} />
-                <SearchJobsContainer currentUser={this.props.currentUser} />
+                <SearchJobsContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city} />
               </div>
             </Col>
 
@@ -64,7 +57,6 @@ const Dashboard = class extends Component {
                 <h3 className="dashboard-block-head"> Articles </h3>
                   <ArticleForm currentUser={this.props.currentUser}/>
                   <ArticleList />
-                  {/* <JobList currentUser={this.props.currentUser} /> don't need!  */}
               </div>
             </Col>
           </Row>

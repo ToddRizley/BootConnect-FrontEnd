@@ -1,11 +1,11 @@
 export default function jobReducer(state = {jobList: []}, action){
   switch(action.type){
     case 'FETCH_JOBS':
-      return { jobList: action.payload.data };
+      return Object.assign({}, state, { jobList: action.payload.data });
     case 'FETCH_FILTERED_JOBS':
-      return { jobList: action.payload.data };
+      return Object.assign({}, state, { jobList: action.payload.data });
     case 'FETCH_JOBS_BY_DISTANCE':
-      return { jobList: action.payload.data };
+      return Object.assign({}, state, { jobList: action.payload.data });
     default:
         return state
     }

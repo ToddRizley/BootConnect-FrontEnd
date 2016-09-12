@@ -19,7 +19,7 @@ class JobForm extends Component {
   handleFormSubmit(props) {
     event.preventDefault()
 
-    this.props.addJob(props, this.props.currentUser).then( ()=>{
+    this.props.addJob(props, this.props.currentUserId).then( ()=>{
       this.props.fetchCurrentUser(this.props.currentUser)
     })
   }
@@ -64,9 +64,6 @@ class JobForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
-  }
 
 export default reduxForm({
   form: 'JobForm',
