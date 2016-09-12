@@ -13,6 +13,7 @@ import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
 import NavbarContainer from './NavbarContainer'
 import SearchJobsContainer from './SearchJobs'
+import fetchArticles from '../actions/fetchArticles'
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 import {Nav} from 'react-bootstrap'
@@ -23,7 +24,7 @@ import { Well } from 'react-bootstrap'
 
 const Dashboard = class extends Component {
 
-  render(){
+  render() {
     return(
       <Row className="profile-wrapper">
         <Col sm={2} md={2}>
@@ -56,9 +57,12 @@ const Dashboard = class extends Component {
             <Col sm= {3} md={3}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Articles </h3>
-                  <ArticleForm currentUser={this.props.currentUser}/>
-                  <ArticleList currentUser={this.props.currentUser}/>
+
+                  <ArticleForm currentUser={this.props.currentUser} />
+                  <ArticleList currentUser={this.props.currentUser}
+                               articleList={this.props.articleList} />
                   <JobList currentUser={this.props.currentUser} />
+
               </div>
             </Col>
           </Row>
@@ -72,10 +76,12 @@ const Dashboard = class extends Component {
   }
 }
 
+// added articleList to mapStateToProps
+
 const DashboardContainer = connect(mapStateToProps)(Dashboard)
 
 function mapStateToProps(state) {
-  return {currentUser: state.currentUser}
+  return {currentUser: state.currentUser, articleList: state.articleList}
 }
 
 export default DashboardContainer
