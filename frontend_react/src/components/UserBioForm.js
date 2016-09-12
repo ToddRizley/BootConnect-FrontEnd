@@ -21,7 +21,6 @@ class UserBioForm extends Component {
       disabled: !this.state.disabled
     })
 
-
     this.props.updateUser(props, this.props.currentUser).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')

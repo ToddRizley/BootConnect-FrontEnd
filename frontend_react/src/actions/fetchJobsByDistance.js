@@ -1,7 +1,6 @@
 import $ from 'jquery'
 
-export default function fetchJobsByDistance(currentUser) {
-  const city = currentUser.attributes.location.city
+export default function fetchJobsByDistance(city) {
   const dist = document.getElementById("filterTable-Distance-Jobs").value.split(" ")[0]
   const URL = `http://localhost:3000/api/v1/jobs/distance/${city}/${dist}`
   return $.ajax({
@@ -17,7 +16,6 @@ export default function fetchJobsByDistance(currentUser) {
     return {
       type: 'FETCH_JOBS_BY_DISTANCE',
       payload: response
-
     }
   })
 }

@@ -1,10 +1,11 @@
 import $ from 'jquery'
 
 export default function fetchFilteredJobs() {
+  var city
   if (document.getElementById("filterTable-CityJobs").value) {
-    var city = document.getElementById("filterTable-CityJobs").value
+    city = document.getElementById("filterTable-CityJobs").value
   } else {
-    var city = ""
+    city = ""
   }
   const URL = 'http://localhost:3000/api/v1/jobs/' + city
   return $.ajax({

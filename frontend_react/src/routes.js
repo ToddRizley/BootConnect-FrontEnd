@@ -1,8 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router'
 import AppContainer from './App'
-import SignInBox from './components/SignInBox'
-import SignUpBox from './components/SignUpBox'
 import ProfileContainer from './components/ProfileContainer'
 import DashboardContainer from './components/DashboardContainer'
 

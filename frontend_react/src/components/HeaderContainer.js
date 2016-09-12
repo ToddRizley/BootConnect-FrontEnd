@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import UserImage from './UserImage.js'
-import UserInfo from './UserInfo.js'
 import HeaderForm from './HeaderForm'
 
 const Header = class extends Component {

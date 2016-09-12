@@ -1,10 +1,11 @@
 import $ from 'jquery'
 
 export default function fetchFilteredUsers() {
+  var city
   if (document.getElementById("filterTable-City").value) {
-    var city = document.getElementById("filterTable-City").value
+    city = document.getElementById("filterTable-City").value
   } else {
-    var city = ""
+    city = ""
   }
   const URL = 'http://localhost:3000/api/v1/locations/' + city
   return $.ajax({

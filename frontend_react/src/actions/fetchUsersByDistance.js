@@ -1,7 +1,6 @@
 import $ from 'jquery'
 
-export default function fetchUsersByDistance(currentUser) {
-  const city = currentUser.attributes.location.city
+export default function fetchUsersByDistance(city) {
   const dist = document.getElementById("filterTable-Distance").value.split(" ")[0]
   const URL = `http://localhost:3000/api/v1/users/distance/${city}/${dist}`
   return $.ajax({

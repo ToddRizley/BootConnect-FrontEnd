@@ -7,7 +7,6 @@ import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
 import JobForm from './JobForm'
-import JobList from './JobList'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
@@ -23,7 +22,14 @@ import { Well } from 'react-bootstrap'
 
 const Dashboard = class extends Component {
 
+  // componentWillReceiveProps() {
+  //   this.setState({
+  //     articleList: this.props.fetchArticles.fetchArticles()
+  //   })
+  // }
+
   render(){
+    debugger;
     return(
       <Row className="profile-wrapper">
         <Col sm={2} md={2}>
@@ -50,7 +56,6 @@ const Dashboard = class extends Component {
                 <SearchUsersContainer currentUser={this.props.currentUser}/>
                 <JobForm currentUser={this.props.currentUser} />
                 <SearchJobsContainer currentUser={this.props.currentUser} />
-
               </div>
             </Col>
 
@@ -58,7 +63,12 @@ const Dashboard = class extends Component {
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Articles </h3>
                   <ArticleForm currentUser={this.props.currentUser}/>
+<<<<<<< HEAD
                   <ArticleList currentUser={this.props.currentUser}/>
+=======
+                  <ArticleList />
+                  {/* <JobList currentUser={this.props.currentUser} /> don't need!  */}
+>>>>>>> master
               </div>
             </Col>
           </Row>

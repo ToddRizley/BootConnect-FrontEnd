@@ -18,9 +18,9 @@ const SearchUsers = class extends Component {
   componentWillMount() {
     this.props.fetchUsers.fetchUsers().then( (response)=> {
       var newState = response.payload.data.map( (user)=> { return user.attributes.location.city } )
-      this.setState({locations: $.uniqueSort(newState)})
+        this.setState({locations: $.uniqueSort(newState)})
     })
-    }
+  }
 
 
   render() {
@@ -31,9 +31,9 @@ const SearchUsers = class extends Component {
           return(<option>{location}</option>)
           }
         )}
-
         </select>
-        <select id="filterTable-Distance" onChange={this.props.fetchUsersByDistance.fetchUsersByDistance.bind(this, this.props.currentUser.currentUser)} >
+
+        <select id="filterTable-Distance" onChange={this.props.fetchUsersByDistance.fetchUsersByDistance.bind(this, this.props.currentUserCity)} >
           <option>25 miles</option>
           <option>50 miles</option>
           <option>100 miles</option>
