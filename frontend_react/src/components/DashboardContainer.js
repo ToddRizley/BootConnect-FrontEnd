@@ -39,7 +39,7 @@ const Dashboard = class extends Component {
 
           <Row>
             <Col sm={12} med={12}>
-              <NavbarContainer currentUser={this.props.currentUser} />
+              <NavbarContainer currentUserName={this.props.currentUser.currentUser.attributes.name} />
             </Col>
           </Row>
 

@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import HeaderContainer from './HeaderContainer'
 import UserBioContainer from './UserBioContainer'
 import UserExperienceContainer from './UserExperienceContainer'
 import InterestForm from './InterestForm'
 import InterestList from './InterestList'
-import JobForm from './JobForm'
 import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
 import SearchUsersContainer from './SearchUsers'
@@ -30,7 +28,7 @@ const Profile = class extends Component {
         <Col sm={8} md={8}>
           <Row>
             <Col>
-              <NavbarContainer currentUser={this.props.currentUser} />
+              <NavbarContainer currentUserName={this.props.currentUser.currentUser.attributes.name} />
             </Col>
           </Row>
 
