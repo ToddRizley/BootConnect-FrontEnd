@@ -42,7 +42,7 @@ class ArticleForm extends Component {
                       hidden={!hidden}
                       onDoubleClick={this.toggleState.bind(this)}
                       >
-                      + Add
+                      + Add Article
               </ button>
               <input className="article-form-input"
                      hidden={hidden}
