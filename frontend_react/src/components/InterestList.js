@@ -5,15 +5,17 @@ import { bindActionCreators } from 'redux'
 class Interest extends Component {
   render(){
     var interests = this.props.currentUserInterests
+
     return(
       <div>
       <h3 className="profile-header">Interests</h3>
         <ul>
-        { interests.map( (interest) => {
-          let counter = 0
-          return <li> <div className="interest-block"> {interest.name} </div> </li>
-          })
-        }
+          { interests.map( (interest) => {
+            return <li>
+                    <div className="interest-block"> {interest.name} </div>
+                   </li>
+            })
+          }
         </ul>
       </div>
     )
