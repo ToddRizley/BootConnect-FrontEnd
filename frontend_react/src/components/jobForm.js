@@ -18,9 +18,11 @@ class JobForm extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
+    const {resetForm} = this.props
 
     this.props.addJob(props, this.props.currentUserId).then( ()=>{
       this.props.fetchCurrentUser(this.props.currentUser)
+      resetForm();
     })
   }
 

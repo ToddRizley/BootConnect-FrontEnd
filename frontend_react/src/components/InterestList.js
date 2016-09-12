@@ -13,7 +13,7 @@ class Interest extends Component {
           { interests.map( (interest) => {
             return <li>
                     <div className="interest-block"> {interest.name} </div>
-                    </li>
+                   </li>
             })
           }
         </ul>

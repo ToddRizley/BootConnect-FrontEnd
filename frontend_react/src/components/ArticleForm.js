@@ -18,13 +18,12 @@ class ArticleForm extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
-    this.setState({
-      disabled: !this.state.disabled
-    })
+    const {resetForm} = this.props
 
     this.props.addArticle(props, this.props.currentUserId).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/dashboard')
+      resetForm()
     })
   }
 

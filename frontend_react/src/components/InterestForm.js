@@ -2,13 +2,13 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import addInterest from '../actions/addInterest.js'
 
+
 class InterestForm extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      disabled: false,
-      value: ''
+      disabled: false
     }
   }
 
@@ -20,9 +20,12 @@ class InterestForm extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
+    const {resetForm} = this.props
+
     this.props.addInterest(props, this.props.currentUserId).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/profile')
+      resetForm();
     })
   }
 
@@ -44,7 +47,6 @@ class InterestForm extends Component {
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <input type="textarea"
                  hidden={hidden}
-                 value={value}
                  placeholder="Add Interest"
                  {...name}
                  />
@@ -62,6 +64,7 @@ class InterestForm extends Component {
 function mapStateToProps(state) {
   return { currentUser: state.currentUser }
   }
+
 
 export default reduxForm({
   form: 'interestForm',
