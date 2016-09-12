@@ -28,7 +28,7 @@ const NavbarContainer = class extends Component {
           </Nav>
           <Nav>
              { this.props.currentUserName
-               ? <Navbar.Text> Sign Out | Welcome   </Navbar.Text>
+               ? <Navbar.Text><Link to="/">Sign Out | Welcome</Link></Navbar.Text>
                : ''
              }
 

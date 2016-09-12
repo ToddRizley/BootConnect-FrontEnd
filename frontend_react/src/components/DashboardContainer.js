@@ -23,7 +23,6 @@ import { Well } from 'react-bootstrap'
 const Dashboard = class extends Component {
 
   render(){
-    debugger;
     return(
       <Row className="profile-wrapper">
         <Col sm={2} md={2}>

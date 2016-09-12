@@ -1,7 +1,6 @@
 import $ from 'jquery'
 
 export default function addInterest(props, currentUserId) {
-  debugger
   const URL = 'http://localhost:3000/api/v1/interests'
   const USER_ID = currentUserId
   return $.ajax({
