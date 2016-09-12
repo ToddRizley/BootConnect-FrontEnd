@@ -25,6 +25,7 @@ const SearchJobs = class extends Component {
   render(){
     return(
       <div>
+      <div>Search Jobs Component</div>
         <select id="filterTable-CityJobs" onChange={this.props.fetchFilteredJobs.fetchFilteredJobs}>
       {this.state.locations.map( (location)=> {
         return(<option>{location}</option>)

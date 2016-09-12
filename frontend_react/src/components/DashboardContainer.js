@@ -14,10 +14,10 @@ import NavbarContainer from './NavbarContainer'
 import SearchJobsContainer from './SearchJobs'
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
-import {Nav} from 'react-bootstrap'
-import {Navbar} from 'react-bootstrap'
-import {NavItem} from 'react-bootstrap'
-import {Button} from 'react-bootstrap'
+import { Nav } from 'react-bootstrap'
+import { Navbar } from 'react-bootstrap'
+import { NavItem } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { Well } from 'react-bootstrap'
 
 const Dashboard = class extends Component {
@@ -53,9 +53,9 @@ const Dashboard = class extends Component {
             <Col sm= {9} md={9}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Alumni By City</h3>
-                <SearchUsersContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city}/>
-                <SearchJobsContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city} />
-
+                <SearchUsersContainer currentUser={this.props.currentUser}/>
+                <JobForm currentUser={this.props.currentUser} />
+                <SearchJobsContainer currentUser={this.props.currentUser} />
               </div>
             </Col>
 
