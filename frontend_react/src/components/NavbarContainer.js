@@ -27,11 +27,10 @@ const NavbarContainer = class extends Component {
             <NavItem eventKey={4} href="#">Contact</NavItem>
           </Nav>
           <Nav>
-             { this.props.currentUserName
-               ? <Navbar.Text> Welcome { this.props.currentUserName } | Sign Out </Navbar.Text>
-               : ''
-             }
-
+            { this.props.currentUserName
+              ? <Navbar.Text> Welcome { this.props.currentUserName } | <Link to='/'> Sign Out </Link> </Navbar.Text>
+              : ''
+            }
           </Nav>
         </Navbar.Collapse>
     </Navbar>

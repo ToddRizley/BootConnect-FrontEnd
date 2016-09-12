@@ -39,7 +39,7 @@ class ArticleForm extends Component {
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
               <button className="article-form-btn"
                       hidden={!hidden}
-                      onDoubleClick={this.toggleState.bind(this)}
+                      onClick={this.toggleState.bind(this)}
                       >
                       + Add Article
               </ button>

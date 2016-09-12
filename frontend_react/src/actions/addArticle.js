@@ -1,7 +1,6 @@
 import $ from 'jquery'
 
 export default function addArticle(props) {
-
   const URL = 'http://localhost:3000/api/v1/articles'
   return $.ajax({
     url:URL,

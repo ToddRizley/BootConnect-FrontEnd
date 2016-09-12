@@ -11,6 +11,16 @@ class DumbArticleContainer extends Component {
     this.props.fetchArticles.fetchArticles()
   }
 
+  // shouldComponentUpdate(newProps){
+  //   return newProps.articleList !== this.props.articleList
+  // }
+
+  componentWillUpdate(newProps){
+    if (newProps.articleList.articleList.count !== this.props.articleList.articleList.count){
+      this.props.fetchArticles.fetchArticles()
+    }
+  }
+
   render() {
     return(
       <div>
