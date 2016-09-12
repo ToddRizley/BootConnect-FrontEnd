@@ -50,8 +50,8 @@ const Profile = class extends Component {
 
           <Row>
            <Col className="header-container" md={9} >
-            <UserBioContainer currentUser={this.props.currentUser} />
-            <UserExperienceContainer currentUser={this.props.currentUser} />
+            <UserBioContainer currentUserBio={this.props.currentUser.currentUser.attributes.bio} currentUserId={this.props.currentUser.currentUser.id} />
+            <UserExperienceContainer currentUserExperience={this.props.currentUser.currentUser.attributes.experience} currentUserId={this.props.currentUser.currentUser.id} />
            </Col>
 
            <Col md={3}>
