@@ -20,7 +20,7 @@ class ArticleForm extends Component {
     event.preventDefault()
     const {resetForm} = this.props
 
-    this.props.addArticle(props, this.props.currentUserId).then( ()=>{
+    this.props.addArticle(props).then( ()=>{
       var router = require('react-router')
       router.browserHistory.push('/dashboard')
       resetForm()
@@ -69,10 +69,6 @@ class ArticleForm extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
-  }
 
 export default reduxForm({
     form: 'articleForm',
