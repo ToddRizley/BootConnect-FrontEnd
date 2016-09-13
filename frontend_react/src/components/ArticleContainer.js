@@ -5,20 +5,19 @@ import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
 import removeArticle from '../actions/removeArticle'
 import fetchArticles from '../actions/fetchArticles'
+import updateArticleList from '../actions/updateArticleList'
 
 class DumbArticleContainer extends Component {
   componentWillMount() {
-    this.props.fetchArticles.fetchArticles()
+    this.props.fetchArticles()
   }
 
-  // shouldComponentUpdate(newProps){
-  //   return newProps.articleList !== this.props.articleList
-  // }
+  shouldComponentUpdate(newProps){
+    return newProps.articleList.articleList.count !== this.props.articleList.articleList.count
+  }
 
-  componentWillUpdate(newProps){
-    if (newProps.articleList.articleList.count !== this.props.articleList.articleList.count){
-      this.props.fetchArticles.fetchArticles()
-    }
+  componentWillUpdate(){
+      this.props.updateArticleList()
   }
 
   render() {
@@ -38,9 +37,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return  {removeArticle: bindActionCreators({removeArticle}, dispatch),
-  fetchArticles: bindActionCreators({fetchArticles}, dispatch)
-    }
+  return bindActionCreators({removeArticle, fetchArticles, updateArticleList}, dispatch);
 }
 
 export default ArticleContainer
