@@ -16,6 +16,8 @@ import {Nav} from 'react-bootstrap'
 import {Navbar} from 'react-bootstrap'
 import {NavItem} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
+import removeInterest from '../actions/removeInterest.js'
+import { bindActionCreators } from 'redux'
 
 const Profile = class extends Component {
 
@@ -66,10 +68,16 @@ const Profile = class extends Component {
 }
 
 
-const ProfileContainer = connect(mapStateToProps)(Profile)
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile)
 
 function mapStateToProps(state) {
   return {currentUser: state.currentUser}
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({removeInterest}, dispatch);
+}
+
 
 export default ProfileContainer
