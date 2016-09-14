@@ -9,30 +9,32 @@ import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
 
 const SearchJobs = class extends Component {
-  constructor(props){
-    super(props)
-    this.state = {locations: [] }
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {locations: [] }
+  // }
+  //
+  // componentWillMount() {
+  //   this.props.fetchJobs().then( (response)=> {
+  //     var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
+  //     this.setState({locations: $.uniqueSort(newState)})
+  //     })
+  //   }
 
 
-  componentWillMount() {
-    this.props.fetchJobs.fetchJobs().then( (response)=> {
-      var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
-      this.setState({locations: $.uniqueSort(newState)})
-      })
-    }
+
 
   render(){
     return(
       <div>
       <div>Search Jobs Component</div>
-        <select id="filterTable-CityJobs" onChange={this.props.fetchFilteredJobs.fetchFilteredJobs}>
-      {this.state.locations.map( (location)=> {
+        <select id="filterTable-CityJobs" onChange={this.props.fetchFilteredJobs}>
+      {this.props.locations.map( (location)=> {
         return(<option>{location}</option>)
         }
       )}
       </select>
-      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.fetchJobsByDistance.bind(this, this.props.currentUserCity)} >
+      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.bind(this, this.props.currentUserCity)} >
         <option value="25">25 miles</option>
         <option value="50">50 miles</option>
         <option value="100">100 miles</option>
@@ -60,9 +62,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { fetchJobs: bindActionCreators({fetchJobs}, dispatch),
-          fetchJobsByDistance: bindActionCreators({fetchJobsByDistance}, dispatch),
-          fetchFilteredJobs: bindActionCreators({fetchFilteredJobs}, dispatch)}
+  return (bindActionCreators({fetchJobs, fetchJobsByDistance, fetchFilteredJobs}, dispatch))
 }
 
 export default SearchJobsContainer

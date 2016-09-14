@@ -11,6 +11,7 @@ import ArticleContainer from './ArticleContainer'
 import SearchUsersContainer from './SearchUsers'
 import NavbarContainer from './NavbarContainer'
 import SearchJobsContainer from './SearchJobs'
+import JobContainer from './JobContainer'
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
 import { Nav } from 'react-bootstrap'
@@ -22,6 +23,7 @@ import { Well } from 'react-bootstrap'
 const Dashboard = class extends Component {
 
   render(){
+    debugger
     return(
       <Row className="profile-wrapper">
         <Col sm={2} md={2}>
@@ -30,28 +32,27 @@ const Dashboard = class extends Component {
         <Col sm={8} md={8}>
 
           <Row>
-            <Col sm={12} med={12}>
-              <NavbarContainer currentUserName={this.props.currentUser.currentUser.attributes.name} />
+            <Col sm={12} md={12}>
+              <NavbarContainer currentUser={this.props.currentUser.currentUser} />
             </Col>
           </Row>
 
           <Row>
-            <Col sm={12} med={12}>
+            <Col sm={12} md={12}>
               <Well bsClass="dash-head"><h2>Connect To The Boot</h2></Well>
             </Col>
           </Row>
 
           <Row>
-            <Col sm= {9} md={9}>
+            <Col sm={9} md={9}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Alumni By City</h3>
                 <SearchUsersContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city}/>
-                <JobForm currentUser={this.props.currentUser} />
-                <SearchJobsContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city} />
+                <JobContainer currentUser={this.props.currentUser} />
               </div>
             </Col>
 
-            <Col sm= {3} md={3}>
+            <Col sm={3} md={3}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Articles </h3>
                 <ArticleContainer articleList={this.props.articleList}/>

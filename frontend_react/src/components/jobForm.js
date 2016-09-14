@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import addJob from '../actions/addJob.js'
 import fetchCurrentUser from '../actions/fetchCurrentUser'
+import fetchJobs from '../actions/fetchJobs.js'
 
 class JobForm extends Component {
-
   constructor(props) {
     super(props)
     this.state = {disabled: true}
@@ -16,26 +16,18 @@ class JobForm extends Component {
     })
   }
 
-  handleFormSubmit(props) {
-    event.preventDefault()
-    const {resetForm} = this.props
-
-    this.props.addJob(props, this.props.currentUserId).then( ()=>{
-      this.props.fetchCurrentUser(this.props.currentUser)
-      resetForm()
-    })
-  }
 
   render() {
+    debugger
     const disabled = this.state.disabled ? 'disabled' : ''
     const hidden = this.state.disabled ? 'hidden' : ''
 
-    const {fields: {title, description, url, location}, handleSubmit} = this.props;
+    const {fields: {title, company, url, location}, handleSubmit} = this.props;
 
     return (
       <div className="job-form">
 
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <form onSubmit={this.props.handleFormSubmit.bind(this)}>
             <input className="job-form-input"
                    type="textarea"
                    placeholder="Title"
@@ -43,8 +35,8 @@ class JobForm extends Component {
                    />
              <input className="job-form-input"
                     type="textarea"
-                    placeholder="Desription"
-                    {...description}
+                    placeholder="company"
+                    {...company}
                     />
             <input className="job-form-input"
                    type="textarea"
@@ -69,7 +61,7 @@ class JobForm extends Component {
 
 export default reduxForm({
   form: 'JobForm',
-  fields: ['title', 'description', 'url', 'location']
+  fields: ['title', 'company', 'url', 'location']
 },
 null,
-{ addJob, fetchCurrentUser })(JobForm);
+{ addJob, fetchJobs })(JobForm);

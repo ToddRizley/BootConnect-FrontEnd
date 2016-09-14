@@ -30,7 +30,7 @@ const Profile = class extends Component {
         <Col sm={8} md={8}>
           <Row>
             <Col>
-              <NavbarContainer currentUserName={this.props.currentUser.currentUser.attributes.name} />
+              <NavbarContainer currentUser={this.props.currentUser.currentUser} />
             </Col>
           </Row>
 
