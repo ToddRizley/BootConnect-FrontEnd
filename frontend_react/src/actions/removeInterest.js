@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 export default function removeInteret(userId, interestId) {
-debugger
+
   const URL = `http://localhost:3000/api/v1/interests/${interestId}`
   return $.ajax({
     url:URL,
