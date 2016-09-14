@@ -4,8 +4,6 @@ import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
 
 class Article extends Component {
-
-
   render(){
     var articleList = this.props.articleList.articleList
 
