@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux'
 import removeInterest from '../actions/removeInterest.js'
 
 class Interest extends Component {
+  
   handleDelete(props){
-    debugger
     var userId = this.props.currentUser.currentUser.id
     var interestId = props.id
     this.props.removeInterest(userId, interestId)
