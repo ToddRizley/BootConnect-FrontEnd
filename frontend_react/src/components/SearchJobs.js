@@ -9,21 +9,6 @@ import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
 
 const SearchJobs = class extends Component {
-  // constructor(props){
-  //   super(props)
-  //   this.state = {locations: [] }
-  // }
-  //
-  // componentWillMount() {
-  //   this.props.fetchJobs().then( (response)=> {
-  //     var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
-  //     this.setState({locations: $.uniqueSort(newState)})
-  //     })
-  //   }
-
-
-
-
   render(){
     return(
       <div>
@@ -34,7 +19,7 @@ const SearchJobs = class extends Component {
         }
       )}
       </select>
-      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.bind(this, this.props.currentUserCity)} >
+      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.bind(this, this.props.currentUser.currentUser.attributes.location.city)} >
         <option value="25">25 miles</option>
         <option value="50">50 miles</option>
         <option value="100">100 miles</option>
@@ -58,7 +43,7 @@ const SearchJobs = class extends Component {
 const SearchJobsContainer = connect(mapStateToProps, mapDispatchToProps)(SearchJobs)
 
 function mapStateToProps(state) {
-  return {jobList: state.jobList}
+  return {jobList: state.jobList, currentUser: state.currentUser}
 }
 
 function mapDispatchToProps(dispatch) {
