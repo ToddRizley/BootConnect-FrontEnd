@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import addArticle from '../actions/addArticle.js'
+import fetchArticles from '../actions/fetchArticles'
 
 class ArticleForm extends Component {
 
@@ -16,16 +17,6 @@ class ArticleForm extends Component {
     })
   }
 
-  handleFormSubmit(props) {
-    event.preventDefault()
-    const {resetForm} = this.props
-
-    this.props.addArticle(props).then( ()=>{
-      var router = require('react-router')
-      router.browserHistory.push('/dashboard')
-      resetForm()
-    })
-  }
 
   render() {
     const disabled = this.state.disabled ? 'disabled' : ''
@@ -36,7 +27,7 @@ class ArticleForm extends Component {
     return (
       <div className="article-form">
 
-        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+        <form onSubmit={handleSubmit(this.props.handleFormSubmit.bind(this))}>
               <button className="article-form-btn"
                       hidden={!hidden}
                       onClick={this.toggleState.bind(this)}
@@ -75,4 +66,4 @@ export default reduxForm({
     fields: ['title', 'url']
   },
   null,
-  { addArticle })(ArticleForm);
+  { addArticle, fetchArticles })(ArticleForm);

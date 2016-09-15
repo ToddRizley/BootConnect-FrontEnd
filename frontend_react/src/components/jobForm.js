@@ -2,7 +2,11 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import addJob from '../actions/addJob.js'
 import fetchCurrentUser from '../actions/fetchCurrentUser'
-import fetchJobs from '../actions/fetchJobs.js'
+import fetchJobs from '../actions/fetchJobs'
+import fetchFilteredJobs from '../actions/fetchFilteredJobs'
+import fetchJobsByDistance from '../actions/fetchJobsByDistance'
+import fetchLocations from '../actions/fetchLocations'
+
 
 class JobForm extends Component {
   constructor(props) {
@@ -25,8 +29,7 @@ class JobForm extends Component {
 
     return (
       <div className="job-form">
-
-      <form onSubmit={this.props.handleFormSubmit.bind(this, this.props)}>
+      <form onSubmit={handleSubmit(this.props.handleFormSubmit.bind(this))}>
             <input className="job-form-input"
                    type="textarea"
                    placeholder="Title"
@@ -63,4 +66,4 @@ export default reduxForm({
   fields: ['title', 'company', 'url', 'location']
 },
 null,
-{ addJob, fetchJobs })(JobForm);
+{ addJob, fetchJobs, fetchLocations})(JobForm);
