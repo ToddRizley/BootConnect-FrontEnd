@@ -28,7 +28,7 @@ class DumbJobContainer extends Component {
     handleFormSubmit(props) {
       event.preventDefault()
       debugger
-      this.props.addJob(props).then( ()=>{
+      this.props.addJob(this.props).then( ()=>{
         this.props.fetchJobs().then( (response)=> {
           var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
           this.setState({locations: $.uniqueSort(newState)})

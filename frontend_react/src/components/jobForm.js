@@ -26,7 +26,7 @@ class JobForm extends Component {
     return (
       <div className="job-form">
 
-      <form onSubmit={this.props.handleFormSubmit.bind(this, props)}>
+      <form onSubmit={this.props.handleFormSubmit.bind(this, this.props)}>
             <input className="job-form-input"
                    type="textarea"
                    placeholder="Title"
