@@ -27,18 +27,20 @@ class DumbJobContainer extends Component {
 
     handleFormSubmit(props) {
       event.preventDefault()
-      const {resetForm} = this.props
+      debugger
       this.props.addJob(props).then( ()=>{
         this.props.fetchJobs().then( (response)=> {
           var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
           this.setState({locations: $.uniqueSort(newState)})
           })
+        const {resetForm} = this.props
         resetForm()
       })
     }
 
 
   render() {
+    debugger
     return(
       <div>
         <JobForm handleFormSubmit={this.handleFormSubmit}/>
@@ -51,7 +53,7 @@ class DumbJobContainer extends Component {
 const JobContainer = connect(mapStateToProps, mapDispatchToProps)(DumbJobContainer)
 
 function mapStateToProps(state) {
-  return {jobList: state.jobList}
+  return {jobList: state.jobList, currentUser: state.currentUser}
 }
 
 function mapDispatchToProps(dispatch) {

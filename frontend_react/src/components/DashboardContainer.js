@@ -23,7 +23,6 @@ import { Well } from 'react-bootstrap'
 const Dashboard = class extends Component {
 
   render(){
-    debugger
     return(
       <Row className="profile-wrapper">
         <Col sm={2} md={2}>
@@ -47,15 +46,15 @@ const Dashboard = class extends Component {
             <Col sm={9} md={9}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Alumni By City</h3>
-                <SearchUsersContainer currentUserCity={this.props.currentUser.currentUser.attributes.location.city}/>
-                <JobContainer currentUser={this.props.currentUser} />
+                <SearchUsersContainer currentUser={this.props.currentUser.currentUser}/>
+                <JobContainer currentUser={this.props.currentUser.currentUser} />
               </div>
             </Col>
 
             <Col sm={3} md={3}>
               <div className="dashboard-block">
                 <h3 className="dashboard-block-head"> Articles </h3>
-                <ArticleContainer articleList={this.props.articleList}/>
+                <ArticleContainer />
               </div>
             </Col>
           </Row>

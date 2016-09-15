@@ -18,7 +18,6 @@ class JobForm extends Component {
 
 
   render() {
-    debugger
     const disabled = this.state.disabled ? 'disabled' : ''
     const hidden = this.state.disabled ? 'hidden' : ''
 
@@ -27,7 +26,7 @@ class JobForm extends Component {
     return (
       <div className="job-form">
 
-      <form onSubmit={this.props.handleFormSubmit.bind(this)}>
+      <form onSubmit={this.props.handleFormSubmit.bind(this, props)}>
             <input className="job-form-input"
                    type="textarea"
                    placeholder="Title"
