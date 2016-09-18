@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
 import addArticle from '../actions/addArticle.js'
 import fetchArticles from '../actions/fetchArticles'
@@ -19,7 +19,7 @@ class ArticleForm extends Component {
 
 
   render() {
-    const disabled = this.state.disabled ? 'disabled' : ''
+    // const disabled = this.state.disabled ? 'disabled' : ''
     const hidden = this.state.disabled ? 'hidden' : ''
 
     const {fields: {title, url}, handleSubmit} = this.props;

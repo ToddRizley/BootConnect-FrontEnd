@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
 import addInterest from '../actions/addInterest.js'
 
@@ -30,11 +30,11 @@ class InterestForm extends Component {
   }
 
   render() {
-    const disabled = this.state.disabled ? 'disabled' : ''
+    // const disabled = this.state.disabled ? 'disabled' : ''
     const hidden = this.state.disabled ? 'hidden' : ''
-    const value = this.state.value
+    // const value = this.state.value
 
-    const {fields: {name, description}, handleSubmit} = this.props;
+    const {fields: {name }, handleSubmit} = this.props;
 
     return (
       <div className="header">
@@ -61,9 +61,9 @@ class InterestForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
-  }
+// function mapStateToProps(state) {
+//   return { currentUser: state.currentUser }
+//   }
 
 
 export default reduxForm({

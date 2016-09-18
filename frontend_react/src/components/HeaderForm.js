@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
-import { Field } from 'redux-form'
+// import { Field } from 'redux-form'
 import updateUser from '../actions/updateUser.js'
 
 class HeaderForm extends Component {
@@ -30,7 +30,7 @@ class HeaderForm extends Component {
 
   render() {
     var disabled = this.state.disabled ? 'disabled' : ''
-    var hidden = this.state.disabled ? 'hidden' : ''
+    // var hidden = this.state.disabled ? 'hidden' : ''
 
     const {fields: {name, location, position, company}, handleSubmit} = this.props;
     return (
@@ -66,9 +66,9 @@ class HeaderForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { currentUser: state.currentUser }
-  }
+// function mapStateToProps(state) {
+//   return { currentUser: state.currentUser }
+//   }
 
 export default reduxForm({
   form: 'userHeader',

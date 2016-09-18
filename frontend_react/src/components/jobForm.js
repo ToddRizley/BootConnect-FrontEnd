@@ -1,10 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
 import addJob from '../actions/addJob.js'
-import fetchCurrentUser from '../actions/fetchCurrentUser'
 import fetchJobs from '../actions/fetchJobs'
-import fetchFilteredJobs from '../actions/fetchFilteredJobs'
-import fetchJobsByDistance from '../actions/fetchJobsByDistance'
 import fetchLocations from '../actions/fetchLocations'
 
 
@@ -22,8 +19,8 @@ class JobForm extends Component {
 
 
   render() {
-    const disabled = this.state.disabled ? 'disabled' : ''
-    const hidden = this.state.disabled ? 'hidden' : ''
+    // const disabled = this.state.disabled ? 'disabled' : ''
+    // const hidden = this.state.disabled ? 'hidden' : ''
 
     const {fields: {title, company, url, location}, handleSubmit} = this.props;
 

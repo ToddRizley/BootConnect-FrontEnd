@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import {reducer as formReducer} from 'redux-form';
+import React, { Component } from 'react'
+// import {reducer as formReducer} from 'redux-form';
 import { reduxForm } from 'redux-form'
 import  addUser  from '../actions/addUser'
 import stateList from '../GoogleMapsAPI/stateAbbreviations.js'

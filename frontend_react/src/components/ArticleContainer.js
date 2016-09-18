@@ -15,9 +15,7 @@ class DumbArticleContainer extends Component {
 
   handleFormSubmit(props) {
     event.preventDefault()
-    debugger
     const {resetForm} = this.props
-
     this.props.addArticle(props).then( ()=>{
       this.props.fetchArticles()
     }
