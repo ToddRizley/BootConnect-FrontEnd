@@ -14,7 +14,7 @@ export default function updateUser(props, currentUserId) {
       email_address: props.email_address,
       position: props.position,
       interests: props.interests,
-      experience: props.experience
+      experience: props.experience,
       token: sessionStorage.jwtToken
      }),
     contentType:"application/json; charset=utf-8",
