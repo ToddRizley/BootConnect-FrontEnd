@@ -1,13 +1,13 @@
 import $ from 'jquery'
 
-export default function addInterest(props, currentUserId) {
+export default function addInterest(interest, currentUserId) {
   const URL = 'http://localhost:3000/api/v1/interests'
   const USER_ID = currentUserId
   return $.ajax({
     url:URL,
     type:"POST",
     data: JSON.stringify({
-      interest: props,
+      interest: interest,
       user_id: USER_ID
     }),
     contentType:"application/json; charset=utf-8",
