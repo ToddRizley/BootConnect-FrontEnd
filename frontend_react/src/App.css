@@ -109,6 +109,21 @@ a.splash-link {
   height: 10vw;
 }
 
+.entry-input-signin {
+  border: 0px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #eee;
+  font-size: 25px;
+  display: block;
+  margin : 0 auto;
+  position: relative;
+  left: 0;
+  top: 200;
+  width: 100vw;
+  height: 7vw;
+}
+
 .entry-input-register {
   border: 0px;
   text-align: center;
@@ -165,6 +180,21 @@ textarea.bio {
   border: 0px;
   font-size: 1.1em;
 }
+
+/*select.entry-input-register {
+  border: 0px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #eee;
+  font-size: 25px;
+  display: block;
+  margin : 0 auto;
+  position: relative;
+  left: 0;
+  top: 200;
+  width: 100vw;
+  height: 7vw;
+}*/
 
 textarea.exp {
   width: 90%;

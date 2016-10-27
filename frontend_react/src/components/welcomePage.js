@@ -37,14 +37,14 @@ const WelcomePage = class extends Component {
                   <Link className="splash-link"
                         to="#"
                         onClick={this.toggleLogin.bind(this)}
-                        onKeyUp={this.toggleCloseForm.bind(this)}>
+                        onKeyDown={this.toggleCloseForm.bind(this)}>
                          Login </Link>
                 </div>
                 <div className="splash-right">
                   <Link className="splash-link"
                        to="#"
                        onClick={this.toggleRegister.bind(this)}
-                       onKeyUp={this.toggleCloseForm.bind(this)}>
+                       onKeyDown={this.toggleCloseForm.bind(this)}>
                        Register</Link>
                   </div>
                 {this.state.register ? <div><SignUpBox toggleCloseForm={this.toggleCloseForm.bind(this)} /></div> : ''}

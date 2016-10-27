@@ -17,6 +17,7 @@ class SignUpBox extends Component {
     })
   }
 
+
   render() {
     const {fields: {fullName, email, password, city, state}, handleSubmit} = this.props;
     return (
@@ -54,7 +55,7 @@ class SignUpBox extends Component {
                   {...state} >
               {stateList.map( (state) => {
                return (
-                 <option value={state}> {state} </option>
+                 <option className="state-dropdown" value={state}> {state} </option>
                 )
                })
               }

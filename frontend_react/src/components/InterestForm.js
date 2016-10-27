@@ -51,7 +51,6 @@ class Form extends Component {
     }
     // const value = this.state.value
 
-    // const {fields: {name }, handleSubmit} = this.props;
 
     return (
       <div className="header">
@@ -92,9 +91,3 @@ function mapStateToProps(state) {
 
 
 export default InterestForm
-
-//
-// export default reduxForm({
-//   form: 'interestForm',
-//   fields: ['name']
-// }, null, { addInterest })(InterestForm);
