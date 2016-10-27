@@ -41,6 +41,14 @@ class Form extends Component {
   render() {
     const disabled = this.state.disabled ? 'disabled' : ''
     const hidden = this.state.disabled ? 'hidden' : ''
+    var style = {
+    borderRadius: '8px',
+    fontSize: '.8em',
+    textAlign: 'center',
+    backgroundColor: 'blue',
+    width: '4em',
+    color: 'white'
+    }
     // const value = this.state.value
 
     // const {fields: {name }, handleSubmit} = this.props;
@@ -60,6 +68,7 @@ class Form extends Component {
                  onChange={this.updateState.bind(this)}
                  />
          <input className="interest-form-input"
+                style={style}
                 hidden={hidden}
                 type="submit"
                 value="Save"

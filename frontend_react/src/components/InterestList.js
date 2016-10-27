@@ -17,11 +17,12 @@ class Interest extends Component {
     var style = {
       display: 'inline-block',
       borderRadius: '8px',
-      width: '1.3em',
+      width: '2em',
       textAlign: 'center',
-      fontSize: '1em',
+      fontSize: '.8em',
       color: 'white',
-      backgroundColor: 'blue'
+      backgroundColor: 'blue',
+      verticalAlign: 'middle'
 
     }
 
