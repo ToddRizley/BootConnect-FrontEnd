@@ -13,7 +13,7 @@ class Interest extends Component {
 
   render(){
     var interests = this.props.currentUser.currentUser.attributes.interests
-    debugger
+  
     var style = {
       display: 'inline-block',
       borderRadius: '8px',

@@ -6,10 +6,8 @@ import fetchCurrentUser from '../actions/fetchCurrentUser'
 class SignInBox extends Component {
   handleFormSubmit(props) {
     event.preventDefault()
-    debugger
     if (props.userEmail && props.userPassword) {
     let userEmail = props.userEmail.replace('.', '&')
-    debugger
       this.props.fetchCurrentUser(userEmail, props.userPassword).then( ()=>{
         var router = require('react-router')
         router.browserHistory.push('/profile')

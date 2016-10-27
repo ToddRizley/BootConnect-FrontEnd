@@ -10,7 +10,6 @@ import { ListGroupItem } from 'react-bootstrap'
 
 const SearchJobs = class extends Component {
   render(){
-    debugger
     return(
       <div>
       <div>Search Jobs Component</div>

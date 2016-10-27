@@ -18,7 +18,6 @@ class DumbJobContainer extends Component {
   }
 
   componentWillMount() {
-    debugger
     this.props.fetchJobs().then( (response)=> {
       var newState = response.payload.data.map( (job)=> { return job.attributes.location.city } )
       this.setState({locations: $.uniqueSort(newState)})
