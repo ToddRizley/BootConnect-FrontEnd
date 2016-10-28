@@ -10,9 +10,10 @@ class SignUpBox extends Component {
     event.preventDefault()
 
     this.props.fetchLatLong(props["city"], props["state"]).then( (response)=> {
-      this.props.addUser(props, response.payload).then( ()=>{
+      this.props.addUser(props, response.payload).then( (response)=>{
+        var userID = response.payload.data.id
         var router = require('react-router')
-        router.browserHistory.push('/profile')
+        router.browserHistory.push(`/users/${userID}`)
       })
     })
   }
