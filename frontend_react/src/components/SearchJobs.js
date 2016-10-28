@@ -1,10 +1,9 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import fetchJobs from '../actions/fetchJobs'
 import fetchFilteredJobs from '../actions/fetchFilteredJobs'
 import fetchJobsByDistance from '../actions/fetchJobsByDistance'
-import $ from 'jquery'
 import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
 

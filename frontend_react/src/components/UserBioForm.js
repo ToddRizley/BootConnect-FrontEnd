@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
 import updateUser from '../actions/updateUser.js'
 import fetchInterests from '../actions/fetchInterests.js'
@@ -29,7 +29,7 @@ class UserBioForm extends Component {
 
   render() {
     const disabled = this.state.disabled ? 'disabled' : ''
-    const hidden = this.state.disabled ? 'hidden' : ''
+    // const hidden = this.state.disabled ? 'hidden' : ''
 
     const {fields: {bio}, handleSubmit} = this.props;
     return (

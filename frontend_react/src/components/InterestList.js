@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import removeInterest from '../actions/removeInterest.js'
@@ -12,7 +12,19 @@ class Interest extends Component {
   }
 
   render(){
-    var interests = this.props.currentUserInterests
+    var interests = this.props.currentUser.currentUser.attributes.interests
+  
+    var style = {
+      display: 'inline-block',
+      borderRadius: '8px',
+      width: '2em',
+      textAlign: 'center',
+      fontSize: '.8em',
+      color: 'white',
+      backgroundColor: 'blue',
+      verticalAlign: 'middle'
+
+    }
 
     return(
       <div>
@@ -20,7 +32,7 @@ class Interest extends Component {
         <ul>
           { interests.map( (interest) => {
             return <li>
-                    <div className="interest-block"> {interest.name} <button type="button" class="btn btn-secondary btn-xs" onClick={this.handleDelete.bind(this, interest)}>X</button> </div>
+                    <div className="interest-block"> {interest.name} <button type="button" style={style} onClick={this.handleDelete.bind(this, interest)}>X</button> </div>
                    </li>
             })
           }

@@ -6,20 +6,30 @@ import fetchCurrentUser from '../actions/fetchCurrentUser'
 class SignInBox extends Component {
   handleFormSubmit(props) {
     event.preventDefault()
+    if (props.userEmail && props.userPassword) {
     let userEmail = props.userEmail.replace('.', '&')
-    this.props.fetchCurrentUser(userEmail)
+      this.props.fetchCurrentUser(userEmail, props.userPassword).then( ()=>{
+        var router = require('react-router')
+        router.browserHistory.push('/profile')
+      })
+
+    }
   }
 
   render() {
 
-    const {fields: {userEmail}, handleSubmit} = this.props;
+    const {fields: {userEmail, userPassword}, handleSubmit} = this.props;
     return (
       <div className="entry-container">
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} onKeyUp={this.props.toggleCloseForm}>
-            <input className="entry-input"
+            <input className="entry-input-signin"
                    type="text"
                    placeholder="Email Address"
                    {...userEmail} />
+            <input className="entry-input-signin"
+                    type="password"
+                    placeholder="Password"
+                    {...userPassword} />
           <input type="submit" value="Submit" />
         </form>
       </div>
@@ -30,5 +40,5 @@ class SignInBox extends Component {
 
 export default reduxForm({
   form: 'loginForm',
-  fields: ['userEmail']
+  fields: ['userEmail', 'userPassword']
 }, null, { fetchCurrentUser })(SignInBox);

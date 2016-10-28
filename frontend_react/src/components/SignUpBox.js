@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import {reducer as formReducer} from 'redux-form';
 import { reduxForm } from 'redux-form'
 import  addUser  from '../actions/addUser'
@@ -16,6 +16,7 @@ class SignUpBox extends Component {
       })
     })
   }
+
 
   render() {
     const {fields: {fullName, email, password, city, state}, handleSubmit} = this.props;
@@ -54,7 +55,7 @@ class SignUpBox extends Component {
                   {...state} >
               {stateList.map( (state) => {
                return (
-                 <option value={state}> {state} </option>
+                 <option className="state-dropdown" value={state}> {state} </option>
                 )
                })
               }

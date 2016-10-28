@@ -22,18 +22,30 @@ const SearchUsers = class extends Component {
     })
   }
 
+  handleDistanceChange(){
+    var dist = document.getElementById("filterTable-Distance").value.split(" ")[0]
+    var city = this.props.currentUser.attributes.location.city
+    this.props.fetchUsersByDistance.fetchUsersByDistance(dist, city)
+  }
+
+  handleCityChange(){
+
+    var city = document.getElementById("filterTable-City").value
+    this.props.fetchFilteredUsers.fetchFilteredUsers(city)
+  }
+
 
   render() {
     return(
       <div>
-      <select id="filterTable-City" onChange={this.props.fetchFilteredUsers.fetchFilteredUsers}>
+      <select id="filterTable-City" onChange={this.handleCityChange.bind(this)}>
         {this.state.locations.map( (location)=> {
           return(<option>{location}</option>)
           }
         )}
         </select>
 
-        <select id="filterTable-Distance" onChange={this.props.fetchUsersByDistance.fetchUsersByDistance.bind(this, this.props.currentUserCity)} >
+        <select id="filterTable-Distance" onChange={this.handleDistanceChange.bind(this)} >
           <option>25 miles</option>
           <option>50 miles</option>
           <option>100 miles</option>

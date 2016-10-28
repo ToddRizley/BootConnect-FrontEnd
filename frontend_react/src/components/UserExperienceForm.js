@@ -29,7 +29,7 @@ class UserExperienceForm extends Component {
 
   render() {
     const disabled = this.state.disabled ? 'disabled' : ''
-    const hidden = this.state.disabled ? 'hidden' : ''
+    // const hidden = this.state.disabled ? 'hidden' : ''
 
     const {fields: {experience}, handleSubmit} = this.props;
     return (

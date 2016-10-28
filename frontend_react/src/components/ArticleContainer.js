@@ -5,6 +5,7 @@ import ArticleForm from './ArticleForm'
 import ArticleList from './ArticleList'
 import removeArticle from '../actions/removeArticle'
 import fetchArticles from '../actions/fetchArticles'
+import addArticle from '../actions/addArticle'
 import updateArticleList from '../actions/updateArticleList'
 
 class DumbArticleContainer extends Component {
@@ -12,18 +13,23 @@ class DumbArticleContainer extends Component {
     this.props.fetchArticles()
   }
 
-  shouldComponentUpdate(newProps){
-    return newProps.articleList.articleList.count !== this.props.articleList.articleList.count
-  }
-
-  componentWillUpdate(){
-      this.props.updateArticleList()
+  handleFormSubmit(props) {
+    event.preventDefault()
+    const {resetForm} = this.props
+    this.props.addArticle(props).then( ()=>{
+      this.props.fetchArticles()
+    }
+  ).then( ()=>{
+    var router = require('react-router')
+    router.browserHistory.push('/dashboard')
+    resetForm()
+  })
   }
 
   render() {
     return(
       <div>
-        <ArticleForm />
+        <ArticleForm handleFormSubmit={this.handleFormSubmit}/>
         <ArticleList articleList={this.props.articleList} />
       </div>
     )
@@ -37,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({removeArticle, fetchArticles, updateArticleList}, dispatch);
+  return bindActionCreators({addArticle, removeArticle, fetchArticles, updateArticleList}, dispatch);
 }
 
 export default ArticleContainer
