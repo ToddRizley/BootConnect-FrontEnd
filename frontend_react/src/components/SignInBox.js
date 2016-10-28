@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
-import fetchCurrentUser from '../actions/fetchCurrentUser'
+import fetchUserLogin from '../actions/fetchUserLogin'
 
 
 class SignInBox extends Component {
@@ -8,9 +8,9 @@ class SignInBox extends Component {
     event.preventDefault()
     if (props.userEmail && props.userPassword) {
     let userEmail = props.userEmail.replace('.', '&')
-      this.props.fetchCurrentUser(userEmail, props.userPassword).then( (response)=>{
+      this.props.fetchUserLogin(userEmail, props.userPassword).then( (response)=>{
+
       if (response.payload.data) {
-        debugger
         var router = require('react-router')
         router.browserHistory.push('/profile')
       }
@@ -45,4 +45,4 @@ class SignInBox extends Component {
 export default reduxForm({
   form: 'loginForm',
   fields: ['userEmail', 'userPassword']
-}, null, { fetchCurrentUser })(SignInBox);
+}, null, { fetchUserLogin })(SignInBox);

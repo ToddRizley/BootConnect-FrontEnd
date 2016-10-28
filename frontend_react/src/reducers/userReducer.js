@@ -6,6 +6,8 @@ export default function userReducer(state = {currentUser: ""}, action){
       return Object.assign({}, state,  { currentUser: action.payload.data});
     case 'FETCH_CURRENT_USER':
       return { currentUser: action.payload.data };
+    case 'FETCH_USER_LOGIN':
+      return { currentUser: action.payload.data };
     case 'UPDATE_USER':
       return Object.assign({}, state,  { currentUser: action.payload.data });
     case 'ADD_INTEREST':
