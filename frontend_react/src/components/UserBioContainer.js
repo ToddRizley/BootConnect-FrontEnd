@@ -6,7 +6,7 @@ import UserBioForm from './UserBioForm'
 const DumbUserBioContainer = class extends Component {
 
   render(){
-    var userBio = this.props.currentUserBio|| ''
+    var userBio = this.props.currentUserBio || ''
 
     var initialValues = {
       initialValues: {
