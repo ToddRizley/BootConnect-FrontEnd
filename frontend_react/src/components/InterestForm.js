@@ -10,14 +10,14 @@ class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      disabled: false,
+      focus: false,
       interest: ""
     }
   }
 
-  toggleState(){
+  toggleFocus(){
     this.setState({
-      disabled: !this.state.disabled
+      focus: !this.state.focus
     })
   }
 
@@ -34,44 +34,46 @@ class Form extends Component {
   }
 
   updateState(event){
-    this.setState( { interest: event.target.value } )
+    this.setState( {interest: event.target.value } )
     console.log(event.target.value)
   }
 
   render() {
     const disabled = this.state.disabled ? 'disabled' : ''
     const hidden = this.state.disabled ? 'hidden' : ''
-    var style = {
-    borderRadius: '8px',
-    fontSize: '.8em',
-    textAlign: 'center',
-    backgroundColor: 'blue',
-    width: '4em',
-    color: 'white'
-    }
-    // const value = this.state.value
 
+    var buttonStyle = {
+      border: 'none',
+      fontSize: '1em',
+      backgroundColor: '#C0D9AF',
+      color: 'fff',
+      width: 'auto',
+      padding: '10px'
+    }
 
     return (
       <div className="header">
 
-      {
-        this.state.disabled
-        ?  <button onClick={this.toggleState.bind(this)}>Add </button>
-        : null
-      }
-        <form onSubmit={this.handleFormSubmit.bind(this)} ref="form">
+        <form onSubmit={this.handleFormSubmit.bind(this)}
+              ref="form">
           <input type="textarea"
                  hidden={hidden}
                  placeholder="Add Interest"
                  onChange={this.updateState.bind(this)}
+                 onFocus={this.toggleFocus.bind(this)}
+                 onBlur={this.toggleFocus.bind(this)}
                  />
-         <input className="interest-form-input"
-                style={style}
-                hidden={hidden}
-                type="submit"
-                value="Save"
-                />
+          <br/>
+
+          {
+           this.state.focus
+           ? <input style={buttonStyle}
+                    type="submit"
+                    value="Save"
+                    />
+           : ''
+          }
+
         </form>
       </div>
     );

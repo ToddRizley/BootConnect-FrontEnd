@@ -29,26 +29,41 @@ class UserBioForm extends Component {
 
   render() {
     const disabled = this.state.disabled ? 'disabled' : ''
-    // const hidden = this.state.disabled ? 'hidden' : ''
+    const hidden = this.state.disabled ? 'hidden' : ''
 
-    const {fields: {bio}, handleSubmit} = this.props;
+    const {fields: {bio}, handleSubmit} = this.props
+
+    var buttonStyle = {
+      border: 'none',
+      fontSize: '1em',
+      backgroundColor: '#C0D9AF',
+      color: 'fff',
+      width: 'auto',
+      padding: '10px'
+    }
+
     return (
       <div className="user-bio-display">
+
         <h3 className="profile-header">Bio</h3>
+
         <form onDoubleClick={this.toggleState.bind(this)}
               onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 
           <textarea className="bio"
-            disabled={disabled}
-            type="textarea"
-            placeholder="Add Bio"
-            {...bio}
-          />
+                    disabled={disabled}
+                    type="textarea"
+                    placeholder="Add Bio"
+                    {...bio}
+                    />
           <br/>
-          { this.state.disabled
+
+          {
+            this.state.disabled
             ? ''
-            : <input className="user-profile-save" type="submit" value="Save" />
+            : <input style={buttonStyle} type="submit" value="Save" />
           }
+
         </form>
       </div>
     );
