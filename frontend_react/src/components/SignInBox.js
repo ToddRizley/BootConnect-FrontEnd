@@ -8,9 +8,12 @@ class SignInBox extends Component {
     event.preventDefault()
     if (props.userEmail && props.userPassword) {
     let userEmail = props.userEmail.replace('.', '&')
-      this.props.fetchCurrentUser(userEmail, props.userPassword).then( ()=>{
+      this.props.fetchCurrentUser(userEmail, props.userPassword).then( (response)=>{
+      if (response.payload.data) {
+        debugger
         var router = require('react-router')
         router.browserHistory.push('/profile')
+      }
       })
 
     }
@@ -29,8 +32,9 @@ class SignInBox extends Component {
             <input className="entry-input-signin"
                     type="password"
                     placeholder="Password"
-                    {...userPassword} />
-          <input type="submit" value="Submit" />
+                    {...userPassword}
+                    />
+            <input type="submit" hidden="hidden" />
         </form>
       </div>
     );
