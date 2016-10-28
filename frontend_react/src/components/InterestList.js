@@ -13,7 +13,7 @@ class Interest extends Component {
 
   render(){
     var interests = this.props.currentUser.currentUser.attributes.interests
-  
+
     var style = {
       display: 'inline-block',
       borderRadius: '8px',
@@ -21,9 +21,7 @@ class Interest extends Component {
       textAlign: 'center',
       fontSize: '.8em',
       color: 'white',
-      backgroundColor: 'blue',
       verticalAlign: 'middle'
-
     }
 
     return(
@@ -32,7 +30,15 @@ class Interest extends Component {
         <ul>
           { interests.map( (interest) => {
             return <li>
-                    <div className="interest-block"> {interest.name} <button type="button" style={style} onClick={this.handleDelete.bind(this, interest)}>X</button> </div>
+                    <div className="interest-block">
+                      { interest.name }
+                      <button type="button"
+                              style={style}
+                              onClick={this.handleDelete.bind(this, interest)}
+                              >
+                              X
+                      </button>
+                    </div>
                    </li>
             })
           }

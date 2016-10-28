@@ -29,30 +29,44 @@ class UserExperienceForm extends Component {
 
   render() {
     const disabled = this.state.disabled ? 'disabled' : ''
-    // const hidden = this.state.disabled ? 'hidden' : ''
+    const hidden = this.state.disabled ? 'hidden' : ''
 
-    const {fields: {experience}, handleSubmit} = this.props;
+    const {fields: {experience}, handleSubmit} = this.props
+
+    var buttonStyle = {
+      border: 'none',
+      fontSize: '1em',
+      backgroundColor: '#C0D9AF',
+      color: 'fff',
+      width: 'auto',
+      padding: '10px'
+    }
+
+
     return (
       <div className="experience">
         <h3 className="profile-header">Experience</h3>
 
         <form onDoubleClick={this.toggleState.bind(this)}
-              onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+              onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} >
 
           <textarea className="exp"
-            disabled={disabled}
-            type="textarea"
-            placeholder="Add Experience"
-            {...experience}
-          />
+                    disabled={disabled}
+                    type="textarea"
+                    placeholder="Add Experience"
+                    {...experience}
+                    />
+          <br/>
 
-          { this.state.disabled
+          {
+            this.state.disabled
             ? ''
-            : <input className="user-profile-save"
+            : <input style={buttonStyle}
                      type="submit"
                      value="Save"
                     />
           }
+
         </form>
       </div>
     );
