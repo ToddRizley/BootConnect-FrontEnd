@@ -8,17 +8,19 @@ import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
 
 const SearchJobs = class extends Component {
+
+
   render(){
     return(
       <div>
       <div>Search Jobs Component</div>
-        <select id="filterTable-CityJobs" onChange={this.props.fetchFilteredJobs}>
+        <select id="filterTable-CityJobs" onChange={this.props.handleCityChange.bind(this)}>
       {this.props.locations.map( (location)=> {
         return(<option>{location}</option>)
         }
       )}
       </select>
-      <select id="filterTable-Distance-Jobs" onChange={this.props.fetchJobsByDistance.bind(this, this.props.currentUser.currentUser.attributes.location.city)} >
+      <select id="filterTable-DistanceJobs" onChange={this.props.handleDistanceChange.bind(this)} >
         <option value="25">25 miles</option>
         <option value="50">50 miles</option>
         <option value="100">100 miles</option>

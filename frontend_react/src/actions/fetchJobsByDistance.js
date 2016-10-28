@@ -1,13 +1,12 @@
 import $ from 'jquery'
 
 export default function fetchJobsByDistance(city, distance) {
-  const dist = document.getElementById("filterTable-Distance-Jobs").value.split(" ")[0]
-  const URL = `http://localhost:3000/api/v1/jobs/distance/${city}/${dist}`
+  const URL = `http://localhost:3000/api/v1/jobs/distance/${city}/${distance}`
   return $.ajax({
     url:URL,
     type:"GET",
     data: JSON.stringify({
-      distance: dist,
+      distance: distance,
       loc: city
     }),
     contentType:"application/json; charset=utf-8",
