@@ -23,7 +23,7 @@ class Form extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault()
-    const {resetForm} = this.props
+    // const {resetForm} = this.props
     var interest = this.state.interest
 
     this.props.addInterest(interest, this.props.currentUserId).then( ()=>{

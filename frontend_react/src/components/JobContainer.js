@@ -35,11 +35,8 @@ class DumbJobContainer extends Component {
       axios.get(url).then( (response)=> {
       var coords = response.data.results[0].geometry.location
       this.props.addJob(this.props, coords).then( ()=>{
-        debugger
         this.props.fetchJobs().then( (response)=> {
-          debugger
           var newState =  response.payload.data.map( (job)=> { return job.attributes.city } )
-
           this.setState({locations: $.uniqueSort(newState)})
         })
       })
@@ -50,12 +47,25 @@ class DumbJobContainer extends Component {
           })
   }
 
+  handleDistanceChange(){
+    var dist = document.getElementById("filterTable-DistanceJobs").value.split(" ")[0]
+    var city = this.props.currentUser.currentUser.attributes.location.city
+    this.props.fetchJobsByDistance(city, dist)
+  }
+
+  handleCityChange(){
+    var city = document.getElementById("filterTable-CityJobs").value
+    this.props.fetchFilteredJobs(city)
+  }
+
 
   render() {
     return(
       <div>
         <JobForm handleFormSubmit={this.handleFormSubmit}/>
-        <SearchJobs locations={this.state.locations}/>
+        <SearchJobs locations={this.state.locations}
+        handleDistanceChange={this.handleDistanceChange}
+        handleCityChange={this.handleCityChange}/>
       </div>
     )
   }
