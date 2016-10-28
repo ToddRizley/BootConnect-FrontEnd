@@ -3,3 +3,4 @@ To Do:
   style state dropdown
   authentication fix
   add validations for welcome page forms
+  if user updates location, need to fetch lat/long

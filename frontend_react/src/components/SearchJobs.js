@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import fetchJobs from '../actions/fetchJobs'
 import fetchFilteredJobs from '../actions/fetchFilteredJobs'
 import fetchJobsByDistance from '../actions/fetchJobsByDistance'
-// import $ from 'jquery'
 import { ListGroup } from 'react-bootstrap'
 import { ListGroupItem } from 'react-bootstrap'
 

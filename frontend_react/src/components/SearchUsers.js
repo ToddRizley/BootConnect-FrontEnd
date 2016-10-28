@@ -29,9 +29,8 @@ const SearchUsers = class extends Component {
   }
 
   handleCityChange(){
-    debugger
+
     var city = document.getElementById("filterTable-City").value
-    debugger
     this.props.fetchFilteredUsers.fetchFilteredUsers(city)
   }
 

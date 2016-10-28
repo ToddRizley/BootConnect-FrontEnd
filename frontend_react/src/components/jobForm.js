@@ -19,8 +19,8 @@ class JobForm extends Component {
 
 
   render() {
-    // const disabled = this.state.disabled ? 'disabled' : ''
-    // const hidden = this.state.disabled ? 'hidden' : ''
+    const disabled = this.state.disabled ? 'disabled' : ''
+    const hidden = this.state.disabled ? 'hidden' : ''
 
     const {fields: {title, company, url, location}, handleSubmit} = this.props;
 
