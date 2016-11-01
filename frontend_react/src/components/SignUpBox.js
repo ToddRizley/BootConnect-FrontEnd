@@ -15,7 +15,7 @@ class SignUpBox extends Component {
     var divsToStyle = this.validateForm(props)
     if (divsToStyle.length > 0){
     this.setState( { invalid: divsToStyle } )
-    debugger
+
   } else {
     this.props.fetchLatLong(props["city"], props["state"]).then( (response)=> {
       this.props.addUser(props, response.payload).then( (response)=>{
