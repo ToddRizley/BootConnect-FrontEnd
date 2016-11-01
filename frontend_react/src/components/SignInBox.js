@@ -4,6 +4,11 @@ import fetchUserLogin from '../actions/fetchUserLogin'
 
 
 class SignInBox extends Component {
+  constructor(props){
+    super(props)
+    this.state = {invalid: false}
+  }
+
   handleFormSubmit(props) {
     event.preventDefault()
     if (props.userEmail && props.userPassword) {
@@ -13,6 +18,8 @@ class SignInBox extends Component {
       if (response.payload.data) {
         var router = require('react-router')
         router.browserHistory.push('/profile')
+      } else {
+        this.setState( {invalid: true})
       }
       })
 
@@ -20,6 +27,13 @@ class SignInBox extends Component {
   }
 
   render() {
+    var styleDefault = {
+      border: '0px'
+    }
+    var styleIncorrect = {
+      border: 'none',
+      borderBottom: '2px solid red',
+    }
 
     const {fields: {userEmail, userPassword}, handleSubmit} = this.props;
     return (
@@ -28,10 +42,12 @@ class SignInBox extends Component {
             <input className="entry-input-signin"
                    type="text"
                    placeholder="Email Address"
+                   style={ this.state.invalid === true ? styleIncorrect : styleDefault }
                    {...userEmail} />
             <input className="entry-input-signin"
                     type="password"
                     placeholder="Password"
+                    style={ this.state.invalid === true ? styleIncorrect : styleDefault }
                     {...userPassword}
                     />
             <input type="submit" hidden="hidden" />
